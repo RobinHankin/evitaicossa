@@ -1,0 +1,16 @@
+Package: evitaicossa
+Type: Package
+Title: Antiassociative algebra
+Version: 0.0-1
+Authors@R: person(given=c("Robin", "K. S."), family="Hankin", role = c("aut","cre"), email="hankin.robin@gmail.com", comment = c(ORCID = "0000-0001-5982-0415"))
+Maintainer: Robin K. S. Hankin <hankin.robin@gmail.com>
+Description: Methods to deal with antiassociative algebras
+License: GPL (>= 2)
+Depends: R (>= 3.5.0)
+Suggests: knitr, markdown, rmarkdown, testthat, mvtnorm, covr
+VignetteBuilder: knitr
+Imports: Rcpp (>= 1.0-7), mathjaxr, disordR (>= 0.9-8-2), methods
+LinkingTo: Rcpp
+URL: https://github.com/RobinHankin/antiassoc
+BugReports: https://github.com/RobinHankin/antiassoc
+RdMacros: mathjaxr
