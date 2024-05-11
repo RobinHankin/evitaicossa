@@ -11,24 +11,23 @@ setClass("aaa",
              triple_indeterminate_coeff = "numeric"
          ),
          validity = function(object){
-             l1 <-
-                 c(
-                     length(object@single_indeterminate_name1),
-                     length(object@single_indeterminate_coeff)
-                 )
-             stopifnot(min(l1)==max(l1))
+             l1 <- c(
+                 length(object@single_indeterminate_name1),
+                 length(object@single_indeterminate_coeff)
+             )
              l2 <- c(
                  length(object@double_indeterminate_name1),
                  length(object@double_indeterminate_name2),
                  length(object@double_indeterminate_coeff)
              )
-             stopifnot(min(l2)==max(l2))
              l3 <- c(
                  length(object@triple_indeterminate_name1),
                  length(object@triple_indeterminate_name2),
                  length(object@triple_indeterminate_name3),
                  length(object@triple_indeterminate_coeff)
              )
+             stopifnot(min(l1)==max(l1))
+             stopifnot(min(l2)==max(l2))
              stopifnot(min(l3)==max(l3))
          }
          )
@@ -44,19 +43,44 @@ setClass("aaa",
              t2 = character(0), # triple_indeterminate_name2
              t3 = character(0), # triple_indeterminate_name3
              tc = numeric(0)    # triple_indeterminate_coeff
-             ){ 
-        new("aaa", # the only time new() is called
-            single_indeterminate_name1 = s1,
-            single_indeterminate_coeff = sc,
-            double_indeterminate_name1 = d1,
-            double_indeterminate_name2 = d2,
-            double_indeterminate_coeff = dc,
-            triple_indeterminate_name1 = t1,
-            triple_indeterminate_name2 = t2,
-            triple_indeterminate_name3 = t3,
-            triple_indeterminate_coeff = tc
+             ){
+        return(
+            lavter(
+                aaa_identity(
+                    single_indeterminate_name1 = s1,
+                    single_indeterminate_coeff = sc,
+                    double_indeterminate_name1 = d1,
+                    double_indeterminate_name2 = d2,
+                    double_indeterminate_coeff = dc,
+                    triple_indeterminate_name1 = t1,
+                    triple_indeterminate_name2 = t2,
+                    triple_indeterminate_name3 = t3,
+                    triple_indeterminate_coeff = tc
+                )
             )
+        )
     }
+
+            
+lavter <- function(cout){   # "lavter" is "retval" in reverse
+
+    sn <- matrix(cout$names1,nrow=1)
+    dn <- matrix(cout$names2,nrow=2)
+    tn <- matrix(cout$names3,nrow=3)
+    
+    new("aaa", # the only time new() is called
+        single_indeterminate_name1 = sn[1,],
+        single_indeterminate_coeff = cout$coeffs1,
+        double_indeterminate_name1 = dn[1,],
+        double_indeterminate_name2 = dn[2,],
+        double_indeterminate_coeff = cout$coeffs2,
+        triple_indeterminate_name1 = tn[1,],
+        triple_indeterminate_name2 = tn[2,],
+        triple_indeterminate_name3 = tn[3,],
+        triple_indeterminate_coeff = cout$coeffs3
+        )
+}
+
             
 setGeneric("s1",function(a){standardGeneric("s1")})
 setGeneric("sc",function(a){standardGeneric("sc")})
@@ -79,13 +103,9 @@ setMethod("t3",signature(a="aaa"),function(a){a@triple_intermediate_name3})
 setMethod("tc",signature(a="aaa"),function(a){a@triple_intermediate_coeff})
 ## accessor methods end
 
-`aaa_single` <- function(v){aaa(s1 = v[1],                  sc = 1) }
-`aaa_double` <- function(v){aaa(d1 = v[1], d2=v[2],         sc = 1) }
-`aaa_triple` <- function(v){aaa(t1 = v[1], t2=v[2],t3=v[3], sc = 1) }
-
-
-
-
+`aaa_single` <- function(v){aaa(s1 = v[1],                  sc = 1) }  # aaa_single("a") = a
+`aaa_double` <- function(v){aaa(d1 = v[1], d2=v[2],         dc = 1) }  # aaa_double(c("a","b")) = a.b
+`aaa_triple` <- function(v){aaa(t1 = v[1], t2=v[2],t3=v[3], tc = 1) }  # aaa_triple(c("a","b","c")) = a.(b.c)
 
 "aaa_arith_aaa" <- function(e1,e2){
   switch(.Generic,
@@ -152,5 +172,3 @@ setMethod("-", signature(e1 = "aaa", e2 = "missing"), function(e1,e2){aaa_negati
 setMethod("Arith",signature(e1 = "aaa"  , e2="aaa"    ), aaa_arith_aaa     )
 setMethod("Arith",signature(e1 = "aaa"  , e2="numeric"), aaa_arith_numeric )
 setMethod("Arith",signature(e1 = "numeric", e2="aaa"  ), numeric_arith_aaa )
-
-
