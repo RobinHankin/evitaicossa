@@ -81,7 +81,50 @@ lavter <- function(cout){   # "lavter" is "retval" in reverse
         )
 }
 
-            
+
+get_single <- function(a){ # do not export this as it breaks disord discipline
+    list(
+        s1 = s1(a),
+        sc = sc(a)
+    )
+}
+
+get_double <- function(a){ # do not export this as it breaks disord discipline
+    list(
+        d1 = d1(a),
+        d2 = d2(a),
+        dc = dc(a)
+    )
+}
+
+get_triple <- function(a){ # do not export this as it breaks disord discipline
+    list(
+        t1 = t1(a),
+        t2 = t2(a),
+        t3 = t3(a),
+        tc = tc(a)
+    )
+}
+
+
+getthings <- function(a){
+    h_single <- hashcal(get_single(a),ultra_strict=TRUE)
+    h_double <- hashcal(get_double(a),ultra_strict=TRUE)
+    h_triple <- hashcal(get_triple(a),ultra_strict=TRUE)
+    
+    list(
+        s1 = disord(s1(a),h=h_single),
+        sc = disord(sc(a),h=h_single),
+        d1 = disord(d1(a),h=h_double),
+        d2 = disord(d2(a),h=h_double),
+        dc = disord(dc(a),h=h_double),
+        t1 = disord(t1(a),h=h_triple),
+        t2 = disord(t2(a),h=h_triple),
+        t3 = disord(t3(a),h=h_triple),
+        tc = disord(tc(a),h=h_triple)
+    )
+}
+
 setGeneric("s1",function(a){standardGeneric("s1")})
 setGeneric("sc",function(a){standardGeneric("sc")})
 setGeneric("d1",function(a){standardGeneric("d1")})
