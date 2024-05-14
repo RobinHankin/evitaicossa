@@ -200,7 +200,7 @@ a3 prod_a1_a2(const a1 F1, const a2 F2){
       jj.e1 = a.e1;
       jj.e2 = bc.e1;
       jj.e3 = bc.e2;
-      out[jj] += (it1->second) * (it1->second);  // the meat
+      out[jj] += (it1->second) * (it2->second);  // the meat
     }
   }
   return out;
@@ -244,7 +244,7 @@ a1 a1maker(
 	   const CharacterVector names1,
 	   const NumericVector coeffs){
   if(names1.size() != coeffs.size()) {
-    throw std::invalid_argument("names and coeffs are not same length");
+    throw std::invalid_argument("a1maker(): names and coeffs are not same length");
   }
   a1 out;
   for(size_t i=0 ; i < (size_t) names1.size() ; i++){
@@ -262,7 +262,7 @@ a2 a2maker(
 	   const CharacterVector names2,
 	   const NumericVector coeffs){
   if(names1.size() != coeffs.size()) {
-    throw std::invalid_argument("names and coeffs are not same length");
+    throw std::invalid_argument("a2maker(): names and coeffs are not same length");
   }
   a2 out;
   for(size_t i=0 ; i < (size_t) names1.size() ; i++){
@@ -282,7 +282,7 @@ a3 a3maker(
 	   const CharacterVector names3,
 	   const NumericVector coeffs){
   if(names1.size() != coeffs.size()) {
-    throw std::invalid_argument("names and coeffs are not same length");
+    throw std::invalid_argument("a3maker(): names and coeffs are not same length");
   }
   a3 out;
   for(size_t i=0 ; i < (size_t) names1.size() ; i++){
