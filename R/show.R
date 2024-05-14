@@ -1,4 +1,4 @@
-#setMethod("show", "aaa", function(object){invisible(print(aaa_show(object)))})
+setMethod("show", "aaa", function(object){invisible(print(aaa_show(object)))})
 
 
 aaa_show <- function(a){
@@ -9,8 +9,8 @@ aaa_show <- function(a){
     sep=" ")
 }
 
-single_string <- function(a){
-    s1(a)
-    sc(a)
-}
+single_string <- function(a){paste(paste(sc(a),s1(a),sep=""),collapse=" + ")}
+double_string <- function(a){paste(paste(sc(a),d1(a),d2(a),sep=""),collapse=" + ")}
+triple_string <- function(a){paste(paste(sc(a),"(",t1(a),t2(a),")",t3(a),sep=""),collapse=" + ")}
     
+
