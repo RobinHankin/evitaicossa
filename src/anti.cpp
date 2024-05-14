@@ -236,7 +236,7 @@ aaa prod_anti(const aaa F1, const aaa F2){
   a1 zero;
   out.single_indeterminate = zero;
   out.double_indeterminate = prod_a1_a1(F1_single,F2_single);
-  out.triple_indeterminate = sum3(prod_a1_a2(F1_single,F2_double), minus3(prod_a1_a2(F2_single,F1_double)));
+  out.triple_indeterminate = sum3(minus3(prod_a1_a2(F1_single,F2_double)), prod_a1_a2(F2_single,F1_double));
   return out;
 }
 
