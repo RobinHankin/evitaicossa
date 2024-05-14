@@ -60,8 +60,7 @@ setClass("aaa",
             )
         )
     }
-
-            
+       
 lavter <- function(cout){   # "lavter" is "retval" in reverse
 
     sn <- matrix(cout$names1,nrow=1)
@@ -80,7 +79,6 @@ lavter <- function(cout){   # "lavter" is "retval" in reverse
         triple_indeterminate_coeff = cout$coeffs3
         )
 }
-
 
 get_single <- function(a){ # do not export this as it breaks disord discipline
     list(
@@ -108,21 +106,31 @@ get_triple <- function(a){ # do not export this as it breaks disord discipline
 
 
 getthings <- function(a){
-    h_single <- hashcal(get_single(a),ultra_strict=TRUE)
-    h_double <- hashcal(get_double(a),ultra_strict=TRUE)
-    h_triple <- hashcal(get_triple(a),ultra_strict=TRUE)
+    s1 <- a@single_indeterminate_name1
+    sc <- a@single_indeterminate_coeff
+    d1 <- a@double_indeterminate_name1
+    d2 <- a@double_indeterminate_name2
+    dc <- a@double_indeterminate_coeff
+    t1 <- a@triple_indeterminate_name1
+    t2 <- a@triple_indeterminate_name2
+    t3 <- a@triple_indeterminate_name3
+    tc <- a@triple_indeterminate_coeff
+
+    h_single <- hashcal(list(s1,      sc),ultra_strict=FALSE)
+    h_double <- hashcal(list(d1,d2,   dc),ultra_strict=FALSE)
+    h_triple <- hashcal(list(t1,t2,t3,tc),ultra_strict=FALSE)
     
     list(
-        s1 = disord(s1(a),h=h_single),
-        sc = disord(sc(a),h=h_single),
-        d1 = disord(d1(a),h=h_double),
-        d2 = disord(d2(a),h=h_double),
-        dc = disord(dc(a),h=h_double),
-        t1 = disord(t1(a),h=h_triple),
-        t2 = disord(t2(a),h=h_triple),
-        t3 = disord(t3(a),h=h_triple),
-        tc = disord(tc(a),h=h_triple)
-    )
+        s1 = disord(s1,h=h_single),
+        sc = disord(sc,h=h_single),
+        d1 = disord(d1,h=h_double),
+        d2 = disord(d2,h=h_double),
+        dc = disord(dc,h=h_double),
+        t1 = disord(t1,h=h_triple),
+        t2 = disord(t2,h=h_triple),
+        t3 = disord(t3,h=h_triple),
+        tc = disord(tc,h=h_triple)
+    )   
 }
 
 setGeneric("s1",function(a){standardGeneric("s1")})
@@ -135,16 +143,15 @@ setGeneric("t2",function(a){standardGeneric("t2")})
 setGeneric("t3",function(a){standardGeneric("t3")})
 setGeneric("tc",function(a){standardGeneric("tc")})
 
-setMethod("s1",signature(a="aaa"),function(a){a@single_indeterminate_name1})
-setMethod("sc",signature(a="aaa"),function(a){a@single_indeterminate_coeff})
-setMethod("d1",signature(a="aaa"),function(a){a@double_indeterminate_name1})
-setMethod("d2",signature(a="aaa"),function(a){a@double_indeterminate_name2})
-setMethod("dc",signature(a="aaa"),function(a){a@double_indeterminate_coeff})
-setMethod("t1",signature(a="aaa"),function(a){a@triple_indeterminate_name1})
-setMethod("t2",signature(a="aaa"),function(a){a@triple_indeterminate_name2})
-setMethod("t3",signature(a="aaa"),function(a){a@triple_indeterminate_name3})
-setMethod("tc",signature(a="aaa"),function(a){a@triple_indeterminate_coeff})
-## accessor methods end
+setMethod("s1",signature(a="aaa"),function(a){getthings(a)$s1})
+setMethod("sc",signature(a="aaa"),function(a){getthings(a)$sc})
+setMethod("d1",signature(a="aaa"),function(a){getthings(a)$d1})
+setMethod("d2",signature(a="aaa"),function(a){getthings(a)$d2})
+setMethod("dc",signature(a="aaa"),function(a){getthings(a)$dc})
+setMethod("t1",signature(a="aaa"),function(a){getthings(a)$t1})
+setMethod("t2",signature(a="aaa"),function(a){getthings(a)$t2})
+setMethod("t3",signature(a="aaa"),function(a){getthings(a)$t3})
+setMethod("tc",signature(a="aaa"),function(a){getthings(a)$tc})
 
 `aaa_single` <- function(v){aaa(s1 = v[1],                  sc = 1) }  # aaa_single("a") = a
 `aaa_double` <- function(v){aaa(d1 = v[1], d2=v[2],         dc = 1) }  # aaa_double(c("a","b")) = a.b
@@ -172,7 +179,6 @@ setMethod("tc",signature(a="aaa"),function(a){a@triple_indeterminate_coeff})
          )
 }
 
-
 "numeric_arith_aaa" <- function(e1,e2){ # e1 numeric, e2 aaa
   switch(.Generic,
          "+" = aaa_plus_numeric ( e2,e1),
@@ -186,15 +192,15 @@ setMethod("tc",signature(a="aaa"),function(a){a@triple_indeterminate_coeff})
 
 `aaa_negative` <- function(a){
     aaa(
-        s1 =  s1(a),
-        sc = -sc(a),
-        d1 =  d1(a),
-        d2 =  d2(a),
-        dc = -dc(a),
-        t1 =  t1(a),
-        t2 =  t2(a),
-        t3 =  t3(a),
-        tc = -tc(a)
+        s1 =  elements(s1(a)),
+        sc = -elements(sc(a)),
+        d1 =  elements(d1(a)),
+        d2 =  elements(d2(a)),
+        dc = -elements(dc(a)),
+        t1 =  elements(t1(a)),
+        t2 =  elements(t2(a)),
+        t3 =  elements(t3(a)),
+        tc = -elements(tc(a))
     )
 }
 
@@ -202,24 +208,24 @@ setMethod("tc",signature(a="aaa"),function(a){a@triple_indeterminate_coeff})
         return(
             lavter(
                 c_aaa_add(  # cf aaa_prod_add() below
-                    F1_single_indeterminate_name1 = s1(a),
-                    F1_single_indeterminate_coeff = sc(a),
-                    F1_double_indeterminate_name1 = d1(a),
-                    F1_double_indeterminate_name2 = d2(a),
-                    F1_double_indeterminate_coeff = dc(a),
-                    F1_triple_indeterminate_name1 = t1(a),
-                    F1_triple_indeterminate_name2 = t2(a),
-                    F1_triple_indeterminate_name3 = t3(a),
-                    F1_triple_indeterminate_coeff = tc(b),
-                    F2_single_indeterminate_name1 = s1(b),
-                    F2_single_indeterminate_coeff = sc(b),
-                    F2_double_indeterminate_name1 = d1(b),
-                    F2_double_indeterminate_name2 = d2(b),
-                    F2_double_indeterminate_coeff = dc(b),
-                    F2_triple_indeterminate_name1 = t1(b),
-                    F2_triple_indeterminate_name2 = t2(b),
-                    F2_triple_indeterminate_name3 = t3(b),
-                    F2_triple_indeterminate_coeff = tc(b)
+                    F1_single_indeterminate_name1 = elements(s1(a)),
+                    F1_single_indeterminate_coeff = elements(sc(a)),
+                    F1_double_indeterminate_name1 = elements(d1(a)),
+                    F1_double_indeterminate_name2 = elements(d2(a)),
+                    F1_double_indeterminate_coeff = elements(dc(a)),
+                    F1_triple_indeterminate_name1 = elements(t1(a)),
+                    F1_triple_indeterminate_name2 = elements(t2(a)),
+                    F1_triple_indeterminate_name3 = elements(t3(a)),
+                    F1_triple_indeterminate_coeff = elements(tc(b)),
+                    F2_single_indeterminate_name1 = elements(s1(b)),
+                    F2_single_indeterminate_coeff = elements(sc(b)),
+                    F2_double_indeterminate_name1 = elements(d1(b)),
+                    F2_double_indeterminate_name2 = elements(d2(b)),
+                    F2_double_indeterminate_coeff = elements(dc(b)),
+                    F2_triple_indeterminate_name1 = elements(t1(b)),
+                    F2_triple_indeterminate_name2 = elements(t2(b)),
+                    F2_triple_indeterminate_name3 = elements(t3(b)),
+                    F2_triple_indeterminate_coeff = elements(tc(b))
                 )
             )
         )
@@ -229,24 +235,24 @@ setMethod("tc",signature(a="aaa"),function(a){a@triple_indeterminate_coeff})
         return(
             lavter(
                 c_aaa_prod(  # cf aaa_plus_aaa() above
-                    F1_single_indeterminate_name1 = s1(a),
-                    F1_single_indeterminate_coeff = sc(a),
-                    F1_double_indeterminate_name1 = d1(a),
-                    F1_double_indeterminate_name2 = d2(a),
-                    F1_double_indeterminate_coeff = dc(a),
-                    F1_triple_indeterminate_name1 = t1(a),
-                    F1_triple_indeterminate_name2 = t2(a),
-                    F1_triple_indeterminate_name3 = t3(a),
-                    F1_triple_indeterminate_coeff = tc(b),
-                    F2_single_indeterminate_name1 = s1(b),
-                    F2_single_indeterminate_coeff = sc(b),
-                    F2_double_indeterminate_name1 = d1(b),
-                    F2_double_indeterminate_name2 = d2(b),
-                    F2_double_indeterminate_coeff = dc(b),
-                    F2_triple_indeterminate_name1 = t1(b),
-                    F2_triple_indeterminate_name2 = t2(b),
-                    F2_triple_indeterminate_name3 = t3(b),
-                    F2_triple_indeterminate_coeff = tc(b)
+                    F1_single_indeterminate_name1 = elements(s1(a)),
+                    F1_single_indeterminate_coeff = elements(sc(a)),
+                    F1_double_indeterminate_name1 = elements(d1(a)),
+                    F1_double_indeterminate_name2 = elements(d2(a)),
+                    F1_double_indeterminate_coeff = elements(dc(a)),
+                    F1_triple_indeterminate_name1 = elements(t1(a)),
+                    F1_triple_indeterminate_name2 = elements(t2(a)),
+                    F1_triple_indeterminate_name3 = elements(t3(a)),
+                    F1_triple_indeterminate_coeff = elements(tc(b)),
+                    F2_single_indeterminate_name1 = elements(s1(b)),
+                    F2_single_indeterminate_coeff = elements(sc(b)),
+                    F2_double_indeterminate_name1 = elements(d1(b)),
+                    F2_double_indeterminate_name2 = elements(d2(b)),
+                    F2_double_indeterminate_coeff = elements(dc(b)),
+                    F2_triple_indeterminate_name1 = elements(t1(b)),
+                    F2_triple_indeterminate_name2 = elements(t2(b)),
+                    F2_triple_indeterminate_name3 = elements(t3(b)),
+                    F2_triple_indeterminate_coeff = elements(tc(b))
                 )
             )
         )
@@ -254,20 +260,20 @@ setMethod("tc",signature(a="aaa"),function(a){a@triple_indeterminate_coeff})
 
 `aaa_prod_numeric`  <- function(a,b){
     aaa(
-        s1 =  s1(a),
-        sc =  sc(a)*b,
-        d1 =  d1(a),
-        d2 =  d2(a),
-        dc =  dc(a)*b,
-        t1 =  t1(a),
-        t2 =  t2(a),
-        t3 =  t3(a),
-        tc =  tc(a)*b
+        s1 = elements(s1(a))  ,
+        sc = elements(sc(a))*b,
+        d1 = elements(d1(a))  ,
+        d2 = elements(d2(a))  ,
+        dc = elements(dc(a))*b,
+        t1 = elements(t1(a))  ,
+        t2 = elements(t2(a))  ,
+        t3 = elements(t3(a))  ,
+        tc = elements(tc(a))*b
     )
 }
 
 `aaa_plus_numeric`  <- function(a,b){
-    stop("there are no scalars in antiassociative algebras")
+    stop("there are no scalars in antiassociative algebras (except zero, I guess)")
 }
 
 setMethod("+", signature(e1 = "aaa", e2 = "missing"), function(e1,e2){e1              })
