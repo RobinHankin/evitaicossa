@@ -1,34 +1,35 @@
 setMethod("show", "aaa", function(object){invisible(print(aaa_show(object)))})
 
+putsig <- function(x){paste(ifelse(x>0,"+","-"),abs(x),sep="")}  # put sign in
 
 aaa_show <- function(a){
-    paste(
-    single_string(a),
-    double_string(a),
-    triple_string(a),
-    sep=" ")
+    noquote(paste(
+        single_string(a),
+        double_string(a),
+        triple_string(a),
+        sep=" "))
 }
 
 single_string <- function(a){
-    if(length(sc(a))>0){
-        paste(paste(sc(a),s1(a),sep=""),collapse=" + ")
-    } else {
-        ""
-    }
+    sc <- elements(sc(a))
+    s1 <- elements(s1(a))
+    if(length(sc)==0){return("")}
+    paste(paste(putsig(sc),s1,sep=""),collapse=" ")
 }
 
 double_string <- function(a){
-    if(length(dc(a))>0){
-        paste(paste(sc(a),d1(a),d2(a),sep=""),collapse=" + ")
-    } else {
-        ""
-    }
+    dc <- elements(dc(a))
+    d1 <- elements(d1(a))
+    d2 <- elements(d2(a))
+    if(length(dc)==0){return("")}
+    paste(paste(putsig(dc),d1,".",d2,sep=""),collapse=" ")
 }
 
 triple_string <- function(a){
-    if(length(tc(a))>0){
-        paste(paste(tc(a),"(",t1(a),t2(a),")",t3(a),sep=""),collapse=" + ")
-    } else {
-        ""
-    }
+    tc <- elements(tc(a))
+    t1 <- elements(t1(a))
+    t2 <- elements(t2(a))
+    t3 <- elements(t2(a))
+    if(length(tc)==0){return("")}
+    paste(paste(putsig(tc),"(",t1,".",t2,")",t3,sep=""),collapse=" ")
 }
