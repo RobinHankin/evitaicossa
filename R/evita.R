@@ -173,7 +173,7 @@ setMethod("tc",signature(a="aaa"),function(a){getthings(a)$tc})
          "+" = aaa_plus_numeric (e1, e2),
          "-" = aaa_plus_numeric (e1,-e2),
          "*" = aaa_prod_numeric (e1, e2),
-         "/" = aaa_over_numeric (e1, e2),
+         "/" = aaa_prod_numeric (e1, 1/e2),
          "^" = aaa_power_numeric(e1, e2),
          stop(gettextf("binary operator %s not defined for aaas", dQuote(.Generic)))
          )
@@ -183,10 +183,8 @@ setMethod("tc",signature(a="aaa"),function(a){getthings(a)$tc})
   switch(.Generic,
          "+" = aaa_plus_numeric ( e2,e1),
          "-" = aaa_plus_numeric (-e2,e1),
-         "*" = aaa_prod_numeric ( e1,e2),
-         "/" = aaa_over_numeric ( e1,e2),
-         "^" = aaa_power_numeric( e1,e2),
-         stop(gettextf("binary operator %s not defined for aaas", dQuote(.Generic)))
+         "*" = aaa_prod_numeric ( e2,e1),
+         stop(gettextf("binary operator %s not defined in this case", dQuote(.Generic)))
          )
 }
 
@@ -282,3 +280,22 @@ setMethod("-", signature(e1 = "aaa", e2 = "missing"), function(e1,e2){aaa_negati
 setMethod("Arith",signature(e1 = "aaa"  , e2="aaa"    ), aaa_arith_aaa     )
 setMethod("Arith",signature(e1 = "aaa"  , e2="numeric"), aaa_arith_numeric )
 setMethod("Arith",signature(e1 = "numeric", e2="aaa"  ), numeric_arith_aaa )
+
+
+`as.aaa` <- function(s){
+    aaa(s           ,                          1         ,
+        character(0),character(0),             numeric(0),
+        character(0),character(0),character(0),numeric(0)
+        )
+}
+
+raaa <- function(n,s){
+    rc <- function(...){sample(letters[seq_len(n)],s,replace=TRUE)}
+    rn <- function(...){sample(        seq_len(n) ,s,replace=TRUE)}
+    
+    aaa(
+        rc(),          rn(),
+        rc(),rc()     ,rn(),
+        rc(),rc(),rc(),rn()
+        )
+}
