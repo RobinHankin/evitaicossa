@@ -1,4 +1,9 @@
-setMethod("show", "aaa", function(object){invisible(print(aaa_show(object)))})
+setMethod("show", "aaa",
+          function(object){
+              cat("free antiassociative algebra element:\n")
+              cat(aaa_show(object))
+              cat("\n")
+          } )
 
 putsig <- function(x){paste(ifelse(x>0,"+","-"),abs(x),sep="")}  # put sign in
 
