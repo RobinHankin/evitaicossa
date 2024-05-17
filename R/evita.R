@@ -274,6 +274,17 @@ setMethod("tc",signature(a="aaa"),function(a){getthings(a)$tc})
     stop("there are no scalars in antiassociative algebras (except zero, I guess)")
 }
 
+
+`aaa_power_numeric` <- function(e1,e2){ # e1^e2
+    if(e2==1){
+        return(e1)
+    } else if(e2==2){
+        return(e1*e1)
+    } else {
+        stop("not defined")
+    }
+}
+
 setMethod("+", signature(e1 = "aaa", e2 = "missing"), function(e1,e2){e1              })
 setMethod("-", signature(e1 = "aaa", e2 = "missing"), function(e1,e2){aaa_negative(e1)})
 
@@ -289,7 +300,7 @@ setMethod("Arith",signature(e1 = "numeric", e2="aaa"  ), numeric_arith_aaa )
         )
 }
 
-raaa <- function(n,s){
+`raaa` <- function(n=4,s=3){
     rc <- function(...){sample(letters[seq_len(n)],s,replace=TRUE)}
     rn <- function(...){sample(        seq_len(n) ,s,replace=TRUE)}
     
@@ -299,3 +310,26 @@ raaa <- function(n,s){
         rc(),rc(),rc(),rn()
         )
 }
+
+`raaaa` <- function(n=10,s=30){raaa(n=n,s=s)}
+
+`is.zero` <- function(x){(length(sc(x))==0) && (length(dc(x))==0) && (length(tc(x))==0)}
+
+`aaa_compare_aaa` <- function(e1,e2){
+  switch(.Generic,
+         "==" =  is.zero(e1-e2),
+         "!=" = !is.zero(e1-e2),
+         stop(gettextf("comparison operator %s not defined for aaa objects", dQuote(.Generic)))
+         )
+}
+
+`aaa_compare_error` <- function(e1,e2){
+    stop(gettextf("comparison operator %s not defined in this case", dQuote(.Generic)))
+}
+
+setMethod("Compare",signature(e1 = "aaa"     , e2="aaa"    ), aaa_compare_aaa    )
+setMethod("Compare",signature(e1 = "aaa"     , e2="numeric"), aaa_compare_error  )
+setMethod("Compare",signature(e1 = "numeric" , e2="aaa"    ), aaa_compare_error  )
+setMethod("Compare",signature(e1 = "ANY"     , e2="aaa"    ), aaa_compare_error  )
+setMethod("Compare",signature(e1 = "aaa"     , e2="ANY"    ), aaa_compare_error  )
+
