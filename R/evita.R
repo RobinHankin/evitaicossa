@@ -280,8 +280,10 @@ setMethod("tc",signature(a="aaa"),function(a){getthings(a)$tc})
         return(e1)
     } else if(e2==2){
         return(e1*e1)
+    } else if(e2>3){
+        return(e2*0)
     } else {
-        stop("not defined")
+        stop("powers not defined in this case")
     }
 }
 
@@ -300,7 +302,7 @@ setMethod("Arith",signature(e1 = "numeric", e2="aaa"  ), numeric_arith_aaa )
         )
 }
 
-`raaa` <- function(n=4,s=3){
+`raaa` <- function(n=4, s=3){
     rc <- function(...){sample(letters[seq_len(n)],s,replace=TRUE)}
     rn <- function(...){sample(        seq_len(n) ,s,replace=TRUE)}
     
@@ -311,7 +313,7 @@ setMethod("Arith",signature(e1 = "numeric", e2="aaa"  ), numeric_arith_aaa )
         )
 }
 
-`raaaa` <- function(n=10,s=30){raaa(n=n,s=s)}
+`raaaa` <- function(n=10 ,s=30){raaa(n=n,s=s)}
 
 `is.zero` <- function(x){(length(sc(x))==0) && (length(dc(x))==0) && (length(tc(x))==0)}
 
