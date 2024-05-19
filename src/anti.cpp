@@ -190,23 +190,6 @@ a2 prod_a1_a1(const a1 F1, const a1 F2){
   return out;
 }
 
-a3 prod_a1_a2(const a1 F1, const a2 F2){
-  a3 out;
-  for(auto it1 = F1.begin() ; it1 != F1.end() ; ++it1){
-    const single_symbol a = it1->first;
-    for(auto it2 = F2.begin() ; it2 != F2.end() ; ++it2){
-      const double_symbol bc = it2->first;
-      struct triple_symbol jj;
-      jj.e1 = a.e1;
-      jj.e2 = bc.e1;
-      jj.e3 = bc.e2;
-      out[jj] -= (it1->second) * (it2->second);  // the meat
-      //    [actually, the minus sign is the meat of the whole package]
-    }
-  }
-  return out;
-}
-
 a3 prod_a2_a1(const a2 F2, const a1 F1){
   a3 out;
   for(auto it2 = F2.begin() ; it2 != F2.end() ; ++it2){
@@ -223,6 +206,22 @@ a3 prod_a2_a1(const a2 F2, const a1 F1){
   return out;
 }
 
+a3 prod_a1_a2(const a1 F1, const a2 F2){
+  a3 out;
+  for(auto it1 = F1.begin() ; it1 != F1.end() ; ++it1){
+    const single_symbol a = it1->first;
+    for(auto it2 = F2.begin() ; it2 != F2.end() ; ++it2){
+      const double_symbol bc = it2->first;
+      struct triple_symbol jj;
+      jj.e1 = a.e1;
+      jj.e2 = bc.e1;
+      jj.e3 = bc.e2;
+      out[jj] -= (it1->second) * (it2->second);  // the meat
+      //    [actually, the minus sign is the meat of the whole package]
+    }
+  }
+  return out;
+}
 
 aaa sum_anti(const aaa F1, const aaa F2){
   aaa out;
