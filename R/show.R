@@ -34,7 +34,7 @@ triple_string <- function(a){
     tc <- elements(tc(a))
     t1 <- elements(t1(a))
     t2 <- elements(t2(a))
-    t3 <- elements(t2(a))
+    t3 <- elements(t3(a))
     if(length(tc)==0){return("")}
     paste(paste(putsig(tc),"(",t1,".",t2,")",t3,sep=""),collapse=" ")
 }

@@ -200,6 +200,23 @@ a3 prod_a1_a2(const a1 F1, const a2 F2){
       jj.e1 = a.e1;
       jj.e2 = bc.e1;
       jj.e3 = bc.e2;
+      out[jj] -= (it1->second) * (it2->second);  // the meat
+      //    [actually, the minus sign is the meat of the whole package]
+    }
+  }
+  return out;
+}
+
+a3 prod_a2_a1(const a2 F2, const a1 F1){
+  a3 out;
+  for(auto it2 = F2.begin() ; it2 != F2.end() ; ++it2){
+    const double_symbol ab = it2->first;
+    for(auto it1 = F1.begin() ; it1 != F1.end() ; ++it1){
+      const single_symbol c = it1->first;
+      struct triple_symbol jj;
+      jj.e1 = ab.e1;
+      jj.e2 = ab.e2;
+      jj.e3 =  c.e1;
       out[jj] += (it1->second) * (it2->second);  // the meat
     }
   }
@@ -236,7 +253,7 @@ aaa prod_anti(const aaa F1, const aaa F2){
   a1 zero;
   out.single_indeterminate = zero;
   out.double_indeterminate = prod_a1_a1(F1_single,F2_single);
-  out.triple_indeterminate = sum3(minus3(prod_a1_a2(F1_single,F2_double)), prod_a1_a2(F2_single,F1_double));
+  out.triple_indeterminate = sum3(prod_a1_a2(F1_single,F2_double), prod_a2_a1(F1_double,F2_single));
   return out;
 }
 
