@@ -8,9 +8,17 @@
 \alias{aaa_arith_numeric}
 \alias{aaa_negative}
 \alias{numeric_arith_aaa}
-\title{ ~~ Methods for Function \code{Arith}  ~~}
+\alias{aaa_plus_aaa}
+\alias{aaa_prod_aaa}
+\alias{aaa_plus_numeric}
+\alias{aaa_prod_numeric}
+\alias{aaa_power_numeric}
+\alias{c_aaa_add}
+\alias{c_aaa_prod}
+\title{Arithmetic methods for \code{aaa} objects}
 \description{
 Arithmetic methods for objects of class \code{aaa}.
+
 }
 \section{Methods}{
 \describe{

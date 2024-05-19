@@ -6,6 +6,8 @@
 \alias{Compare,aaa,numeric-method}
 \alias{Compare,ANY,aaa-method}
 \alias{Compare,numeric,aaa-method}
+\alias{aaa_compare_aaa}
+\alias{aaa_compare_error}
 \title{Methods for Function \code{Compare}}
 \description{
 
