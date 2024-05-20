@@ -18,7 +18,7 @@ raaaa(n = 10, s = 30)
 \details{
 
 Function \code{raaa()} returns a random  \code{aaa} object.
-Function \code{raaa()} returns, by default,
+Function \code{raaaa()} returns, by default,
 a more complicated \code{aaa} object.
 }
 \value{Returns an object of class \code{aaa}}
