@@ -4,6 +4,8 @@
 \alias{Arith,aaa,aaa-method}
 \alias{Arith,aaa,numeric-method}
 \alias{Arith,numeric,aaa-method}
+\alias{-,aaa,missing-method}
+\alias{+,aaa,missing-method}
 \alias{aaa_arith_aaa}
 \alias{aaa_arith_numeric}
 \alias{aaa_negative}
