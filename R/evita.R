@@ -281,7 +281,7 @@ setMethod("tc",signature(a="aaa"),function(a){getthings(a)$tc})
     } else if(e2==2){
         return(e1*e1)
     } else if(e2>3){
-        return(e2*0)
+        return(aaa())
     } else {
         stop("powers not defined in this case")
     }
