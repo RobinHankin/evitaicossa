@@ -80,6 +80,7 @@ lavter <- function(cout){   # "lavter" is "retval" in reverse
         )
 }
 
+if(FALSE){
 get_single <- function(a){ # do not export this as it breaks disord discipline
     list(
         s1 = s1(a),
@@ -103,7 +104,7 @@ get_triple <- function(a){ # do not export this as it breaks disord discipline
         tc = tc(a)
     )
 }
-
+}
 
 getthings <- function(a){
     s1 <- a@single_indeterminate_name1
@@ -152,10 +153,6 @@ setMethod("t1",signature(a="aaa"),function(a){getthings(a)$t1})
 setMethod("t2",signature(a="aaa"),function(a){getthings(a)$t2})
 setMethod("t3",signature(a="aaa"),function(a){getthings(a)$t3})
 setMethod("tc",signature(a="aaa"),function(a){getthings(a)$tc})
-
-`aaa_single` <- function(v){aaa(s1 = v[1],                  sc = 1) }  # aaa_single("a") = a
-`aaa_double` <- function(v){aaa(d1 = v[1], d2=v[2],         dc = 1) }  # aaa_double(c("a","b")) = a.b
-`aaa_triple` <- function(v){aaa(t1 = v[1], t2=v[2],t3=v[3], tc = 1) }  # aaa_triple(c("a","b","c")) = a.(b.c)
 
 "aaa_arith_aaa" <- function(e1,e2){
   switch(.Generic,

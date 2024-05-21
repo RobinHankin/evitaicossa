@@ -3,6 +3,11 @@
 \alias{print}
 \alias{print.aaa}
 \alias{aaa_show}
+\alias{putsig}
+\alias{single_string}
+\alias{double_string}
+\alias{triple_string}
+\alias{show,aaa-method}
 \title{Print method for antiassociative algebra objects}
 \description{Show methods for \code{aaa} objects}
 \usage{
@@ -14,7 +19,12 @@ aaa_show(a)
 }
 \details{
 
-A bunch of functionality to print \code{aaa} objects
+  A bunch of functionality to print \code{aaa} objects.
+
+  Function \code{putsig()} is a low-level helper function that puts the
+  sign (that is, \code{+} or \code{-}) before each element of a numeric
+  vector.  Functions \code{single_string()}, \code{double_string()}, and
+  \code{triple_string()} process the 1,2, and 3- symbols for printing.
   
 }
   

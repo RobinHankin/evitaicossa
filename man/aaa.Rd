@@ -1,13 +1,22 @@
 \name{aaa}
 \alias{aaa}
+\alias{aaa_single}
+\alias{aaa_double}
+\alias{aaa_triple}
+\alias{aaa_identity}
+\alias{as.aaa}
+\alias{lavter}
 \title{
 Function to create objects of class \code{aaa}
 }
 \description{
-
+Objects of class \code{aaa}
 }
 \usage{
-aaa(s1 = character(0), sc = numeric(0), d1 = character(0), d2 = character(0), dc = numeric(0), t1 = character(0), t2 = character(0), t3 = character(0), tc = numeric(0))
+aaa(s1 = character(0), sc = numeric(0), d1 = character(0), d2 =
+character(0), dc = numeric(0), t1 = character(0), t2 = character(0), t3
+= character(0), tc = numeric(0))
+lavter(cout)
 }
 \arguments{
   \item{s1,d1,d2,t1,t2,t3}{single, double, triple symbols}
