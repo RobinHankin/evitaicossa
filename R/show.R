@@ -1,8 +1,12 @@
 setMethod("show", "aaa",
           function(object){
-              cat("free antiassociative algebra element:\n")
-              cat(aaa_show(object))
-              cat("\n")
+              if(is.zero(object)){
+                  cat("the zero free antiassociative algebra element:\n")
+              } else {
+                  cat("free antiassociative algebra element:\n")
+                  cat(aaa_show(object))
+                  cat("\n")
+              }
           } )
 
 putsig <- function(x){paste(ifelse(x>0,"+","-"),abs(x),sep="")}  # put sign in
