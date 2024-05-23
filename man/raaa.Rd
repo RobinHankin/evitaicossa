@@ -3,7 +3,7 @@
 \alias{raaaa}
 \title{Random elements of the free antiassociative algebra}
 \description{
-Random elements of the freeantiassociative algebra, intended as quick
+Random elements of the free antiassociative algebra, intended as quick
 \dQuote{get you going} examples of \code{aaa} objects
 }
 \usage{
