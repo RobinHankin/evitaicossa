@@ -30,6 +30,6 @@ aaa_show(a)
   
 \author{Robin K. S. Hankin}
 \examples{
-1+1
+aaa_show(raaa())
 }
 
