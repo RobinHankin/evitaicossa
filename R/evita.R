@@ -293,7 +293,7 @@ setMethod("Arith",signature(e1 = "numeric", e2="aaa"  ), numeric_arith_aaa )
 
 
 `as.aaa` <- function(s){
-    aaa(s           ,                          1         ,
+    aaa(s           ,                          rep(1,length(s)),
         character(0),character(0),             numeric(0),
         character(0),character(0),character(0),numeric(0)
         )
@@ -331,4 +331,18 @@ setMethod("Compare",signature(e1 = "aaa"     , e2="numeric"), aaa_compare_error 
 setMethod("Compare",signature(e1 = "numeric" , e2="aaa"    ), aaa_compare_error  )
 setMethod("Compare",signature(e1 = "ANY"     , e2="aaa"    ), aaa_compare_error  )
 setMethod("Compare",signature(e1 = "aaa"     , e2="ANY"    ), aaa_compare_error  )
+
+
+linear <- function(x){aaa(s1=letters[seq_along(x)],sc=x)}
+linear1 <- function(x){aaa(s1=letters[seq_along(x)],sc=x)}
+linear2 <- function(x){aaa(d1 =letters[seq_along(x)],
+                           d2 =letters[seq_along(x)],
+                           dc = x)
+}
+
+linear3 <- function(x){aaa(t1 =letters[seq_along(x)],
+                           t2 =letters[seq_along(x)],
+                           t3 =letters[seq_along(x)],
+                           tc = x)
+}
 
