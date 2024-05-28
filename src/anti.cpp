@@ -491,3 +491,52 @@ List c_aaa_prod(
 			 
 			 ));
 }
+
+//[[Rcpp::export]]
+bool c_aaa_equal(
+		  const CharacterVector F1_single_indeterminate_name1,
+		  const NumericVector   F1_single_indeterminate_coeff,
+		  const CharacterVector F1_double_indeterminate_name1,
+		  const CharacterVector F1_double_indeterminate_name2,
+		  const NumericVector   F1_double_indeterminate_coeff,
+		  const CharacterVector F1_triple_indeterminate_name1,
+		  const CharacterVector F1_triple_indeterminate_name2,
+		  const CharacterVector F1_triple_indeterminate_name3,
+		  const NumericVector   F1_triple_indeterminate_coeff,
+
+		  const CharacterVector F2_single_indeterminate_name1,
+		  const NumericVector   F2_single_indeterminate_coeff,
+		  const CharacterVector F2_double_indeterminate_name1,
+		  const CharacterVector F2_double_indeterminate_name2,
+		  const NumericVector   F2_double_indeterminate_coeff,
+		  const CharacterVector F2_triple_indeterminate_name1,
+		  const CharacterVector F2_triple_indeterminate_name2,
+		  const CharacterVector F2_triple_indeterminate_name3,
+		  const NumericVector   F2_triple_indeterminate_coeff
+	       ){
+  return equal(
+	       aaamaker(
+			F1_single_indeterminate_name1,
+			F1_single_indeterminate_coeff,
+			F1_double_indeterminate_name1,
+			F1_double_indeterminate_name2,
+			F1_double_indeterminate_coeff,
+			F1_triple_indeterminate_name1,
+			F1_triple_indeterminate_name2,
+			F1_triple_indeterminate_name3,
+			F1_triple_indeterminate_coeff
+			),
+	       aaamaker(
+			F2_single_indeterminate_name1,
+			F2_single_indeterminate_coeff,
+			F2_double_indeterminate_name1,
+			F2_double_indeterminate_name2,
+			F2_double_indeterminate_coeff,
+			F2_triple_indeterminate_name1,
+			F2_triple_indeterminate_name2,
+			F2_triple_indeterminate_name3,
+			F2_triple_indeterminate_coeff
+			)
+	       
+	       );
+}

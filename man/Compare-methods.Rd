@@ -8,6 +8,8 @@
 \alias{Compare,numeric,aaa-method}
 \alias{aaa_compare_aaa}
 \alias{aaa_compare_error}
+\alias{aaa_equal_aaa}
+\alias{c_aaa_equal}
 \title{Methods for Function \code{Compare}}
 \description{
 
@@ -16,11 +18,10 @@
  returns \code{TRUE} if \code{aaa} objects \code{x} and \code{y} are
  identical.
 
- The test is somewhat inefficient as \code{x == y} is syntactic sugar
- for \code{is.zero(x-y)}; a more efficient approach would be to follow
- the \CRANpkg{frab} package: go through the keys of \code{x}, compare
- the corresponding values of \code{y}, and return \code{FALSE} when any
- difference is detected.
+ The test for equality follows the \CRANpkg{frab} package: go through
+ the keys of \code{x}, compare the corresponding values of \code{y}, and
+ return \code{FALSE} when any difference is detected.  This is faster
+ than \code{is.zero(x-y)}.
 
  Technically, \code{x==0} makes sense but I thought consistency was more
  important: in the package, numeric values cannot be compared with

@@ -253,6 +253,31 @@ setMethod("tc",signature(a="aaa"),function(a){getthings(a)$tc})
         )
 }
 
+`aaa_equal_aaa` <- function(a,b){
+        return(
+            c_aaa_equal(  # cf aaa_plus_aaa() above
+                F1_single_indeterminate_name1 = elements(s1(a)),
+                F1_single_indeterminate_coeff = elements(sc(a)),
+                F1_double_indeterminate_name1 = elements(d1(a)),
+                F1_double_indeterminate_name2 = elements(d2(a)),
+                F1_double_indeterminate_coeff = elements(dc(a)),
+                F1_triple_indeterminate_name1 = elements(t1(a)),
+                F1_triple_indeterminate_name2 = elements(t2(a)),
+                F1_triple_indeterminate_name3 = elements(t3(a)),
+                F1_triple_indeterminate_coeff = elements(tc(a)),
+                F2_single_indeterminate_name1 = elements(s1(b)),
+                F2_single_indeterminate_coeff = elements(sc(b)),
+                F2_double_indeterminate_name1 = elements(d1(b)),
+                F2_double_indeterminate_name2 = elements(d2(b)),
+                F2_double_indeterminate_coeff = elements(dc(b)),
+                F2_triple_indeterminate_name1 = elements(t1(b)),
+                F2_triple_indeterminate_name2 = elements(t2(b)),
+                F2_triple_indeterminate_name3 = elements(t3(b)),
+                F2_triple_indeterminate_coeff = elements(tc(b))
+            )
+        )
+}
+
 `aaa_prod_numeric`  <- function(a,b){
     aaa(
         s1 = elements(s1(a))  ,
@@ -316,8 +341,8 @@ setMethod("Arith",signature(e1 = "numeric", e2="aaa"  ), numeric_arith_aaa )
 
 `aaa_compare_aaa` <- function(e1,e2){
   switch(.Generic,
-         "==" =  is.zero(e1-e2),
-         "!=" = !is.zero(e1-e2),
+         "==" =  aaa_equal_aaa(e1,e2),
+         "!=" = !aaa_equal_aaa(e1-e2),
          stop(gettextf("comparison operator %s not defined for aaa objects", dQuote(.Generic)))
          )
 }
