@@ -49,6 +49,7 @@ checker1 <- function(x){
 
     expect_output(print(x))
 
+    expect_true(is.zero(x*linear3(sample(9))))
     return(TRUE)
 }  # checker1() closes
 
@@ -98,6 +99,5 @@ for(i in 1:2){
 }
 
 checker1(aaa())
-
 
 })
