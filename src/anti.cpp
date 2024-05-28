@@ -155,30 +155,6 @@ a3 sum3(a3 F1, a3 F2){
 }
 
 
-a1 minus1(a1 F){
-  a1 out;                                             /* different  */
-  for(auto it = F.begin() ; it != F.end() ; ++it){
-    out[it->first] = -it->second;
-  }
-  return out;
-}
-
-a2 minus2(a2 F){
-  a2 out;                                             /* different  */
-  for(auto it = F.begin() ; it != F.end() ; ++it){
-    out[it->first] = -it->second;
-  }
-  return out;
-}
-
-a3 minus3(a3 F){
-  a3 out;                                              /* different  */
-  for(auto it = F.begin() ; it != F.end() ; ++it){
-    out[it->first] = -it->second;
-  }
-  return out;
-}
-
 a2 prod_a1_a1(const a1 F1, const a1 F2){
   a2 out;
   for(auto it1 = F1.begin() ; it1 != F1.end() ; ++it1){
@@ -343,8 +319,6 @@ List retval(const aaa &F){  // Returns an 'aaa' object to R
 		      Named("coeffs3") = coeffs3(F.triple_indeterminate)
 		      );
 }
-
-
 
 bool equal1(a1 F1, a1 F2){
   if(F1.size() != F2.size()){
