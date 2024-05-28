@@ -14,3 +14,5 @@ importFrom("disordR","consistent")
 importFrom("disordR","elements")
 importFrom("disordR","is.disord")
 importFrom("disordR","lapply")
+
+importFrom(Rdpack,reprompt)
