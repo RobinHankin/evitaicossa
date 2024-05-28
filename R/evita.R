@@ -358,7 +358,6 @@ setMethod("Compare",signature(e1 = "ANY"     , e2="aaa"    ), aaa_compare_error 
 setMethod("Compare",signature(e1 = "aaa"     , e2="ANY"    ), aaa_compare_error  )
 
 
-linear <- function(x){aaa(s1=letters[seq_along(x)],sc=x)}
 linear1 <- function(x){aaa(s1=letters[seq_along(x)],sc=x)}
 linear2 <- function(x){aaa(d1 =letters[seq_along(x)],
                            d2 =letters[seq_along(x)],
