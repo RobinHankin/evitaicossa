@@ -27,7 +27,7 @@ a bilinear product.  Formally, a vector space is a set $V$ of vectors
 which form an Abelian group under addition and also satisfy the
 following axioms:
 
-* Compatibility, $a(b\mathbf{v})=(ab)\mathbf{V}$
+* Compatibility, $a(b\mathbf{v})=(ab)\mathbf{v}$
 * Identity, $1\mathbf{v}=\mathbf{v}$
 * Distributivity WRT vector addition, $a(\mathbf{u}+\mathbf{v}) =
   a\mathbf{u}+a\mathbf{v}$
