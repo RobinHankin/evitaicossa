@@ -13,4 +13,9 @@ for(i in 1:2){
     checker(sample(9,1),sample(9,1),sample(9),sample(9))
 }
 
+
+expect_true(as.aaa(letters) == linear1(rep(1,26)))
+
+
+
 })
