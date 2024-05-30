@@ -1,0 +1,49 @@
+---
+title: "Antiassociative algebra with the evitaicossa package"
+output:
+  github_document:
+    pandoc_args: --webtex
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# <img src="man/figures/evitaicossa.png" width = "150" align="right" />
+
+
+An *algebra* is a vector space in which the vectors may be multiplied.
+The `evitaicossa` package gives some R-centric functionality to deal
+with _antiassociative_ algebras in which the usual associativity
+relation
+$\mathbf{u}(\mathbf{v}\mathbf{w})=(\mathbf{u}\mathbf{v})\mathbf{w}$ is
+replaced by the relation
+$\mathbf{u}(\mathbf{v}\mathbf{w})=-(\mathbf{u}\mathbf{v})\mathbf{w}$.
+
+
+In an R session, you can install the released version of `evitaicossa`
+from [CRAN](https://CRAN.R-project.org) with:
+
+```{r, message=FALSE}
+# install.packages("evitaicossa")  # uncomment to install the package
+library("evitaicossa")             # loads the package 
+```
+
+The package includes a single S4 class `aaa` [for
+"**a**nti**a**ssociative **a**lgebra"] and a range of functions to
+create objects of this class.
+
+
+```{r}
+x <- as.aaa("x")
+y <- as.aaa("y")
+x
+y
+```
