@@ -342,7 +342,7 @@ setMethod("Arith",signature(e1 = "numeric", e2="aaa"  ), numeric_arith_aaa )
 `aaa_compare_aaa` <- function(e1,e2){
   switch(.Generic,
          "==" =  aaa_equal_aaa(e1,e2),
-         "!=" = !aaa_equal_aaa(e1-e2),
+         "!=" = !aaa_equal_aaa(e1,e2),
          stop(gettextf("comparison operator %s not defined for aaa objects", dQuote(.Generic)))
          )
 }
