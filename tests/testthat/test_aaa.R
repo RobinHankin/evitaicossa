@@ -96,6 +96,8 @@ for(i in 1:2){
     checker2(x,y)
     checker3(x,y,z)
     checker4(x,y,z,p)
+
+    checker1(raaaa())
 }
 
 checker1(aaa())
