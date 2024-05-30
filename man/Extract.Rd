@@ -21,7 +21,7 @@
 \alias{get_single}
 \alias{get_triple}
 \alias{getthings}
-\title{Extract or Replace Parts of onions or glubs}
+\title{Extract or Replace Parts of \code{aaa} objects}
 \description{
 
   Extraction methods for \code{aaa} objects.  The names of the
