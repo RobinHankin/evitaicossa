@@ -4,7 +4,7 @@ setMethod("show", "aaa",
                   cat("the zero free antiassociative algebra element.\n")
               } else {
                   cat("free antiassociative algebra element:\n")
-                  cat(aaa_show(object))
+                  cat(paste(strwrap(aaa_show(object), getOption("width")), collapse="\n"))
                   cat("\n")
               }
           } )
