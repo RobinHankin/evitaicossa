@@ -1,7 +1,7 @@
 setMethod("show", "aaa",
           function(object){
               if(is.zero(object)){
-                  cat("the zero free antiassociative algebra element:\n")
+                  cat("the zero free antiassociative algebra element.\n")
               } else {
                   cat("free antiassociative algebra element:\n")
                   cat(aaa_show(object))
