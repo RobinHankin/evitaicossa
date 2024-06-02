@@ -53,12 +53,21 @@ thing_to_aaa(L)
 \examples{
 aaa() # the zero object
 
+aaa(s1=letters,sc=seq_along(letters))
+aaa(d1=state.abb,d2=rev(state.abb),dc=seq_along(state.abb))
+
+as.aaa(state.abb)
+
+
 evita <- aaa(s1=letters[1:5],sc=1:5)
 icossa <- aaa(d1=c("fish","chips"),d2=c("x","y"),dc=c(6,7))
 
 evita
-icossa
 evita + icossa
 evita * icossa
+evita^2
+
+f <- function(o){aaa(state.abb[o],seq_along(o))}
+f(8:9) - (f(1:2) - f(6:8)^2)^2
 
 }
