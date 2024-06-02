@@ -318,12 +318,24 @@ setMethod("Arith",signature(e1 = "numeric", e2="aaa"  ), numeric_arith_aaa )
 
 
 `as.aaa` <- function(s){
-    aaa(s           ,                          rep(1,length(s)),
-        character(0),character(0),             numeric(0),
-        character(0),character(0),character(0),numeric(0)
+    if(is.list(s)){
+        thing_to_aaa(s)
+    } else {
+        aaa(s           ,                          rep(1,length(s)),
+            character(0),character(0),             numeric(0),
+            character(0),character(0),character(0),numeric(0)
+            )
+    }
+}    
+    
+thing_to_aaa <- function(L){
+    aaa(
+        L$s1,          L$sc,
+        L$d1,L$d2,     L$dc,
+        L$t1,L$t2,L$t3,L$tc
         )
 }
-
+    
 `raaa` <- function(n=4, s=3){
     rc <- function(...){sample(letters[seq_len(n)],s,replace=TRUE)}
     rn <- function(...){sample(        seq_len(n) ,s,replace=TRUE)}

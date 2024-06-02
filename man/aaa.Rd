@@ -6,6 +6,7 @@
 \alias{aaa_identity}
 \alias{as.aaa}
 \alias{lavter}
+\alias{thing_to_aaa}
 \title{
 Function to create objects of class \code{aaa}
 }
@@ -17,11 +18,16 @@ aaa(s1 = character(0), sc = numeric(0), d1 = character(0), d2 =
 character(0), dc = numeric(0), t1 = character(0), t2 = character(0), t3
 = character(0), tc = numeric(0))
 lavter(cout)
+as.aaa(s)
+thing_to_aaa(L)
 }
 \arguments{
   \item{s1,d1,d2,t1,t2,t3}{single, double, triple symbols}
   \item{sc,dc,tc}{single, double, triple coefficients}
+  \item{L}{A list with elements \code{s1} etc}
   \item{cout}{list}
+  \item{s}{Object that function \code{as.aaa()} will coerce to an
+    \code{aaa} object}
 }
 \details{
 
@@ -29,14 +35,30 @@ lavter(cout)
   objects; it is the only place that \code{new()} is called.  It takes a
   single argumet \code{cout}, which is a list as returned by
   \proglang{C} function \code{retval()}.  But it is a little awkward to
-  use and the user should use function \code{aaa()}, which is more
-  user-friendly and has sensible defaults.
+  use and the user should use other functions for creation, which are
+  more user-friendly and have sensible defaults:
+
+  \itemize{
+    \item Function \code{aaa()} takes named arguments \code{s1} etc,
+      with defaults corresponding to \dQuote{not present}
+    \item Function \code{thing_to_aaa()} takes a list with names
+      \code{s1} etc
+    \item Function \code{as.aaa()}
+      tries hard to coerce its argument to an \code{aaa} object
+}
 
 }
 \value{Return objects of class \code{aaa}}
 \author{Robin K. S. Hankin}
 \examples{
 aaa() # the zero object
-aaa(s1=letters[1:5],sc=1:5)
-aaa(d1=c("fish","chips"),d2=c("x","y"),dc=c(6,7))
+
+evita <- aaa(s1=letters[1:5],sc=1:5)
+icossa <- aaa(d1=c("fish","chips"),d2=c("x","y"),dc=c(6,7))
+
+evita
+icossa
+evita + icossa
+evita * icossa
+
 }
