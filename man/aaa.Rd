@@ -51,6 +51,18 @@ thing_to_aaa(L)
 \value{Return objects of class \code{aaa}}
 \author{Robin K. S. Hankin}
 \examples{
+
+as.aaa(list(
+    s1 = c("a","d"),
+    sc = c( 4,  2 ),
+    d1 = c("a", "a", "a", "b"),
+    d2 = c("a", "b", "d", "a"),
+    dc = c( 3 ,  4 ,  4 ,  3 ),
+    t1 = c("a", "a", "a", "b", "b"),
+    t2 = c("c", "d", "d", "c", "c"),
+    t3 = c("a", "c", "d", "a", "b"),
+    tc = c(-4 , -1 , -4 , 11 , 20 )))
+
 aaa() # the zero object
 
 evita <- aaa(s1=letters[1:5],sc=1:5)
