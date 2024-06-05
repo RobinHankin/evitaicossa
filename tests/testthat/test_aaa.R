@@ -71,15 +71,9 @@ checker2 <- function(x,y){
 
 checker3 <- function(x,y,z){
   expect_true(x+(y+z) == (x+y)+z, info=list(x,y,z)) # additive associativity
-  expect_true(x*(y*z) == -(x*y)*z, info=list(x,y,z)) # The sine qua non of the whole package!
 
   expect_true(x*(y+z) == x*y + x*z, info=list(x,y,z))  # left distributivity
   expect_true((y+z)*x == y*x + z*x, info=list(x,y,z))  # right distributivity
-
-  a <- y
-  b <- z
-  expect_true((a+a*x)*(b+x*b) == a*b)
-
   return(TRUE)
 } # checker3() closes
 

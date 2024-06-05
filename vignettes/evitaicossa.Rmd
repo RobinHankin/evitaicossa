@@ -241,6 +241,35 @@ have consistent hashes, but do not match the single-symbol objects (or
 indeed the triple-symbol objects).
 
 
+## Note on generalized antiassociativity
+
+We may generalize antiassociativity to
+$\mathbf{a}(\mathbf{b}\mathbf{c})=k(\mathbf{a}\mathbf{b})\mathbf{c}$.
+Thus associativity is recovered if $k=1$ and antiassociativity if
+$k=-1$.  Then the nilpotence argument becomes:
+
+$$
+(\mathbf{a}\mathbf{b})(\mathbf{c}\mathbf{d}) =
+k^{-1}\mathbf{a}(\mathbf{b}(\mathbf{c}\mathbf{d})) =
+\mathbf{a}((\mathbf{b}\mathbf{c})\mathbf{d}) =
+k(\mathbf{a}(\mathbf{b}\mathbf{c}))\mathbf{d} =
+k^2((\mathbf{a}\mathbf{b})\mathbf{c})\mathbf{d} =
+k(\mathbf{a}\mathbf{b})(\mathbf{c}\mathbf{d})
+$$
+
+The value of $k$ may be set at compile-time by editing file
+`src/anti.h`.  The line in question reads:
+
+```
+#define K -1 // a(bc) == K(ab)c
+```
+
+but it is possible to change the value of `K`.  Note that this will
+cause `test_aac.R`, one of the `testthat` suite, to fail `R CMD
+check`.
+
+
+
 ### Appendix
 
 As noted above, @remm2024antiassociative uses
