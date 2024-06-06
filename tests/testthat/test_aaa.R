@@ -3,7 +3,7 @@
 ## Define some checker functions, and call them at the end.  They
 ## should all return TRUE if the package works, and stop with error if
 ## a test is failed.  Function checker1() has one argument, checker2()
-## two, and so on.
+## two, and so on.  These checks should pass whatever the value of k
 
 test_that("Test suite aaa.R",{
 
@@ -30,6 +30,8 @@ checker1 <- function(x){
     expect_true(+x == x, info=x)
     expect_true(x == -(-x), info=x)
   
+    expect_false( x != x, info=x)
+
     expect_true(x+x == 2*x, info=x)
     expect_true(x+x == x*2, info=x)
     expect_true(x+x-x == x, info=x)
@@ -52,6 +54,13 @@ checker1 <- function(x){
     expect_true(is.zero(x*linear3(sample(9))))
 
     expect_true(as.aaa(getthings(x)) == x)
+
+    expect_true(get_single(x) + get_double(x) + get_triple(x) == x)
+
+    expect_true(aaa(s1=s1(a),                  sc=sc(a)) == get_single(a))
+    expect_true(aaa(d1=d1(a),d2=d2(a),         dc=dc(a)) == get_double(a))
+    expect_true(aaa(t1=t1(a),t2=t2(a),t3=t3(a),tc=tc(a)) == get_triple(a))
+
     return(TRUE)
 }  # checker1() closes
 
@@ -71,15 +80,9 @@ checker2 <- function(x,y){
 
 checker3 <- function(x,y,z){
   expect_true(x+(y+z) == (x+y)+z, info=list(x,y,z)) # additive associativity
-  expect_true(x*(y*z) == -(x*y)*z, info=list(x,y,z)) # The sine qua non of the whole package!
 
   expect_true(x*(y+z) == x*y + x*z, info=list(x,y,z))  # left distributivity
   expect_true((y+z)*x == y*x + z*x, info=list(x,y,z))  # right distributivity
-
-  a <- y
-  b <- z
-  expect_true((a+a*x)*(b+x*b) == a*b)
-
   return(TRUE)
 } # checker3() closes
 

@@ -1,4 +1,6 @@
-test_that("Test suite aab.R",{
+## These checks should pass whatever the value of k
+
+test_that("Test suite aab.R",{ 
 
 checker <- function(a,b,x,y){
 

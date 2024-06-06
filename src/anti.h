@@ -42,4 +42,6 @@ struct aaa{
     a3 triple_indeterminate;
 };
 
+#define K -1 // a(bc) == K(ab)c
+
 

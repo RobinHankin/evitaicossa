@@ -80,30 +80,28 @@ lavter <- function(cout){   # "lavter" is "retval" in reverse
         )
 }
 
-if(FALSE){
-get_single <- function(a){ # do not export this as it breaks disord discipline
-    list(
+get_single <- function(a){
+    aaa(
         s1 = s1(a),
         sc = sc(a)
     )
 }
 
-get_double <- function(a){ # do not export this as it breaks disord discipline
-    list(
+get_double <- function(a){
+    aaa(
         d1 = d1(a),
         d2 = d2(a),
         dc = dc(a)
     )
 }
 
-get_triple <- function(a){ # do not export this as it breaks disord discipline
-    list(
+get_triple <- function(a){
+    aaa(
         t1 = t1(a),
         t2 = t2(a),
         t3 = t3(a),
         tc = tc(a)
     )
-}
 }
 
 getthings <- function(a){

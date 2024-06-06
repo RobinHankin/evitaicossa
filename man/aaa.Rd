@@ -51,6 +51,24 @@ thing_to_aaa(L)
 \value{Return objects of class \code{aaa}}
 \author{Robin K. S. Hankin}
 \examples{
+
+aaa(s1 = "x", sc = 13)
+aaa(d1 = "z", d2 = "w", dc = 14)
+aaa(t1 = "x", t2 = "y", t3 = "z", tc = 15)
+
+aaa(
+    s1 = c("a","d"),
+    sc = c( 4 , 2 ),
+    d1 = c("a", "a", "a", "b"),
+    d2 = c("a", "b", "d", "a"),
+    dc = c( 3 ,  4 ,  4 ,  3 ),
+    t1 = c("a", "a", "a", "b", "b"),
+    t2 = c("c", "d", "d", "c", "c"),
+    t3 = c("a", "c", "d", "a", "b"),
+    tc = c(-4 , -1 , -4 , 11 , 20 )
+)
+
+
 aaa() # the zero object
 
 aaa(s1=letters,sc=seq_along(letters))

@@ -4,6 +4,9 @@ const a1 empty_single;
 const a2 empty_double;
 const a3 empty_triple;
 
+
+
+
 /*
 assert(empty_single.empty());
 assert(empty_double.empty());
@@ -192,8 +195,8 @@ a3 prod_a1_a2(const a1 F1, const a2 F2){
       jj.e1 = a.e1;
       jj.e2 = bc.e1;
       jj.e3 = bc.e2;
-      out[jj] -= (it1->second) * (it2->second);  // the meat
-      //    [actually, the minus sign is the meat of the whole package]
+      out[jj] +=  (K)*(it1->second) * (it2->second);  // the meat
+      //    K = -1 by default: this is the meat of the whole package]
     }
   }
   return out;
