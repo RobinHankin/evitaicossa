@@ -54,6 +54,9 @@ checker1 <- function(x){
     expect_true(is.zero(x*linear3(sample(9))))
 
     expect_true(as.aaa(getthings(x)) == x)
+
+    expect_true(get_single(x) + get_double(x) + get_triple(x) == x)
+
     return(TRUE)
 }  # checker1() closes
 
