@@ -3,7 +3,7 @@
 ## Define some checker functions, and call them at the end.  They
 ## should all return TRUE if the package works, and stop with error if
 ## a test is failed.  Function checker1() has one argument, checker2()
-## two, and so on.
+## two, and so on.  These checks should pass whatever the value of k
 
 test_that("Test suite aaa.R",{
 

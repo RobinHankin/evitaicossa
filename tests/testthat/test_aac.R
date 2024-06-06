@@ -1,4 +1,6 @@
-test_that("Test suite aac.R",{   # This test suite checks identities that are correct *only* if k = -1
+# This test suite checks identities that are correct *only* if k = -1
+
+test_that("Test suite aac.R",{  
 
 checker3 <- function(x,y,z){
     expect_true(x*(y*z) == -(x*y)*z, info=list(x,y,z)) } # The sine qua non of the whole package!
