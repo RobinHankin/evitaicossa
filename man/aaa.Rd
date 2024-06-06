@@ -52,7 +52,11 @@ thing_to_aaa(L)
 \author{Robin K. S. Hankin}
 \examples{
 
-as.aaa(list(
+aaa(s1 = "x", sc = 13)
+aaa(d1 = "z", d2 = "w", dc = 14)
+aaa(t1 = "x", t2 = "y", t3 = "z", tc = 15)
+
+aaa(
     s1 = c("a","d"),
     sc = c( 4,  2 ),
     d1 = c("a", "a", "a", "b"),
@@ -61,7 +65,9 @@ as.aaa(list(
     t1 = c("a", "a", "a", "b", "b"),
     t2 = c("c", "d", "d", "c", "c"),
     t3 = c("a", "c", "d", "a", "b"),
-    tc = c(-4 , -1 , -4 , 11 , 20 )))
+    tc = c(-4 , -1 , -4 , 11 , 20 )
+)
+
 
 aaa() # the zero object
 
