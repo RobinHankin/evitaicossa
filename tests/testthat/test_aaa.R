@@ -57,6 +57,10 @@ checker1 <- function(x){
 
     expect_true(get_single(x) + get_double(x) + get_triple(x) == x)
 
+    expect_true(aaa(s1=s1(a),                  sc=sc(a)) == get_single(a))
+    expect_true(aaa(d1=d1(a),d2=d2(a),         dc=dc(a)) == get_double(a))
+    expect_true(aaa(t1=t1(a),t2=t2(a),t3=t3(a),tc=tc(a)) == get_triple(a))
+
     return(TRUE)
 }  # checker1() closes
 

@@ -76,4 +76,7 @@ t2(a)
 get_single(a)
 
 get_single(a) + get_double(a) + get_triple(a) == a
+
+aaa(d1=d1(a),d2=d2(a), dc=dc(a)) == get_double(a)
+
 }
