@@ -5,10 +5,12 @@ checker3 <- function(x,y,z){
 
 checker3a <- function(a,b,x){ expect_true( (a+a*x)*(b+x*b) == a*b) }
 
-    for(i in 1:2){
-        checker3 (raaa(),raaa(),raaa())
-        checker3a(raaa(),raaa(),raaa())
-    }
+for(i in 1:2){
+    checker3 (raaa(),raaa(),raaa())
+    checker3a(raaa(),raaa(),raaa())
+}
+
+    
 
 `a` <- as.aaa(list(
     s1 = c("a", "b", "d"),
@@ -52,14 +54,14 @@ checker3a <- function(a,b,x){ expect_true( (a+a*x)*(b+x*b) == a*b) }
 
 `a+a*b` <- as.aaa(list(
     s1 = c("a", "b", "d"),
-    sc = c(3, 4, 4),
+    sc = c( 3 ,  4 ,  4 ),
     d1 = c("a", "a", "a", "b", "b", "b", "c", "d", "d", "d", "d"),
     d2 = c("a", "b", "c", "a", "b", "c", "a", "a", "b", "c", "d"),
     dc = c( 3 ,  3 ,  9 ,  4 ,  4 , 12 ,  4 ,  4 ,  4 , 13 ,  4 ),
     t1 = c("a", "a", "b", "b", "b", "c", "c", "c", "c", "d", "d", "d", "d", "d", "d", "d", "d"),
     t2 = c("b", "c", "b", "b", "c", "a", "a", "a", "b", "b", "c", "c", "c", "c", "d", "d", "d"),
     t3 = c("c", "d", "c", "d", "d", "a", "b", "c", "c", "c", "a", "b", "c", "d", "a", "b", "c"),
-    tc = c(-15, -12, -20, 3, -16, 4, 4, 12, 2, -20, 5, 1, 3, -16, 4, 4, 12)))
+    tc = c(-15, -12, -20,  3, -16 ,  4 ,  4 , 12 ,  2 , -20,  5 ,  1 ,  3 , -16,  4 ,  4 , 12 )))
 
 
 `b+b*a` <- as.aaa(list(
@@ -71,7 +73,7 @@ checker3a <- function(a,b,x){ expect_true( (a+a*x)*(b+x*b) == a*b) }
     t1 = c("a", "a", "a", "a", "b", "b", "b", "b", "b", "b", "c", "c", "c", "c", "c"),
     t2 = c("c", "d", "d", "d", "a", "c", "c", "c", "d", "d", "c", "d", "d", "d", "d"),
     t3 = c("a", "b", "c", "d", "d", "a", "b", "d", "c", "d", "a", "a", "b", "c", "d"),
-    tc = c(-4, 3, -1, -4, 3, 11, 20, 20, -1, -4, -12, 12, 16, -1, 4)))
+    tc = c(-4 ,  3 , -1 , -4 ,  3 , 11 , 20 , 20 , -1 , -4 , -12, 12 , 16 , -1 ,  4 )))
 
 expect_true(a*b == `a*b`)
 expect_true(b*a == `b*a`)
