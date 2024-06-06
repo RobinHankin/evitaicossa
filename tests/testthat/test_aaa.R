@@ -30,6 +30,8 @@ checker1 <- function(x){
     expect_true(+x == x, info=x)
     expect_true(x == -(-x), info=x)
   
+    expect_false( x != x, info=x)
+
     expect_true(x+x == 2*x, info=x)
     expect_true(x+x == x*2, info=x)
     expect_true(x+x-x == x, info=x)
