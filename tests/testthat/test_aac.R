@@ -10,7 +10,14 @@ for(i in 1:2){
     checker3a(raaa(),raaa(),raaa())
 }
 
-    
+checker3(raaa(),raaa(),aaa())
+checker3(raaa(),aaa(),aaa())
+checker3(aaa(),aaa(),aaa())
+
+checker3a(raaa(),raaa(),aaa())
+checker3a(raaa(),aaa(),aaa())
+checker3a(aaa(),aaa(),aaa())
+
 
 `a` <- as.aaa(list(
     s1 = c("a", "b", "d"),
