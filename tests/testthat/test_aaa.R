@@ -55,11 +55,23 @@ checker1 <- function(x){
 
     expect_true(as.aaa(getthings(x)) == x)
 
-    expect_true(get_single(x) + get_double(x) + get_triple(x) == x)
+    expect_true(single(x) + double(x) + triple(x) == x)
 
-    expect_true(aaa(s1=s1(a),                  sc=sc(a)) == get_single(a))
-    expect_true(aaa(d1=d1(a),d2=d2(a),         dc=dc(a)) == get_double(a))
-    expect_true(aaa(t1=t1(a),t2=t2(a),t3=t3(a),tc=tc(a)) == get_triple(a))
+    expect_true(aaa(s1=s1(x),                  sc=sc(x)) == single(x))
+    expect_true(aaa(d1=d1(x),d2=d2(x),         dc=dc(x)) == double(x))
+    expect_true(aaa(t1=t1(x),t2=t2(x),t3=t3(x),tc=tc(x)) == triple(x))
+
+    jj <- x
+    single(jj) <- 0
+    expect_true(is.zero(single(jj)))
+
+    jj <- x
+    double(jj) <- 0
+    expect_true(is.zero(double(jj)))
+
+    jj <- x
+    triple(jj) <- 0
+    expect_true(is.zero(triple(jj)))
 
     return(TRUE)
 }  # checker1() closes
@@ -73,6 +85,18 @@ checker2 <- function(x,y){
 
   expect_true((-x)*y == -(x*y), info=list(x,y))
   expect_true(x*(-y) == -(x*y), info=list(x,y))
+
+  jj <- x
+  single(jj) <- single(y)
+  expect_true(single(jj) == single(y))
+
+  jj <- x
+  double(jj) <- double(y)
+  expect_true(double(jj) == double(y))
+
+  jj <- x
+  triple(jj) <- triple(y)
+  expect_true(triple(jj) == triple(y))
 
   return(TRUE)
 }

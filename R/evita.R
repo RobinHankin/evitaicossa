@@ -80,14 +80,14 @@ lavter <- function(cout){   # "lavter" is "retval" in reverse
         )
 }
 
-get_single <- function(a){
+single <- function(a){
     aaa(
         s1 = s1(a),
         sc = sc(a)
     )
 }
 
-get_double <- function(a){
+double <- function(a){
     aaa(
         d1 = d1(a),
         d2 = d2(a),
@@ -95,12 +95,76 @@ get_double <- function(a){
     )
 }
 
-get_triple <- function(a){
+triple <- function(a){
     aaa(
         t1 = t1(a),
         t2 = t2(a),
         t3 = t3(a),
         tc = tc(a)
+    )
+}
+
+`single<-` <- function(a,value){
+    if(is.numeric(value)){  # single(a) <- 0
+        if(value==0){value <- aaa()}
+    }
+    if(!(is.zero(double(value)) && is.zero(triple(value)))){
+        warning("double and triple parts of value ignored")
+    }
+
+    aaa(
+        s1 = s1(value),
+        sc = sc(value),
+        d1 = d1(a),
+        d2 = d2(a),
+        dc = dc(a),
+        t1 = t1(a),
+        t2 = t2(a),
+        t3 = t3(a),
+        tc = tc(a)
+    )
+}
+
+`double<-` <- function(a,value){
+    if(is.numeric(value)){  # single(a) <- 0
+        if(value==0){value <- aaa()}
+    }
+    if(!(is.zero(single(value)) && is.zero(triple(value)))){
+        warning("single and triple parts of value ignored")
+    }
+
+    aaa(
+        s1 = s1(a),
+        sc = sc(a),
+        d1 = d1(value),
+        d2 = d2(value),
+        dc = dc(value),
+        t1 = t1(a),
+        t2 = t2(a),
+        t3 = t3(a),
+        tc = tc(a)
+    )
+}
+
+`triple<-` <- function(a,value){
+
+    if(is.numeric(value)){  # single(a) <- 0
+        if(value==0){value <- aaa()}
+    }
+    if(!(is.zero(single(value)) && is.zero(double(value)))){
+        warning("single and double parts of value ignored")
+    }
+
+    aaa(
+        s1 = s1(a),
+        sc = sc(a),
+        d1 = d1(a),
+        d2 = d2(a),
+        dc = dc(a),
+        t1 = t1(value),
+        t2 = t2(value),
+        t3 = t3(value),
+        tc = tc(value)
     )
 }
 

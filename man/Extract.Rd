@@ -17,9 +17,12 @@
 \alias{t2,aaa-method}
 \alias{t3,aaa-method}
 \alias{tc,aaa-method}
-\alias{get_double}
-\alias{get_single}
-\alias{get_triple}
+\alias{single}
+\alias{double}
+\alias{triple}
+\alias{single<-}
+\alias{double<-}
+\alias{triple<-}
 \alias{getthings}
 \alias{coeffs}
 \title{Extract or Replace Parts of \code{aaa} objects}
@@ -47,17 +50,17 @@
 \S4method{t2}{aaa}(a)
 \S4method{t3}{aaa}(a)
 \S4method{tc}{aaa}(a)
-get_single(a)
-get_double(a)
-get_triple(a)
+single(a)
+double(a)
+triple(a)
 }
 \arguments{\item{a}{Object of class \code{aaa}}}
 \details{
   An \code{aaa} object is a list of 9 vectors, three numeric and six
   character, which are extractd by functions \code{s1()} etc.
 
-  Functions \code{get_single()}, \code{get_double()} and
-  \code{get_triple()} extract the single, double, and triple components
+  Functions \code{single()}, \code{double()} and
+  \code{triple()} extract the single, double, and triple components
   of their argument, and return the corresponding \code{aaa} object.
 
   There is no function \code{evitaicoss::coeffs()} because the three
@@ -73,10 +76,14 @@ get_triple(a)
 a <- raaaa()
 sc(a)
 t2(a)
-get_single(a)
+single(a)
 
-get_single(a) + get_double(a) + get_triple(a) == a
+single(a) + double(a) + triple(a) == a
 
-aaa(d1=d1(a),d2=d2(a), dc=dc(a)) == get_double(a)
+aaa(d1=d1(a),d2=d2(a), dc=dc(a)) == double(a)
+
+x <- raaaa()
+single(x) <- 0
+double(x) <- double(raaa())
 
 }
