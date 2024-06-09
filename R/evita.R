@@ -109,7 +109,7 @@ triple <- function(a){
         if(value==0){value <- aaa()}
     }
     if(!(is.zero(double(value)) && is.zero(triple(value)))){
-        warning("double and triple parts of value ignored")
+        stop("double and triple parts of value ignored")
     }
 
     aaa(
@@ -130,7 +130,7 @@ triple <- function(a){
         if(value==0){value <- aaa()}
     }
     if(!(is.zero(single(value)) && is.zero(triple(value)))){
-        warning("single and triple parts of value ignored")
+        stop("single and triple parts of value ignored")
     }
 
     aaa(
@@ -152,7 +152,7 @@ triple <- function(a){
         if(value==0){value <- aaa()}
     }
     if(!(is.zero(single(value)) && is.zero(double(value)))){
-        warning("single and double parts of value ignored")
+        stop("single and double parts of value ignored")
     }
 
     aaa(
