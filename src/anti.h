@@ -44,4 +44,7 @@ struct aaa{
 
 #define K -1 // a(bc) == K(ab)c
 
+#if K == 1
+    #error "K cannot be 1 [the algebra is not nilpotent]"
+#endif
 
