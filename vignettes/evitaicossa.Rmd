@@ -215,6 +215,30 @@ x <- raaa()
 (a+a*x)*(b+x*b) == a*b
 ```
 
+## Extract and replace methods
+
+Because of the tripartite nature of antiassociative algebra, the
+package provides three families of extraction methods: `single()`,
+`double()` and `triple()`, which return the different components of an
+object:
+
+
+```{r label=showsingledoubletriple}
+a
+single(a)
+double(a)
+triple(a)
+```
+
+The corresponding replacement methods are also implemented:
+
+```{r label=extract123}
+single(a) <- 0
+a
+double(a) <- double(b) * 1000
+a
+```
+
 ### Note on `disordR` discipline
 
 If we try to access the symbols or coefficients of an `aaa` object
