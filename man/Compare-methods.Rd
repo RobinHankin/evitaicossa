@@ -10,7 +10,7 @@
 \alias{aaa_compare_error}
 \alias{aaa_equal_aaa}
 \alias{c_aaa_equal}
-\title{Methods for Function \code{Compare}}
+\title{Comparison methods for antiassociative algebra}
 \description{
 
  Comparison methods generally do not make sense for elements of an
