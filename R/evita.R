@@ -498,7 +498,6 @@ extracter <- function(a,
     stopifnot(is.numeric(value))
     stopifnot(length(value) == 1)
     jj <- list(...)
-    browser()
     return("hi there")
 }
     
@@ -530,20 +529,72 @@ setMethod("[", signature(x="aaa",i="character"),
               }
           } )
 
-setMethod("[<-", signature("aaa"),
-          function(x, ...){
-              stop("not yet implemented")
+setReplaceMethod("[", signature("aaa"),    # a[d1='a',d2='c'] <- 33
+          function(x, i, ..., value){ # NB argument i is _missing_
+              stopifnot(is.numeric(value))
+              stopifnot(length(value) == 1)
+              jj <- list(...)
+
+
+              if(length(jj) == 0){  # a[] <- 22
+                  return(aaa(
+                      s1 = elements(s1(x)),
+                      sc = rep(value,length(s1(x))), # the meat 
+                      d1 = elements(d1(x)),
+                      d2 = elements(d2(x)),
+                      dc = rep(value,length(d1(x))), # the meat
+                      t1 = elements(t1(x)),
+                      t2 = elements(t2(x)),
+                      t3 = elements(t3(x)),
+                      tc = rep(value,length(t1(x)))  # the meat
+                      ))
+              } else {
+                  return(overwriter(x,
+                      s1 = as.character(jj$s1),
+                      sc = as.numeric  (jj$sc),
+                      d1 = as.character(jj$d1),
+                      d2 = as.character(jj$d1),
+                      dc = as.numeric  (jj$dc),
+                      t1 = as.character(jj$t1),
+                      t2 = as.character(jj$t1),
+                      t3 = as.character(jj$t1),
+                      tc = as.numeric  (jj$tc),
+                      value # the meat
+                  ))                      
+              }
           } )
 
-setMethod("[<-", signature("aaa",i="character",j="missing",value="numeric"),
-          function(x,i,j,value){  # a["x(y.z)"]
-              stopifnot(length(i)==1)
-              stop("not yet implemented")
+setReplaceMethod("[", signature("aaa",i="character",j="missing",value="numeric"),
+          function(x,i,j,value){
+              if(length(i) == 1){ # a["c"] <- 888
+                  return(overwriter(x,
+                                    s1 = as.character(i[1]),
+                                    sc = sc(x),
+                                    value = value # the meat
+                                    ))
+              } else if(length(i) == 2){ # a[c("c","d")] <- 888
+                  return(overwriter(x,
+                                    d1 = as.character(i[1]),
+                                    d2 = as.character(i[2]),
+                                    dc = dc(x),
+                                    value = value # the meat
+                                    ))
+                  } else if (length(i) == 3){ # a[c("c","d","e")] <- 888
+                  return(overwriter(x,
+                                    t1 = as.character(i[1]),
+                                    t2 = as.character(i[2]),
+                                    t3 = as.character(i[3]),
+                                    tc = tc(x),
+                                    value = value # the meat
+                                    ))
+                  } else {
+                  stop("index argument must be length 1, 2, or 3")
+              }
           } )
 
 setMethod("[<-", signature("aaa",i="disord",j="missing",value="numeric"),
           function(x,i,j,value){
-              stop("not yet implemented")
+              stop("not implemented yet")
           } )
 
 
