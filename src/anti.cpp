@@ -202,6 +202,87 @@ a3 prod_a1_a2(const a1 F1, const a2 F2){
   return out;
 }
 
+a1 extract1(a1 F,
+	    const CharacterVector names1){
+  a1 out;
+  for(size_t i=0 ; i < (size_t) names1.size() ; i++){
+    single_symbol a;
+    a.e1 = names1[i];
+    out[a] += F[a];  // the meat
+  }
+  return nonzero1(out);
+}
+
+a2 extract2(a2 F,
+	    const CharacterVector names1,
+	    const CharacterVector names2){
+  a2 out;
+  for(size_t i=0 ; i < (size_t) names1.size() ; i++){
+    double_symbol ab;
+    ab.e1 = names1[i];
+    ab.e2 = names2[i];
+    out[ab] += F[ab];  // the meat
+  }
+  return nonzero2(out);
+}
+
+a3 extract3(a3 F,
+	    const CharacterVector names1,
+	    const CharacterVector names2,
+	    const CharacterVector names3){
+  a3 out;
+  for(size_t i=0 ; i < (size_t) names1.size() ; i++){
+    triple_symbol abc;
+    abc.e1 = names1[i];
+    abc.e2 = names2[i];
+    abc.e3 = names3[i];
+    out[abc] += F[abc];  // the meat
+  }
+  return nonzero3(out);
+}
+
+a1 overwrite1(a1 F,
+	      const CharacterVector names1,
+	      const NumericVector value){
+  for(size_t i=0 ; i < (size_t) names1.size() ; i++){
+    single_symbol a;
+    a.e1 = names1[i];
+    F[a] = value[0];  // the meat
+  }
+  return nonzero1(F);
+}
+
+a2 overwrite2(a2 F,
+	      const CharacterVector names1,
+	      const CharacterVector names2,
+	      const NumericVector value){
+  for(size_t i=0 ; i < (size_t) names1.size() ; i++){
+    double_symbol ab;
+    ab.e1 = names1[i];
+    ab.e2 = names2[i];
+    F[ab] = value[0];  // the meat
+  }
+  return nonzero2(F);
+}
+
+a3 overwrite3(a3 F,
+	      const CharacterVector names1,
+	      const CharacterVector names2,
+	      const CharacterVector names3,
+	      const NumericVector value){
+  for(size_t i=0 ; i < (size_t) names1.size() ; i++){
+    triple_symbol abc;
+    abc.e1 = names1[i];
+    abc.e2 = names2[i];
+    abc.e3 = names3[i];
+    F[abc] = value[0];  // the meat
+  }
+  return nonzero3(F);
+}
+
+
+
+
 aaa sum_anti(const aaa F1, const aaa F2){
   aaa out;
 
@@ -308,7 +389,40 @@ aaa aaamaker(
   out.single_indeterminate = a1maker(single_indeterminate_name1,                                                      single_indeterminate_coeff);
   out.double_indeterminate = a2maker(double_indeterminate_name1,double_indeterminate_name2,                           double_indeterminate_coeff);
   out.triple_indeterminate = a3maker(triple_indeterminate_name1,triple_indeterminate_name2,triple_indeterminate_name3,triple_indeterminate_coeff);
+  return out;
+}
 
+aaa extract(
+	    const aaa &F, 
+	    const CharacterVector single_indeterminate_name1,
+	    const CharacterVector double_indeterminate_name1,
+	    const CharacterVector double_indeterminate_name2,
+	    const CharacterVector triple_indeterminate_name1,
+	    const CharacterVector triple_indeterminate_name2,
+	    const CharacterVector triple_indeterminate_name3){
+  aaa out;
+  out.single_indeterminate = extract1(F.single_indeterminate, single_indeterminate_name1                                                        );
+  out.double_indeterminate = extract2(F.double_indeterminate, double_indeterminate_name1, double_indeterminate_name2                            );
+  out.triple_indeterminate = extract3(F.triple_indeterminate, triple_indeterminate_name1, triple_indeterminate_name2, triple_indeterminate_name3);
+  return out;
+}
+
+aaa overwrite(
+	    const aaa &F, 
+	    const CharacterVector single_indeterminate_name1,
+	    const NumericVector   single_indeterminate_coeff,
+	    const CharacterVector double_indeterminate_name1,
+	    const CharacterVector double_indeterminate_name2,
+	    const NumericVector   double_indeterminate_coeff,
+	    const CharacterVector triple_indeterminate_name1,
+	    const CharacterVector triple_indeterminate_name2,
+	    const CharacterVector triple_indeterminate_name3,
+	    const NumericVector   triple_indeterminate_coeff,
+	    const NumericVector value){
+  aaa out;
+  out.single_indeterminate = overwrite1(F.single_indeterminate, single_indeterminate_name1,                                                        value);
+  out.double_indeterminate = overwrite2(F.double_indeterminate, double_indeterminate_name1, double_indeterminate_name2,                            value);
+  out.triple_indeterminate = overwrite3(F.triple_indeterminate, triple_indeterminate_name1, triple_indeterminate_name2, triple_indeterminate_name3,value);
   return out;
 }
 
@@ -371,7 +485,6 @@ bool equal(aaa F1, aaa F2){
     equal2(F1.double_indeterminate,F2.double_indeterminate) &&
     equal3(F1.triple_indeterminate,F2.triple_indeterminate);
 }
-
 
 // [[Rcpp::export]]
 List aaa_identity(
@@ -542,4 +655,72 @@ bool c_aaa_equal(
 			)
 	       
 	       );
+}
+
+//[[Rcpp::export]]
+List c_aaa_extract(
+		  const CharacterVector F1_single_indeterminate_name1,
+		  const NumericVector   F1_single_indeterminate_coeff,
+		  const CharacterVector F1_double_indeterminate_name1,
+		  const CharacterVector F1_double_indeterminate_name2,
+		  const NumericVector   F1_double_indeterminate_coeff,
+		  const CharacterVector F1_triple_indeterminate_name1,
+		  const CharacterVector F1_triple_indeterminate_name2,
+		  const CharacterVector F1_triple_indeterminate_name3,
+		  const NumericVector   F1_triple_indeterminate_coeff,
+		  const CharacterVector s1,
+		  const CharacterVector d1,
+		  const CharacterVector d2,
+		  const CharacterVector t1,
+		  const CharacterVector t2,
+		  const CharacterVector t3){
+  return retval(extract( // the meat
+			 aaamaker(
+				  F1_single_indeterminate_name1,
+				  F1_single_indeterminate_coeff,
+				  F1_double_indeterminate_name1,
+				  F1_double_indeterminate_name2,
+				  F1_double_indeterminate_coeff,
+				  F1_triple_indeterminate_name1,
+				  F1_triple_indeterminate_name2,
+				  F1_triple_indeterminate_name3,
+				  F1_triple_indeterminate_coeff),
+			 s1,d1,d2,t1,t2,t3));
+}
+//[[Rcpp::export]]
+List c_aaa_overwriter(
+		  const CharacterVector F1_single_indeterminate_name1,
+		  const NumericVector   F1_single_indeterminate_coeff,
+		  const CharacterVector F1_double_indeterminate_name1,
+		  const CharacterVector F1_double_indeterminate_name2,
+		  const NumericVector   F1_double_indeterminate_coeff,
+		  const CharacterVector F1_triple_indeterminate_name1,
+		  const CharacterVector F1_triple_indeterminate_name2,
+		  const CharacterVector F1_triple_indeterminate_name3,
+		  const NumericVector   F1_triple_indeterminate_coeff,
+		  const CharacterVector s1,
+		  const NumericVector   sc,
+		  const CharacterVector d1,
+		  const CharacterVector d2,
+		  const NumericVector   dc,
+		  const CharacterVector t1,
+		  const CharacterVector t2,
+		  const CharacterVector t3,
+		  const NumericVector   tc,
+		  const NumericVector   value){
+  return retval(overwrite( // the meat
+			 aaamaker(
+				  F1_single_indeterminate_name1,
+				  F1_single_indeterminate_coeff,
+				  F1_double_indeterminate_name1,
+				  F1_double_indeterminate_name2,
+				  F1_double_indeterminate_coeff,
+				  F1_triple_indeterminate_name1,
+				  F1_triple_indeterminate_name2,
+				  F1_triple_indeterminate_name3,
+				  F1_triple_indeterminate_coeff),
+			 s1,      sc,
+			 d1,d2,   dc,
+			 t1,t2,t3,tc,
+			 value));
 }

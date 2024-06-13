@@ -17,3 +17,11 @@ c_aaa_equal <- function(F1_single_indeterminate_name1, F1_single_indeterminate_c
     .Call(`_evitaicossa_c_aaa_equal`, F1_single_indeterminate_name1, F1_single_indeterminate_coeff, F1_double_indeterminate_name1, F1_double_indeterminate_name2, F1_double_indeterminate_coeff, F1_triple_indeterminate_name1, F1_triple_indeterminate_name2, F1_triple_indeterminate_name3, F1_triple_indeterminate_coeff, F2_single_indeterminate_name1, F2_single_indeterminate_coeff, F2_double_indeterminate_name1, F2_double_indeterminate_name2, F2_double_indeterminate_coeff, F2_triple_indeterminate_name1, F2_triple_indeterminate_name2, F2_triple_indeterminate_name3, F2_triple_indeterminate_coeff)
 }
 
+c_aaa_extract <- function(F1_single_indeterminate_name1, F1_single_indeterminate_coeff, F1_double_indeterminate_name1, F1_double_indeterminate_name2, F1_double_indeterminate_coeff, F1_triple_indeterminate_name1, F1_triple_indeterminate_name2, F1_triple_indeterminate_name3, F1_triple_indeterminate_coeff, s1, d1, d2, t1, t2, t3) {
+    .Call(`_evitaicossa_c_aaa_extract`, F1_single_indeterminate_name1, F1_single_indeterminate_coeff, F1_double_indeterminate_name1, F1_double_indeterminate_name2, F1_double_indeterminate_coeff, F1_triple_indeterminate_name1, F1_triple_indeterminate_name2, F1_triple_indeterminate_name3, F1_triple_indeterminate_coeff, s1, d1, d2, t1, t2, t3)
+}
+
+c_aaa_overwriter <- function(F1_single_indeterminate_name1, F1_single_indeterminate_coeff, F1_double_indeterminate_name1, F1_double_indeterminate_name2, F1_double_indeterminate_coeff, F1_triple_indeterminate_name1, F1_triple_indeterminate_name2, F1_triple_indeterminate_name3, F1_triple_indeterminate_coeff, s1, sc, d1, d2, dc, t1, t2, t3, tc, value) {
+    .Call(`_evitaicossa_c_aaa_overwriter`, F1_single_indeterminate_name1, F1_single_indeterminate_coeff, F1_double_indeterminate_name1, F1_double_indeterminate_name2, F1_double_indeterminate_coeff, F1_triple_indeterminate_name1, F1_triple_indeterminate_name2, F1_triple_indeterminate_name3, F1_triple_indeterminate_coeff, s1, sc, d1, d2, dc, t1, t2, t3, tc, value)
+}
+

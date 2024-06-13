@@ -444,3 +444,106 @@ linear3 <- function(x){aaa(t1 =letters[seq_along(x)],
                            tc = x)
 }
 
+extracter <- function(a,
+                      s1 = character(0),
+                      d1 = character(0),
+                      d2 = character(0),
+                      t1 = character(0),
+                      t2 = character(0),
+                      t3 = character(0)
+                      ){
+    return(lavter(c_aaa_extract( # the meat
+        F1_single_indeterminate_name1 = elements(s1(a)),
+        F1_single_indeterminate_coeff = elements(sc(a)),
+        F1_double_indeterminate_name1 = elements(d1(a)),
+        F1_double_indeterminate_name2 = elements(d2(a)),
+        F1_double_indeterminate_coeff = elements(dc(a)),
+        F1_triple_indeterminate_name1 = elements(t1(a)),
+        F1_triple_indeterminate_name2 = elements(t2(a)),
+        F1_triple_indeterminate_name3 = elements(t3(a)),
+        F1_triple_indeterminate_coeff = elements(tc(a)),
+        s1, d1, d2, t1, t2, t3)))
+}
+
+`overwriter` <- function(a,
+                      s1 = character(0),
+                      sc = numeric(0)  ,
+                      d1 = character(0),
+                      d2 = character(0),
+                      dc = numeric(0)  ,
+                      t1 = character(0),
+                      t2 = character(0),
+                      t3 = character(0),
+                      tc = numeric(0),
+                      value
+                      ){
+    return(lavter(c_aaa_overwriter( # the meat
+        F1_single_indeterminate_name1 = elements(s1(a)),
+        F1_single_indeterminate_coeff = elements(sc(a)),
+        F1_double_indeterminate_name1 = elements(d1(a)),
+        F1_double_indeterminate_name2 = elements(d2(a)),
+        F1_double_indeterminate_coeff = elements(dc(a)),
+        F1_triple_indeterminate_name1 = elements(t1(a)),
+        F1_triple_indeterminate_name2 = elements(t2(a)),
+        F1_triple_indeterminate_name3 = elements(t3(a)),
+        F1_triple_indeterminate_coeff = elements(tc(a)),
+        s1,         sc,
+        d1, d2,     dc,
+        t1, t2, t3, tc,
+        value
+    )))
+}
+
+`extracter<-` <- function(x, ..., value){
+    stopifnot(is.numeric(value))
+    stopifnot(length(value) == 1)
+    jj <- list(...)
+    browser()
+    return("hi there")
+}
+    
+setMethod("[", signature(x="aaa"),
+          function(x, ...){
+              jj <- list(...)
+              if(length(jj) == 0){return(x)}  # a[] returns a
+              return(extracter(x,
+                     as.character(jj$s1),
+                     as.character(jj$d1), as.character(jj$d2),
+                     as.character(jj$t1), as.character(jj$t2), as.character(jj$t3)
+                     ))
+          } )
+
+setMethod("[", signature(x="aaa",i="character"),
+          function(x, i, ...){
+              if(length(i) == 0){
+                  return(x)
+              } else if(length(i)>3){
+                  return(aaa())
+              } else if(length(i) == 1){
+                  return(extracter(x,s1=as.character(i[1])                                            ))
+              } else if(length(i) == 2){
+                  return(extracter(x,d1=as.character(i[1]),d2=as.character(i[2])                      ))
+              } else if(length(i) == 3){
+                  return(extracter(x,t1=as.character(i[1]),t2=as.character(i[2]),t3=as.character(i[3])))
+              } else {
+                  stop("this cannot happen")
+              }
+          } )
+
+setMethod("[<-", signature("aaa"),
+          function(x, ...){
+              stop("not yet implemented")
+          } )
+
+setMethod("[<-", signature("aaa",i="character",j="missing",value="numeric"),
+          function(x,i,j,value){  # a["x(y.z)"]
+              stopifnot(length(i)==1)
+              stop("not yet implemented")
+          } )
+
+setMethod("[<-", signature("aaa",i="disord",j="missing",value="numeric"),
+          function(x,i,j,value){
+              stop("not yet implemented")
+          } )
+
+

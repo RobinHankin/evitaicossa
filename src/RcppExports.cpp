@@ -113,12 +113,68 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// c_aaa_extract
+List c_aaa_extract(const CharacterVector F1_single_indeterminate_name1, const NumericVector F1_single_indeterminate_coeff, const CharacterVector F1_double_indeterminate_name1, const CharacterVector F1_double_indeterminate_name2, const NumericVector F1_double_indeterminate_coeff, const CharacterVector F1_triple_indeterminate_name1, const CharacterVector F1_triple_indeterminate_name2, const CharacterVector F1_triple_indeterminate_name3, const NumericVector F1_triple_indeterminate_coeff, const CharacterVector s1, const CharacterVector d1, const CharacterVector d2, const CharacterVector t1, const CharacterVector t2, const CharacterVector t3);
+RcppExport SEXP _evitaicossa_c_aaa_extract(SEXP F1_single_indeterminate_name1SEXP, SEXP F1_single_indeterminate_coeffSEXP, SEXP F1_double_indeterminate_name1SEXP, SEXP F1_double_indeterminate_name2SEXP, SEXP F1_double_indeterminate_coeffSEXP, SEXP F1_triple_indeterminate_name1SEXP, SEXP F1_triple_indeterminate_name2SEXP, SEXP F1_triple_indeterminate_name3SEXP, SEXP F1_triple_indeterminate_coeffSEXP, SEXP s1SEXP, SEXP d1SEXP, SEXP d2SEXP, SEXP t1SEXP, SEXP t2SEXP, SEXP t3SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const CharacterVector >::type F1_single_indeterminate_name1(F1_single_indeterminate_name1SEXP);
+    Rcpp::traits::input_parameter< const NumericVector >::type F1_single_indeterminate_coeff(F1_single_indeterminate_coeffSEXP);
+    Rcpp::traits::input_parameter< const CharacterVector >::type F1_double_indeterminate_name1(F1_double_indeterminate_name1SEXP);
+    Rcpp::traits::input_parameter< const CharacterVector >::type F1_double_indeterminate_name2(F1_double_indeterminate_name2SEXP);
+    Rcpp::traits::input_parameter< const NumericVector >::type F1_double_indeterminate_coeff(F1_double_indeterminate_coeffSEXP);
+    Rcpp::traits::input_parameter< const CharacterVector >::type F1_triple_indeterminate_name1(F1_triple_indeterminate_name1SEXP);
+    Rcpp::traits::input_parameter< const CharacterVector >::type F1_triple_indeterminate_name2(F1_triple_indeterminate_name2SEXP);
+    Rcpp::traits::input_parameter< const CharacterVector >::type F1_triple_indeterminate_name3(F1_triple_indeterminate_name3SEXP);
+    Rcpp::traits::input_parameter< const NumericVector >::type F1_triple_indeterminate_coeff(F1_triple_indeterminate_coeffSEXP);
+    Rcpp::traits::input_parameter< const CharacterVector >::type s1(s1SEXP);
+    Rcpp::traits::input_parameter< const CharacterVector >::type d1(d1SEXP);
+    Rcpp::traits::input_parameter< const CharacterVector >::type d2(d2SEXP);
+    Rcpp::traits::input_parameter< const CharacterVector >::type t1(t1SEXP);
+    Rcpp::traits::input_parameter< const CharacterVector >::type t2(t2SEXP);
+    Rcpp::traits::input_parameter< const CharacterVector >::type t3(t3SEXP);
+    rcpp_result_gen = Rcpp::wrap(c_aaa_extract(F1_single_indeterminate_name1, F1_single_indeterminate_coeff, F1_double_indeterminate_name1, F1_double_indeterminate_name2, F1_double_indeterminate_coeff, F1_triple_indeterminate_name1, F1_triple_indeterminate_name2, F1_triple_indeterminate_name3, F1_triple_indeterminate_coeff, s1, d1, d2, t1, t2, t3));
+    return rcpp_result_gen;
+END_RCPP
+}
+// c_aaa_overwriter
+List c_aaa_overwriter(const CharacterVector F1_single_indeterminate_name1, const NumericVector F1_single_indeterminate_coeff, const CharacterVector F1_double_indeterminate_name1, const CharacterVector F1_double_indeterminate_name2, const NumericVector F1_double_indeterminate_coeff, const CharacterVector F1_triple_indeterminate_name1, const CharacterVector F1_triple_indeterminate_name2, const CharacterVector F1_triple_indeterminate_name3, const NumericVector F1_triple_indeterminate_coeff, const CharacterVector s1, const NumericVector sc, const CharacterVector d1, const CharacterVector d2, const NumericVector dc, const CharacterVector t1, const CharacterVector t2, const CharacterVector t3, const NumericVector tc, const NumericVector value);
+RcppExport SEXP _evitaicossa_c_aaa_overwriter(SEXP F1_single_indeterminate_name1SEXP, SEXP F1_single_indeterminate_coeffSEXP, SEXP F1_double_indeterminate_name1SEXP, SEXP F1_double_indeterminate_name2SEXP, SEXP F1_double_indeterminate_coeffSEXP, SEXP F1_triple_indeterminate_name1SEXP, SEXP F1_triple_indeterminate_name2SEXP, SEXP F1_triple_indeterminate_name3SEXP, SEXP F1_triple_indeterminate_coeffSEXP, SEXP s1SEXP, SEXP scSEXP, SEXP d1SEXP, SEXP d2SEXP, SEXP dcSEXP, SEXP t1SEXP, SEXP t2SEXP, SEXP t3SEXP, SEXP tcSEXP, SEXP valueSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const CharacterVector >::type F1_single_indeterminate_name1(F1_single_indeterminate_name1SEXP);
+    Rcpp::traits::input_parameter< const NumericVector >::type F1_single_indeterminate_coeff(F1_single_indeterminate_coeffSEXP);
+    Rcpp::traits::input_parameter< const CharacterVector >::type F1_double_indeterminate_name1(F1_double_indeterminate_name1SEXP);
+    Rcpp::traits::input_parameter< const CharacterVector >::type F1_double_indeterminate_name2(F1_double_indeterminate_name2SEXP);
+    Rcpp::traits::input_parameter< const NumericVector >::type F1_double_indeterminate_coeff(F1_double_indeterminate_coeffSEXP);
+    Rcpp::traits::input_parameter< const CharacterVector >::type F1_triple_indeterminate_name1(F1_triple_indeterminate_name1SEXP);
+    Rcpp::traits::input_parameter< const CharacterVector >::type F1_triple_indeterminate_name2(F1_triple_indeterminate_name2SEXP);
+    Rcpp::traits::input_parameter< const CharacterVector >::type F1_triple_indeterminate_name3(F1_triple_indeterminate_name3SEXP);
+    Rcpp::traits::input_parameter< const NumericVector >::type F1_triple_indeterminate_coeff(F1_triple_indeterminate_coeffSEXP);
+    Rcpp::traits::input_parameter< const CharacterVector >::type s1(s1SEXP);
+    Rcpp::traits::input_parameter< const NumericVector >::type sc(scSEXP);
+    Rcpp::traits::input_parameter< const CharacterVector >::type d1(d1SEXP);
+    Rcpp::traits::input_parameter< const CharacterVector >::type d2(d2SEXP);
+    Rcpp::traits::input_parameter< const NumericVector >::type dc(dcSEXP);
+    Rcpp::traits::input_parameter< const CharacterVector >::type t1(t1SEXP);
+    Rcpp::traits::input_parameter< const CharacterVector >::type t2(t2SEXP);
+    Rcpp::traits::input_parameter< const CharacterVector >::type t3(t3SEXP);
+    Rcpp::traits::input_parameter< const NumericVector >::type tc(tcSEXP);
+    Rcpp::traits::input_parameter< const NumericVector >::type value(valueSEXP);
+    rcpp_result_gen = Rcpp::wrap(c_aaa_overwriter(F1_single_indeterminate_name1, F1_single_indeterminate_coeff, F1_double_indeterminate_name1, F1_double_indeterminate_name2, F1_double_indeterminate_coeff, F1_triple_indeterminate_name1, F1_triple_indeterminate_name2, F1_triple_indeterminate_name3, F1_triple_indeterminate_coeff, s1, sc, d1, d2, dc, t1, t2, t3, tc, value));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_evitaicossa_aaa_identity", (DL_FUNC) &_evitaicossa_aaa_identity, 9},
     {"_evitaicossa_c_aaa_add", (DL_FUNC) &_evitaicossa_c_aaa_add, 18},
     {"_evitaicossa_c_aaa_prod", (DL_FUNC) &_evitaicossa_c_aaa_prod, 18},
     {"_evitaicossa_c_aaa_equal", (DL_FUNC) &_evitaicossa_c_aaa_equal, 18},
+    {"_evitaicossa_c_aaa_extract", (DL_FUNC) &_evitaicossa_c_aaa_extract, 15},
+    {"_evitaicossa_c_aaa_overwriter", (DL_FUNC) &_evitaicossa_c_aaa_overwriter, 19},
     {NULL, NULL, 0}
 };
 
