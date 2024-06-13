@@ -239,6 +239,32 @@ double(a) <- double(b) * 1000
 a
 ```
 
+Square bracket extraction and replacement is also implemented:
+
+
+```{r label=showsquarebracketextract}
+(a <- raaa(s=5))
+a[s1=c("c","e"),t1="c",t2="d",t3="d"]
+```
+
+Above we pass named arguments (\code{s1} _et seq._) and the
+appropriate `aaa` object is returned.  Zero coeffients are discarded.
+This mode also implements replacement methods:
+
+```{r label=showsquarebracketreplace}
+(a <- raaa(s=5))
+a[s1="a",d1=c("c","w"),d2=c("d","w")] <- 888
+a
+```
+
+The other square bracket method is to pass an (unnamed) character
+vector:
+
+```{r unnamedcharacter}
+(a <- raaa())
+```
+
+
 ### Note on `disordR` discipline
 
 If we try to access the symbols or coefficients of an `aaa` object
