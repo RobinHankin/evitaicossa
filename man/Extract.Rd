@@ -46,6 +46,36 @@
   coefficients of the double-symbol components, and \dQuote{\code{t2()}}
   gets the second symbol of the triple-symbol components.
 
+ }
+ \usage{
+\S4method{s1}{aaa}(a)
+\S4method{sc}{aaa}(a)
+\S4method{d1}{aaa}(a)
+\S4method{d2}{aaa}(a)
+\S4method{dc}{aaa}(a)
+\S4method{t1}{aaa}(a)
+\S4method{t2}{aaa}(a)
+\S4method{t3}{aaa}(a)
+\S4method{tc}{aaa}(a)
+single(a)
+double(a)
+triple(a)
+}
+\arguments{\item{a}{Object of class \code{aaa}}}
+\details{
+
+  An \code{aaa} object is a list of 9 vectors, three numeric and six
+  character, which are extractd by functions \code{s1()} etc.
+
+  Functions \code{single()}, \code{double()} and
+  \code{triple()} extract the single, double, and triple components
+  of their argument, and return the corresponding \code{aaa} object.
+
+  There is no function \code{evitaicoss::coeffs()} because the three
+  types of elements are qualitatively different; use \code{sc()},
+  \code{dc()}, and \code{tc()} to get the coefficients in \code{disord}
+  format.
+
   Functions \code{getthings()}, \code{extracter()} and
   \code{overwriter()} are lower-level methods, not really intended for
   the end-user.  Function \code{getthings()} takes an \code{aaa} object
@@ -73,35 +103,6 @@
   vector of length one, two, or three specifying a particular term in
   the object.  See examples.
 
- }
- \usage{
-\S4method{s1}{aaa}(a)
-\S4method{sc}{aaa}(a)
-\S4method{d1}{aaa}(a)
-\S4method{d2}{aaa}(a)
-\S4method{dc}{aaa}(a)
-\S4method{t1}{aaa}(a)
-\S4method{t2}{aaa}(a)
-\S4method{t3}{aaa}(a)
-\S4method{tc}{aaa}(a)
-single(a)
-double(a)
-triple(a)
-}
-\arguments{\item{a}{Object of class \code{aaa}}}
-\details{
-  An \code{aaa} object is a list of 9 vectors, three numeric and six
-  character, which are extractd by functions \code{s1()} etc.
-
-  Functions \code{single()}, \code{double()} and
-  \code{triple()} extract the single, double, and triple components
-  of their argument, and return the corresponding \code{aaa} object.
-
-  There is no function \code{evitaicoss::coeffs()} because the three
-  types of elements are qualitatively different; use \code{sc()},
-  \code{dc()}, and \code{tc()} to get the coefficients in \code{disord}
-  format.
-  
   }
 \value{Return disord or \code{aaa} objects}
 \author{Robin K. S. Hankin}
