@@ -73,6 +73,8 @@ checker1 <- function(x){
     triple(jj) <- 0
     expect_true(is.zero(triple(jj)))
 
+    expect_true(x[cbind(allsymbols(x))] == single(x))
+    
     return(TRUE)
 }  # checker1() closes
 

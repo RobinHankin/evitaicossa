@@ -216,6 +216,15 @@ setMethod("t2",signature(a="aaa"),function(a){getthings(a)$t2})
 setMethod("t3",signature(a="aaa"),function(a){getthings(a)$t3})
 setMethod("tc",signature(a="aaa"),function(a){getthings(a)$tc})
 
+`allsymbols` <- function(a){
+    jj <- getthings(a)
+    sort(unique(c(
+        elements(jj$s1),
+        elements(jj$d1),elements(jj$d2),
+        elements(jj$t1),elements(jj$t2),elements(jj$t3)
+    )))
+}
+
 "aaa_arith_aaa" <- function(e1,e2){
   switch(.Generic,
          "+" = aaa_plus_aaa(e1, e2),
