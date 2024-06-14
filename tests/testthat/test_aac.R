@@ -106,5 +106,17 @@ expect_true(jj == as.aaa(list(
                       t3 = c("d", "c", "a"),
                       tc = c( 3 ,  2 ,  4 ))))
 
+expect_true(a[] == a)
+expect_true(
+    a[s1="a",t1=c("b","c"),t2=c("b","b"),t3=c("d","c")] ==
+    aaa(
+        s1=c("a"    ),                            sc=3,
+        t1=c("b","c"),t2=c("b","b"),t3=c("d","c"),tc=3:2)
+    )
 
-})
+
+expect_true(a["b"] == aaa(s1="b",sc=4))
+expect_true(a[c("d", "d")] == aaa(d1="d",d2="d",dc=4))
+expect_true(a[c("d", "c","a")] == aaa(t1="d",t2="c",t3="a",tc=4))
+
+} )
