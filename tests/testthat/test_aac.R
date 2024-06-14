@@ -119,4 +119,79 @@ expect_true(a["b"] == aaa(s1="b",sc=4))
 expect_true(a[c("d", "d")] == aaa(d1="d",d2="d",dc=4))
 expect_true(a[c("d", "c","a")] == aaa(t1="d",t2="c",t3="a",tc=4))
 
+jj <- a
+jj[] <- 5
+expect_true(
+    jj ==  as.aaa(list(
+               s1 = c("a", "b", "d"),
+               sc = c( 5 ,  5 ,  5 ),
+               d1 = c("c", "d", "d"),
+               d2 = c("a", "c", "d"),
+               dc = c( 5 ,  5 ,  5 ),
+               t1 = c("b", "c", "d"),
+               t2 = c("b", "b", "c"),
+               t3 = c("d", "c", "a"),
+               tc = c( 5 ,  5 ,  5 )
+           ))
+)
+
+jj <- a
+jj["d"] <- 88
+expect_true(jj ==  as.aaa(list(
+    s1 = c("a", "b", "d"),
+    sc = c( 3 ,  4 ,  88),
+    d1 = c("c", "d", "d"),
+    d2 = c("a", "c", "d"),
+    dc = c( 4 ,  1 ,  4 ),
+    t1 = c("b", "c", "d"),
+    t2 = c("b", "b", "c"),
+    t3 = c("d", "c", "a"),
+    tc = c( 3 ,  2 ,  4 )))
+    )
+
+jj <- a
+jj["x"] <- 88
+expect_true(jj ==  as.aaa(list(
+    s1 = c("a", "b", "d", "x"),
+    sc = c( 3 ,  4 ,  4 ,  88),
+    d1 = c("c", "d", "d"),
+    d2 = c("a", "c", "d"),
+    dc = c( 4 ,  1 ,  4 ),
+    t1 = c("b", "c", "d"),
+    t2 = c("b", "b", "c"),
+    t3 = c("d", "c", "a"),
+    tc = c( 3 ,  2 ,  4 )))
+    )
+
+jj <- a
+jj[c("c","a")] <- 88
+expect_true(jj ==  as.aaa(list(
+    s1 = c("a", "b", "d"),
+    sc = c( 3 ,  4 ,  4 ),
+    d1 = c("c", "d", "d"),
+    d2 = c("a", "c", "d"),
+    dc = c(88 ,  1 ,  4 ),
+    t1 = c("b", "c", "d"),
+    t2 = c("b", "b", "c"),
+    t3 = c("d", "c", "a"),
+    tc = c( 3 ,  2 ,  4 )))
+    )
+
+
+jj <- a
+jj[c("c","b","c")] <- 88
+expect_true(jj == as.aaa(list(
+    s1 = c("a", "b", "d"),
+    sc = c( 3 ,  4 ,  4 ),
+    d1 = c("c", "d", "d"),
+    d2 = c("a", "c", "d"),
+    dc = c( 4 ,  1 ,  4 ),
+    t1 = c("b", "c", "d"),
+    t2 = c("b", "b", "c"),
+    t3 = c("d", "c", "a"),
+    tc = c( 3 , 88 ,  4 )))
+
+
+
+
 } )

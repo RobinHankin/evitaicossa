@@ -73,7 +73,24 @@ checker1 <- function(x){
     triple(jj) <- 0
     expect_true(is.zero(triple(jj)))
 
-    expect_true(x[cbind(allsymbols(x))] == single(x))
+    as <- allsymbols(x)
+    
+    expect_true(x[cbind(as)] == single(x))
+
+    expect_true(is.zero(x[letters[1:4]]))
+    expect_true(x[character(0)] == x)
+
+    if(is.zero(x)){
+        expect_true(single(x) == x)
+        expect_true(double(x) == x)
+        expect_true(triple(x) == x)
+    } else {
+        expect_true(x[as.matrix(expand.grid(as      ))] == single(x))
+        expect_true(x[as.matrix(expand.grid(as,as   ))] == double(x))
+        expect_true(x[as.matrix(expand.grid(as,as,as))] == triple(x))
+    }
+
+    expect_error(x[matrix(letters[1:25],5,5)])
     
     return(TRUE)
 }  # checker1() closes
