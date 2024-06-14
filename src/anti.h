@@ -2,7 +2,7 @@
 
 #include <Rcpp.h>
 #include <map>
-#include <string.h>
+
 
 using namespace Rcpp;
 using namespace std;
