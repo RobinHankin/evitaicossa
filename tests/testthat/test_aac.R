@@ -189,9 +189,7 @@ expect_true(jj == as.aaa(list(
     t1 = c("b", "c", "d"),
     t2 = c("b", "b", "c"),
     t3 = c("d", "c", "a"),
-    tc = c( 3 , 88 ,  4 )))
-
-
+    tc = c( 3 , 88 ,  4 ))))
 
 
 } )
