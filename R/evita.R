@@ -494,13 +494,6 @@ extracter <- function(a,
     )))
 }
 
-`extracter<-` <- function(x, ..., value){
-    stopifnot(is.numeric(value))
-    stopifnot(length(value) == 1)
-    jj <- list(...)
-    return("hi there")
-}
-    
 setMethod("[", signature(x="aaa"),
           function(x, ...){
               jj <- list(...)
