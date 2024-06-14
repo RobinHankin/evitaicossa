@@ -529,6 +529,20 @@ setMethod("[", signature(x="aaa",i="character"),
               }
           } )
 
+setMethod("[", signature(x="aaa",i="matrix"),
+          function(x, i, ...){
+              stopifnot(is.character(i))
+              if(ncol(i) == 1){
+                  return(x[s1=i[,1]])
+              } else if(ncol(i) == 2){
+                  return(x[d1=i[,1],d2=i[,2]])
+              } else if(ncol(i) == 3){
+                  return(x[t1=i[,1],t2=i[,2],t3=i[,3]])
+              } else {
+                  stop("index matrix must have 1,2 or 3 columns")
+              }
+          } )
+
 setReplaceMethod("[", signature("aaa"),    # a[d1='a',d2='c'] <- 33
           function(x, i, ..., value){ # NB argument i is _missing_
               stopifnot(is.numeric(value))
@@ -592,9 +606,23 @@ setReplaceMethod("[", signature("aaa",i="character",j="missing",value="numeric")
               }
           } )
 
+setReplaceMethod("[", signature(x="aaa",i="matrix"),
+          function(x, i, ..., value){
+              stopifnot(is.character(i))
+              if(ncol(i) == 1){
+                  x[s1=i[,1]] <- value
+              } else if(ncol(i) == 2){
+                  x[d1=i[,1],d2=i[,2]] <- value
+              } else if(ncol(i) == 3){
+                  x[t1=i[,1],t2=i[,2],t3=i[,3]] <- value
+              } else {
+                  stop("index matrix must have 1,2 or 3 columns")
+              }
+              return(x)
+          } )
+
 setMethod("[<-", signature("aaa",i="disord",j="missing",value="numeric"),
           function(x,i,j,value){
               stop("not implemented yet")
           } )
-
 

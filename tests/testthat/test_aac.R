@@ -90,4 +90,21 @@ expect_true(b*a == `b*a`)
 expect_true(a+a*b == `a+a*b`)
 expect_true(b+b*a == `b+b*a`)
 
+expect_true(extracter(a,c("a","b")) == aaa(s1=c("a","b"),sc=3:4))
+expect_true(extracter(a,c("a","b")) == aaa(s1=c("b","a"),sc=4:3))
+expect_true(a["d"] == as.aaa("d")*4)
+jj <- a
+jj[d1=letters[1:3],d2=letters[1:3]] <- 888
+expect_true(jj == as.aaa(list(
+                      s1 = c("a", "b", "d"),
+                      sc = c( 3 ,  4 ,  4 ),
+                      d1 = c("c", "d", "d",letters[1:3]),
+                      d2 = c("a", "c", "d",letters[1:3]),
+                      dc = c( 4 ,  1 ,  4, 888,888,888),
+                      t1 = c("b", "c", "d"),
+                      t2 = c("b", "b", "c"),
+                      t3 = c("d", "c", "a"),
+                      tc = c( 3 ,  2 ,  4 ))))
+
+
 })

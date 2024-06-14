@@ -290,6 +290,22 @@ Above, see how the double-symbol terms and double-symbol coefficients
 have consistent hashes, but do not match the single-symbol objects (or
 indeed the triple-symbol objects).
 
+## Matrix index extraction
+
+If square bracket extraction is given an index that is a matrix, it is
+interpreted rowwise:
+
+
+```{r label=matrixindex}
+l <- letters[1:3]
+(a <- aaa(s1=l,sc=1:3, d1=l,d2=rev(l),dc=3:1,t1=l,t2=l,t3=rev(l),tc=1:3))
+a[cbind(l,l)]
+a[cbind(rev(l),l,l)] <- 88
+a
+```
+
+
+
 
 ## Note on generalized antiassociativity
 
