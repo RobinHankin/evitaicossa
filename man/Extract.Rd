@@ -71,7 +71,7 @@ triple(a)
   \code{triple()} extract the single, double, and triple components
   of their argument, and return the corresponding \code{aaa} object.
 
-  There is no function \code{evitaicoss::coeffs()} because the three
+  There is no function \code{evitaicossa::coeffs()} because the three
   types of elements are qualitatively different; use \code{sc()},
   \code{dc()}, and \code{tc()} to get the coefficients in \code{disord}
   format.
