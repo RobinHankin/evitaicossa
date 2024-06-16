@@ -106,7 +106,10 @@ triple <- function(a){
 
 `single<-` <- function(a,value){
     if(is.numeric(value)){  # single(a) <- 0
-        if(value==0){value <- aaa()}
+        if(value==0){value <- aaa()
+        } else {
+            stop("the only numeric value acceptable on the RHS is zero")
+        }
     }
     if(!(is.zero(double(value)) && is.zero(triple(value)))){
         stop("double and triple parts of value ignored")
@@ -126,8 +129,11 @@ triple <- function(a){
 }
 
 `double<-` <- function(a,value){
-    if(is.numeric(value)){  # single(a) <- 0
-        if(value==0){value <- aaa()}
+    if(is.numeric(value)){  # double(a) <- 0
+        if(value==0){value <- aaa()
+        } else {
+            stop("the only numeric value acceptable on the RHS is zero")
+        }
     }
     if(!(is.zero(single(value)) && is.zero(triple(value)))){
         stop("single and triple parts of value ignored")
@@ -148,8 +154,12 @@ triple <- function(a){
 
 `triple<-` <- function(a,value){
 
-    if(is.numeric(value)){  # single(a) <- 0
-        if(value==0){value <- aaa()}
+    if(is.numeric(value)){  # triple(a) <- 0
+        if(value==0){
+            value <- aaa()
+        } else {
+            stop("the only numeric value acceptable on the RHS is zero")
+        }
     }
     if(!(is.zero(single(value)) && is.zero(double(value)))){
         stop("single and double parts of value ignored")

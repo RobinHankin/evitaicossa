@@ -199,4 +199,8 @@ expect_true(jj == as.aaa(list(
                       tc = c( 88,  2 ,  4 ,  88)))
             )
 
+expect_error(single(a) <- 1)
+expect_error(double(a) <- 1)
+expect_error(triple(a) <- 1)
+
 } )
