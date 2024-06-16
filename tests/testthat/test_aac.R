@@ -191,5 +191,77 @@ expect_true(jj == as.aaa(list(
     t3 = c("d", "c", "a"),
     tc = c( 3 , 88 ,  4 ))))
 
+jj <- a 
+expect_error(jj[c("d","c","a","a")] <- 888)
+
+
+jj <- a
+jj[d1=c("d","a","x"),d2=c("c","c","x")] <- 55
+expect_true(jj == as.aaa(list(
+    s1 = c("a", "b", "d"),
+    sc = c( 3 ,  4 ,  4 ),
+    d1 = c("c", "d", "d", "a", "x"),
+    d2 = c("a", "c", "d", "c", "x"),
+    dc = c( 4 , 55 ,  4 , 55 , 55 ),
+    t1 = c("b", "c", "d"),
+    t2 = c("b", "b", "c"),
+    t3 = c("d", "c", "a"),
+    tc = c( 3 ,  2 ,  4 ))))
+
+
+jj <- a
+jj[rbind(
+    "a",
+    "x"
+)] <- 55
+expect_true(
+    jj == as.aaa(list(
+              s1 = c("a", "b", "d", "x"),
+              sc = c(55 ,  4 ,  4 , 55 ),
+              d1 = c("c", "d", "d"),
+              d2 = c("a", "c", "d"),
+              dc = c( 4 ,  1 ,  4 ),
+              t1 = c("b", "c", "d"),
+              t2 = c("b", "b", "c"),
+              t3 = c("d", "c", "a"),
+              tc = c( 3 ,  2 ,  4 )))
+)
+
+
+jj <- a
+jj[rbind(
+    c("d", "c"),
+    c("a", "c"),
+    c("x", "x")
+)] <- 55
+expect_true(
+    jj == as.aaa(list(
+              s1 = c("a", "b", "d"),
+              sc = c( 3 ,  4 ,  4 ),
+              d1 = c("c", "d", "d", "a", "x"),
+              d2 = c("a", "c", "d", "c", "x"),
+              dc = c( 4 , 55 ,  4 , 55 , 55 ),
+              t1 = c("b", "c", "d"),
+              t2 = c("b", "b", "c"),
+              t3 = c("d", "c", "a"),
+              tc = c( 3 ,  2 ,  4 )))
+)
+
+jj <- a
+jj[rbind(
+    c("b", "b", "d"),
+    c("d", "d", "a")
+)] <- 88
+expect_true(jj == as.aaa(list(
+                      s1 = c("a", "b", "d"),
+                      sc = c( 3 ,  4 ,  4 ),
+                      d1 = c("c", "d", "d"),
+                      d2 = c("a", "c", "d"),
+                      dc = c( 4 ,  1 ,  4 ),
+                      t1 = c("b", "c", "d", "d"),
+                      t2 = c("b", "b", "c", "d"),
+                      t3 = c("d", "c", "a", "a"),
+                      tc = c( 88,  2 ,  4 ,  88)))
+            )
 
 } )
