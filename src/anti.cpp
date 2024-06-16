@@ -319,7 +319,9 @@ aaa prod_anti(const aaa F1, const aaa F2){
 a1 a1maker(
 	   const CharacterVector names1,
 	   const NumericVector coeffs){
-  if(names1.size() != coeffs.size()) {
+  if(
+     names1.size() != coeffs.size()
+     ){
     throw std::invalid_argument("a1maker(): names and coeffs are not same length");
   }
   a1 out;
@@ -337,7 +339,10 @@ a2 a2maker(
 	   const CharacterVector names1,
 	   const CharacterVector names2,
 	   const NumericVector coeffs){
-  if(names1.size() != coeffs.size()) {
+  if(
+     (names1.size() != coeffs.size()) ||
+     (names2.size() != coeffs.size())
+     ){
     throw std::invalid_argument("a2maker(): names and coeffs are not same length");
   }
   a2 out;
@@ -357,7 +362,11 @@ a3 a3maker(
 	   const CharacterVector names2,
 	   const CharacterVector names3,
 	   const NumericVector coeffs){
-  if(names1.size() != coeffs.size()) {
+  if(
+     (names1.size() != coeffs.size()) ||
+     (names2.size() != coeffs.size()) ||
+     (names3.size() != coeffs.size())
+     ){
     throw std::invalid_argument("a3maker(): names and coeffs are not same length");
   }
   a3 out;
