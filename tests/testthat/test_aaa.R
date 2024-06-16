@@ -91,6 +91,8 @@ checker1 <- function(x){
     }
 
     expect_error(x[matrix(letters[1:25],5,5)])
+    expect_error(x[matrix(letters[1:25],5,5)] <- 33)
+    expect_error(x[t3(x)] <- 44)
     
     return(TRUE)
 }  # checker1() closes
