@@ -545,7 +545,7 @@ setMethod("[", signature(x="aaa",i="matrix"),
               }
           } )
 
-setReplaceMethod("[", signature("aaa"),    # a[d1='a',d2='c'] <- 33
+setReplaceMethod("[", signature("aaa",i="missing"),    # a[d1='a',d2='c'] <- 33
           function(x, i, ..., value){ # NB argument i is _missing_
               stopifnot(is.numeric(value))
               stopifnot(length(value) == 1)
@@ -569,11 +569,11 @@ setReplaceMethod("[", signature("aaa"),    # a[d1='a',d2='c'] <- 33
                       s1 = as.character(jj$s1),
                       sc = as.numeric  (jj$sc),
                       d1 = as.character(jj$d1),
-                      d2 = as.character(jj$d1),
+                      d2 = as.character(jj$d2),
                       dc = as.numeric  (jj$dc),
                       t1 = as.character(jj$t1),
-                      t2 = as.character(jj$t1),
-                      t3 = as.character(jj$t1),
+                      t2 = as.character(jj$t2),
+                      t3 = as.character(jj$t3),
                       tc = as.numeric  (jj$tc),
                       value # the meat
                   ))                      
