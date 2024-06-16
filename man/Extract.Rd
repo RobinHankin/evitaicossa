@@ -32,22 +32,26 @@
 \alias{c_aaa_overwriter}
 \alias{[,aaa,ANY,ANY,ANY-method}
 \alias{[,aaa,character,ANY,ANY-method}
+\alias{[,aaa,matrix,ANY,ANY-method}
 \alias{[<-,aaa,ANY,ANY,ANY-method}
 \alias{[<-,aaa,character,missing,numeric-method}
+\alias{[<-,aaa,matrix,ANY,ANY-method}
+\alias{[<-,aaa,missing,ANY,ANY-method}
 \alias{[<-,aaa,disord,missing,numeric-method}
 \title{Extract or Replace Parts of \code{aaa} objects}
 \description{
 
   Extraction methods for \code{aaa} objects.  The names of the
-  two-letter functions follow a pattern: the initial letter (s, d, t)
-  stands for \dQuote{single}, \dQuote{double}, or \dQuote{triple}; the
-  second symbol is c for \dQuote{coefficients}, or a number (1, 2, 3)
-  denoting first, second, or third.  Thus \dQuote{\code{dc()}} gets the
-  coefficients of the double-symbol components, and \dQuote{\code{t2()}}
-  gets the second symbol of the triple-symbol components.
+  two-letter functions and arguments follow a pattern: the initial
+  letter (s, d, t) stands for \dQuote{single}, \dQuote{double}, or
+  \dQuote{triple}; the second symbol is c for \dQuote{coefficients}, or
+  a number (1, 2, 3) denoting first, second, or third.  Thus
+  \dQuote{\code{dc()}} gets the coefficients of the double-symbol
+  components, and \dQuote{\code{t2()}} gets the second symbol of the
+  triple-symbol components.
 
- }
- \usage{
+}
+\usage{
 \S4method{s1}{aaa}(a)
 \S4method{sc}{aaa}(a)
 \S4method{d1}{aaa}(a)
