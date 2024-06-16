@@ -1,4 +1,5 @@
-# This test suite does some spot-checks that catch some now hopefully corrected bugs
+# This test suite does some spot-checks that catch some now hopefully
+# corrected bugs in teh extraction routines
 
 test_that("Test suite aad.R",{  
 
