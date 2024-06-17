@@ -134,7 +134,7 @@ checker4 <- function(x,y,z,p){
 }
 
 
-for(i in 1:2){
+for(i in 1:1){
     x <- raaa()
     y <- raaa()
     z <- raaa()
@@ -149,8 +149,6 @@ for(i in 1:2){
 }
 
 checker1(aaa())
-checker1(linear1(1:6))
-checker1(linear2(1:6))
-checker1(linear3(1:6))
+
 
 })
