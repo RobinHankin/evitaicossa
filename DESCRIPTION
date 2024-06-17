@@ -13,4 +13,4 @@ Imports: Rcpp (>= 1.0-7), mathjaxr, disordR (>= 0.9-8-2), methods, Rdpack
 LinkingTo: Rcpp
 URL: https://github.com/RobinHankin/evitaicossa
 BugReports: https://github.com/RobinHankin/evitaicossa/issues
-RdMacros: mathjaxr,Rdpack
+RdMacros: Rdpack

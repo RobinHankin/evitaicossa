@@ -4,7 +4,7 @@
 \alias{linear2}
 \alias{linear3}
 \title{Linear functions}
-\description{\loadmathjax
+\description{
   Linear functions returning single, double, or triple-symbol \code{aaa}
   objects.
 }
@@ -19,12 +19,12 @@ linear3(x)
 These functions return an antiassociative algebra element with the
 specified coefficients.  They are linear in the sense that
 
-\mjdeqn{
+\deqn{
   f(\alpha\mathbf{x}+\beta\mathbf{y})=
 \alpha f(\mathbf{x})+\beta f(\mathbf{y})}{f(ax+by)=af(x)+bf(y)}
 
-where \mjeqn{\alpha,\beta\in\mathbb{R}}{omitted} and
-\mjeqn{\mathbf{x},\mathbf{y}\in\mathbb{R}^n}{omitted}.
+where \eqn{\alpha,\beta\in\mathbb{R}}{omitted} and
+\eqn{\mathbf{x},\mathbf{y}\in\mathbb{R}^n}{omitted}.
 
 }
 \value{These functions return an object of class \code{aaa}.}
