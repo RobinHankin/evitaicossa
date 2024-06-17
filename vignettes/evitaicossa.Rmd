@@ -34,11 +34,11 @@ following axioms:
 * Distributivity WRT field addition, $(a+b)\mathbf{u} =
   a\mathbf{u}+b\mathbf{u}$
 
-(above, $\mathbf{u},\mathbf{v}\in V$ are vectors, $a,b$ are scalars
-[here the real numbers], and $1$ is the multiplicative identity).  We
-denote vector multiplication using juxtaposition, as in
-$\mathbf{u}\mathbf{v}$, although some authors use a dot, as in
-$\mathbf{u}\cdot\mathbf{v}$.
+Above, $\mathbf{u},\mathbf{v}\in V$ are vectors, $a,b$ are scalars
+[here the real numbers], and $1$ is the multiplicative identity.  We
+also require a bilinear vector product, mapping pairs of vectors to
+vectors; vector multiplication is denoted using juxtaposition, as in
+$\mathbf{u}\mathbf{v}$, which satisfies the following axioms:
 
 * Right distributivity, $(\mathbf{u}+\mathbf{v})\mathbf{w} =
   \mathbf{u}\mathbf{w}+ \mathbf{u}\mathbf{w}$
@@ -63,10 +63,10 @@ $\mathbf{u}(\mathbf{v}\mathbf{w})=-(\mathbf{u}\mathbf{v})\mathbf{w}$.
 
 Algebras satisfying
 $\mathbf{u}(\mathbf{v}\mathbf{w})=-(\mathbf{u}\mathbf{v})\mathbf{w}$
-exhibit some startling behaviour.  Firstly, the vector there are no
-scalars except for $0\in\mathbb{R}$.  Proof: for any $x\in\mathbb{R}$,
-we have $x^3=x(xx)=-(xx)x=-x^3$; thus $x^3=-x^3$, so $x=0$.  Secondly,
-antiassociative algebras are nilpotent of order 4:
+exhibit some startling behaviour.  Firstly, in the vector space there
+are no scalars except for $0\in\mathbb{R}$.  Proof: for any
+$x\in\mathbb{R}$, we have $x^3=x(xx)=-(xx)x=-x^3$; thus $x^3=-x^3$, so
+$x=0$.  Secondly, antiassociative algebras are nilpotent of order 4:
 
 $$
 (\mathbf{a}\mathbf{b})(\mathbf{c}\mathbf{d}) =
