@@ -158,7 +158,7 @@ a3 sum3(a3 F1, a3 F2){
 }
 
 
-a2 prod_a1_a1(const a1 F1, const a1 F2){
+a2 prod_a1_a1(const a1 &F1, const a1 &F2){
   a2 out;
   for(auto it1 = F1.begin() ; it1 != F1.end() ; ++it1){
     for(auto it2 = F2.begin() ; it2 != F2.end() ; ++it2){
