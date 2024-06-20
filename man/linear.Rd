@@ -17,7 +17,17 @@ linear3(x)
 \details{
 
 These functions return an antiassociative algebra element with the
-specified coefficients.  They are linear in the sense that
+specified coefficients.  Given a numeric vector \code{v} with elements
+\eqn{v_1,v_2,\ldots, v_n}{v_1,...,v_n} then
+
+\code{linear1(v)} returns \eqn{v_1\mathbf{a} + v_2\mathbf{b}+\cdots+
+v_n\mathbf{L_n}}{omitted}, where \eqn{\mathbf{L_n}}{L_n} is the
+\eqn{n^\mathrm{th}}{n-th} letter of the alphabet.  Similarly,
+\code{linear2(v)} returns \eqn{v_1\mathbf{a}\mathbf{a}+\cdots+
+v_n\mathbf{L_n}\mathbf{L_n}}{omitted}, and \code{linear3(v)} returns
+\eqn{v_1(\mathbf{a}\mathbf{a})\mathbf{a}+\cdots+
+v_n(\mathbf{L_n}\mathbf{L_n})\mathbf{L_n}}{omitted}. They are linear in
+the sense that
 
 \deqn{
   f(\alpha\mathbf{x}+\beta\mathbf{y})=
