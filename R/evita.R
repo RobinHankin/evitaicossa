@@ -29,8 +29,7 @@ setClass("aaa",
              stopifnot(min(l1)==max(l1))
              stopifnot(min(l2)==max(l2))
              stopifnot(min(l3)==max(l3))
-         }
-         )
+         } )
 
 `aaa` <-
     function(
@@ -77,8 +76,7 @@ lavter <- function(cout){   # "lavter" is "retval" in reverse
         triple_indeterminate_name2 = tn[2,],
         triple_indeterminate_name3 = tn[3,],
         triple_indeterminate_coeff = cout$coeffs3
-        )
-}
+        ) }
 
 single <- function(a){
     aaa(
@@ -106,13 +104,14 @@ triple <- function(a){
 
 `single<-` <- function(a,value){
     if(is.numeric(value)){  # single(a) <- 0
-        if(value==0){value <- aaa()
+        if(value==0){
+            value <- aaa()
         } else {
             stop("the only numeric value acceptable on the RHS is zero")
         }
     }
     if(!(is.zero(double(value)) && is.zero(triple(value)))){
-        stop("double and triple parts of value ignored")
+        stop("double and triple parts of value must be zero")
     }
 
     aaa(
@@ -130,13 +129,14 @@ triple <- function(a){
 
 `double<-` <- function(a,value){
     if(is.numeric(value)){  # double(a) <- 0
-        if(value==0){value <- aaa()
+        if(value==0){
+            value <- aaa()
         } else {
             stop("the only numeric value acceptable on the RHS is zero")
         }
     }
     if(!(is.zero(single(value)) && is.zero(triple(value)))){
-        stop("single and triple parts of value ignored")
+        stop("single and triple parts of value must be zero")
     }
 
     aaa(
@@ -162,7 +162,7 @@ triple <- function(a){
         }
     }
     if(!(is.zero(single(value)) && is.zero(double(value)))){
-        stop("single and double parts of value ignored")
+        stop("single and double parts of value must be zero")
     }
 
     aaa(
@@ -374,9 +374,8 @@ setMethod("tc",signature(a="aaa"),function(a){getthings(a)$tc})
 }
 
 `aaa_plus_numeric`  <- function(a,b){
-    stop("there are no scalars in antiassociative algebras (except zero, I guess)")
+    stop("there are no scalars in antiassociative algebras (except zero)")
 }
-
 
 `aaa_power_numeric` <- function(e1,e2){ # e1^e2
     if(e2==1){
@@ -396,7 +395,6 @@ setMethod("-", signature(e1 = "aaa", e2 = "missing"), function(e1,e2){aaa_negati
 setMethod("Arith",signature(e1 = "aaa"  , e2="aaa"    ), aaa_arith_aaa     )
 setMethod("Arith",signature(e1 = "aaa"  , e2="numeric"), aaa_arith_numeric )
 setMethod("Arith",signature(e1 = "numeric", e2="aaa"  ), numeric_arith_aaa )
-
 
 `as.aaa` <- function(s){
     if(is.list(s)){
