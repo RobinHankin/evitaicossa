@@ -31,5 +31,6 @@ aaa_show(a)
 \author{Robin K. S. Hankin}
 \examples{
 aaa_show(raaa())
+aaa_show(aaa())
 }
 
