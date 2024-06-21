@@ -3,7 +3,7 @@
 \alias{print}
 \alias{print.aaa}
 \alias{aaa_show}
-\alias{putsig}
+\alias{putsign}
 \alias{single_string}
 \alias{double_string}
 \alias{triple_string}
@@ -21,7 +21,7 @@ aaa_show(a)
 
   A bunch of functionality to print \code{aaa} objects.
 
-  Function \code{putsig()} is a low-level helper function that puts the
+  Function \code{putsign()} is a low-level helper function that puts the
   sign (that is, \code{+} or \code{-}) before each element of a numeric
   vector.  Functions \code{single_string()}, \code{double_string()}, and
   \code{triple_string()} process the 1,2, and 3- symbols for printing.

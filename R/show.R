@@ -9,7 +9,7 @@ setMethod("show", "aaa",
               }
           } )
 
-putsig <- function(x){paste(ifelse(x>0,"+","-"),abs(x),sep="")}  # put sign in
+putsign <- function(x){paste(ifelse(x>0,"+","-"),abs(x),sep="")}  # put sign in
 
 aaa_show <- function(a){
     noquote(paste(
