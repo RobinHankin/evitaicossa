@@ -23,7 +23,7 @@ single_string <- function(a){
     sc <- elements(sc(a))
     s1 <- elements(s1(a))
     if(length(sc)==0){return("")}
-    paste(paste(putsig(sc),s1,sep=""),collapse=" ")
+    paste(paste(putsign(sc),s1,sep=""),collapse=" ")
 }
 
 double_string <- function(a){
@@ -31,7 +31,7 @@ double_string <- function(a){
     d1 <- elements(d1(a))
     d2 <- elements(d2(a))
     if(length(dc)==0){return("")}
-    paste(paste(putsig(dc),d1,".",d2,sep=""),collapse=" ")
+    paste(paste(putsign(dc),d1,".",d2,sep=""),collapse=" ")
 }
 
 triple_string <- function(a){
@@ -40,5 +40,5 @@ triple_string <- function(a){
     t2 <- elements(t2(a))
     t3 <- elements(t3(a))
     if(length(tc)==0){return("")}
-    paste(paste(putsig(tc),"(",t1,".",t2,")",t3,sep=""),collapse=" ")
+    paste(paste(putsign(tc),"(",t1,".",t2,")",t3,sep=""),collapse=" ")
 }
