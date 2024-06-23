@@ -27,7 +27,7 @@ aaa_show(a)
   \code{triple_string()} process the 1,2, and 3- symbols for printing.
   
 }
-  
+\value{No return value, called for side-effects}  
 \author{Robin K. S. Hankin}
 \examples{
 aaa_show(raaa())

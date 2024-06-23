@@ -4,7 +4,14 @@ Title: Antiassociative Algebra
 Version: 0.0-1
 Authors@R: person(given=c("Robin", "K. S."), family="Hankin", role = c("aut","cre"), email="hankin.robin@gmail.com", comment = c(ORCID = "0000-0001-5982-0415"))
 Maintainer: Robin K. S. Hankin <hankin.robin@gmail.com>
-Description: Methods to deal with antiassociative algebras.
+Description: Methods to deal with the free antiassociative algebra
+      over the reals with an arbitrary number of indeterminates.
+      Antiassociativity means that (xy)z = -x(yz).  Antiassociative
+      algebras are nilpotent with nilindex four and this drives the
+      design and philosophy of the package.  Methods are defined to
+      create and manipulate arbitrary elements of the antiassociative
+      algebra, and to extract and replace coefficients.  A vignette is
+      provided.
 License: GPL (>= 2)
 Depends: R (>= 3.5.0)
 Suggests: knitr, markdown, rmarkdown, testthat, mvtnorm, covr
