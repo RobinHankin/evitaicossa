@@ -1,0 +1,26 @@
+To create evitaicossa_arxiv.pdf, first use Sweave:
+
+R CMD Sweave evitaicossa_arxiv.Rnw
+
+this will create evitaicossa_arxiv.tex
+
+To process this with latex, you will need various auxiliary files such
+as arxiv.sty and orcid.pdf.  These are not under version control, you
+will have to find these on the web.  File evitaicossa.png (the hex
+sticker) is in the man/figures directory and evitaicossa.bib (the
+bibliography file) is in the vignettes/ directory.  Copy these files
+to this directory, inst/
+
+Then to create evitaicossa_arxiv.pdf:
+
+pdflatex evitaicossa_arxiv
+bibtex   evitaicossa_arxiv
+pdflatex evitaicossa_arxiv
+pdflatex evitaicossa_arxiv
+
+should work.
+
+
+For arxiv, upload evitaicossa_arxiv.tex which will be processed
+online.  For arxiv to process the file, you need to upload Sweave.sty
+as well.
