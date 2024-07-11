@@ -22,3 +22,4 @@ LinkingTo: Rcpp
 URL: https://github.com/RobinHankin/evitaicossa
 BugReports: https://github.com/RobinHankin/evitaicossa/issues
 RdMacros: Rdpack
+Config/testthat/edition: 3
