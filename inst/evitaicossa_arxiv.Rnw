@@ -1,38 +1,98 @@
----
-title: "Antiassociative algebras with R: the `evitaicossa` package"
-author: "Robin K. S. Hankin"
-output: html_vignette
-bibliography: evitaicossa.bib
-vignette: >
-  %\VignetteIndexEntry{Antiassociative algebra}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
----
+% -*- mode: noweb; noweb-default-code-mode: R-mode; -*-
 
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-options(rmarkdown.html_vignette.check_title = FALSE)
+\documentclass{article}
+
+\usepackage{arxiv}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{amssymb}        % needed for \leqslant
+\usepackage{amsmath}        % needed for cases
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{lipsum}		% Can be removed after putting your text content
+\usepackage{graphicx}
+\usepackage[numbers]{natbib}
+\usepackage{doi}
+\usepackage{wrapfig}
+\usepackage{tikz-cd}
+\usepackage{xcolor}
+
+\title{Antiassociative algebra in R: introducing the {\tt evitaicossa} package}
+
+
+\author{ \href{https://orcid.org/0000-0001-5982-0415}{\includegraphics[width=0.03\textwidth]{orcid.pdf}\hspace{1mm}Robin K. S.~Hankin}\thanks{\href{https://www.stir.ac.uk/people/1966824}{work};  
+\href{https://www.youtube.com/watch?v=JzCX3FqDIOc&list=PL9_n3Tqzq9iWtgD8POJFdnVUCZ_zw6OiB&ab_channel=TrinTragulaGeneralRelativity}{play}} \\
+University of Stirling\\
+	\texttt{hankin.robin@gmail.com} \\
+}
+
+% Uncomment to remove the date
+%\date{}
+
+% Uncomment to override  the `A preprint' in the header
+%\renewcommand{\headeright}{Technical Report}
+%\renewcommand{\undertitle}{Technical Report}
+
+
+%%% Add PDF metadata to help others organize their library
+%%% Once the PDF is generated, you can check the metadata with
+%%% $ pdfinfo template.pdf
+\hypersetup{
+pdftitle={Antiassociative algebra in R},
+pdfsubject={q-bio.NC, q-bio.QM},
+pdfauthor={Robin K. S.~Hankin},
+pdfkeywords={Antiassociative algebra}
+}
+
+\begin{document}
+\maketitle
+
+\setlength{\intextsep}{0pt}
+\begin{wrapfigure}{r}{0.2\textwidth}
+  \begin{center}
+\includegraphics[width=1in]{evitaicossa.png}
+  \end{center}
+\end{wrapfigure}
+
+
+<<echo=FALSE>>=
+set.seed(0)
 library("evitaicossa")
-set.seed(1)
-```
+@ 
 
-```{r out.width='20%', out.extra='style="float:right; padding:10px"',echo=FALSE}
-knitr::include_graphics(system.file("help/figures/evitaicossa.png", package = "evitaicossa"))
-```
+\begin{abstract}
 
-Here I introduce the `evitaicossa` R package for antiassociative
-algebras.  An _algebra_ is a vector space in which the vectors possess
-a bilinear product.  Formally, a vector space is a set $V$ of vectors
-which form an Abelian group under addition and also satisfy the
-following axioms:
+  In this short article I introduce the {\tt evitaicossa} package
+  which provides functionality for antiassociative algebras in the R
+  programming language; it is available on CRAN
+  at\\ \url{https://CRAN.R-project.org/package=evitaicossa}.
 
-* Compatibility, $a(b\mathbf{v})=(ab)\mathbf{v}$
-* Identity, $1\mathbf{v}=\mathbf{v}$
-* Distributivity WRT vector addition, $a(\mathbf{u}+\mathbf{v}) =
+\end{abstract}
+
+\SweaveOpts{}
+
+\section{Introduction}
+
+Here I introduce the {\tt evitaicossa} R package for antiassociative
+algebras.  An {\em algebra} is a vector space in which the vectors
+possess a well-behaved bilinear product.  Formally, a vector space is
+a set $V$ of vectors which form an Abelian group under addition and
+also satisfy the following axioms:
+
+\begin{itemize}
+\item Compatibility, $a(b\mathbf{v})=(ab)\mathbf{v}$
+\item Identity, $1\mathbf{v}=\mathbf{v}$
+\item Distributivity of vector addition, $a(\mathbf{u}+\mathbf{v}) =
   a\mathbf{u}+a\mathbf{v}$
-* Distributivity WRT field addition, $(a+b)\mathbf{u} =
+\item Distributivity of field addition, $(a+b)\mathbf{u} =
   a\mathbf{u}+b\mathbf{u}$
+\end{itemize}
 
 Above, $\mathbf{u},\mathbf{v}\in V$ are vectors, $a,b$ are scalars
 [here the real numbers], and $1$ is the multiplicative identity.  We
@@ -40,26 +100,29 @@ also require a bilinear vector product, mapping pairs of vectors to
 vectors; vector multiplication is denoted using juxtaposition, as in
 $\mathbf{u}\mathbf{v}$, which satisfies the following axioms:
 
-* Right distributivity, $(\mathbf{u}+\mathbf{v})\mathbf{w} =
+\begin{itemize}
+\item Right distributivity, $(\mathbf{u}+\mathbf{v})\mathbf{w} =
   \mathbf{u}\mathbf{w}+ \mathbf{u}\mathbf{w}$
-* Left distributivity, $\mathbf{w}(\mathbf{u}+\mathbf{v})  =
+\item Left distributivity, $\mathbf{w}(\mathbf{u}+\mathbf{v})  =
   \mathbf{w}\mathbf{u}+ \mathbf{w}\mathbf{v}$
-* Compatibility, $(a\mathbf{u})(b\mathbf{v})=(ab)(\mathbf{u}\mathbf{v})$
+\item Compatibility, $(a\mathbf{u})(b\mathbf{v})=(ab)(\mathbf{u}\mathbf{v})$
+\end{itemize}
 
 Note the absence of commutativity and associativity.  Associative
 algebras seem to be the most common, and examples would include
-multivariate polynomials [@hankin2022_mvp,@hankin2022_spray], Clifford
-algebras [@hankin2022_clifford], Weyl algebras
-[@hankin2022_weyl_arxiv], and free algebras [@hankin2022_freealg].
-Non-associative algebras would include the octonions
-[@hankin2006_onion] and Jordan algebras [@hankin2023_jordan].  Here I
-consider _antiassociative_ algebras in which the usual associativity
-relation
+multivariate polynomials
+\citep{hankin2022_mvp_arxiv,hankin2022_spray_arxiv}, Clifford algebras
+\citep{hankin2022_clifford_arxiv}, Weyl algebras
+\citep{hankin2022_weyl_arxiv}, and free algebras
+\citep{hankin2022_freealg_arxiv}.  Non-associative algebras would include
+the octonions \citep{hankin2006_onion} and Jordan algebras
+\citep{hankin2023_jordan_arxiv}.  Here I consider {\em antiassociative}
+algebras in which the usual associativity relation
 $\mathbf{u}(\mathbf{v}\mathbf{w})=(\mathbf{u}\mathbf{v})\mathbf{w}$ is
 replaced by the relation
 $\mathbf{u}(\mathbf{v}\mathbf{w})=-(\mathbf{u}\mathbf{v})\mathbf{w}$.
 
-## Antiassociative algebras
+\section{Antiassociative algebras}
 
 Algebras satisfying
 $\mathbf{u}(\mathbf{v}\mathbf{w})=-(\mathbf{u}\mathbf{v})\mathbf{w}$
@@ -82,7 +145,7 @@ $(\mathbf{a}\mathbf{b})(\mathbf{c}\mathbf{d})=-(\mathbf{a}\mathbf{b})(\mathbf{c}
 so $\mathbf{a}\mathbf{b}\mathbf{c}\mathbf{d}$ (however bracketed) must
 be zero.
 
-## The free antiassociative algebra
+\subsection{The free antiassociative algebra}
 
 We consider vector spaces generated by a finite alphabet of symbols
 $\mathbf{x}_1,\ldots,\mathbf{x}_n$.  These will be denoted generally
@@ -100,7 +163,7 @@ $$
 \sum_{i,j,k}\alpha_{ijk}(\mathbf{x}_i\mathbf{x}_j)\mathbf{x}_k
 $$
 
-(see @remm2024 for a proof, but note that she uses
+(see \citep{remm2024_arxiv} for a proof, but note that she uses
 $\mathbf{x}_i(\mathbf{x}_j\mathbf{x}_k)$ rather than
 $(\mathbf{x}_i\mathbf{x}_j)\mathbf{x}_k$ for the triple products; a
 brief discussion is given in the appendix).  In the package, the
@@ -148,16 +211,17 @@ $$
 
 The minus sign in front of the third term embodies antiassociativity.
 
-## The `evitaicossa` package
+\section{The {\tt evitaicossa} package}
 
-The `evitaicossa` package implements these relations in the context of
-an R-centric suite of software.  I give some examples of the package
-in use.  A good place to start is function `raaa()`, which returns a
-simple random element of the free antiassociative algebra:
+The {\tt evitaicossa} package implements these relations in the
+context of an R-centric suite of software.  I give some examples of
+the package in use.  A good place to start is function {\tt raaa()},
+which returns a simple random element of the free antiassociative
+algebra:
 
-```{r label=showraaa}
+<<>>=
 raaa()
-```
+@
 
 (the default alphabet for this command is
 $\left\lbrace\mathbf{a},\mathbf{b},\mathbf{c},\mathbf{d}\right\rbrace$).
@@ -165,10 +229,10 @@ We see the print method for the package which shows some of the
 structure of the object.  This one has some single-symbol elements,
 some double-symbol and some triple-symbol elements.
 
-It is possible to create elements using the `aaa()` or `as.aaa()`
+It is possible to create elements using the {\tt aaa()} or {\tt as.aaa()}
 functions:
 
-```{r label=makexx1yz}
+<<>>=
 x  <- as.aaa(c("p","q","r"))
 x1 <- aaa(s1 = c("p","r","x"),c(-1,5,6))
 y <- aaa(d1 = letters[1:3],d2 = c("foo","bar","baz"),dc=1:3)
@@ -177,28 +241,30 @@ z <- aaa(
 	t2 = c("q","r","s"),
 	t3 = c("foo","foo","bar"),
 	tc = 5:7)
-```
+@ 
 
 And then apply arithmetic operations to these objects:
 
-```{r label=applyarith}
+
+<<>>=
 x
 x1
 x+x1
-```
+@ 
 
-(above, note the cancellation in `x+x1`).  Multiplication is also
-implemented (package idiom is to use an asterisk `*`):
 
-```{r label=usemult}
+(above, note the cancellation in {\tt x+x1}).  Multiplication is also
+implemented (package idiom is to use an asterisk):
+
+<<>>=
 x*(x1+y)
-```
+@ 
 
 Check:
 
-```{r label=checkdistributivity}
+<<>>=
 x*(x1+y) == x*x1 + x*y
-```
+@ 
 
 We end with a remarkable identity:
 
@@ -208,106 +274,108 @@ $$
 
 Numerically:
 
-```{r label=checkremarkable}
+<<>>=
 a <- raaa()
 b <- raaa()
 x <- raaa()
 (a+a*x)*(b+x*b) == a*b
-```
+@ 
 
-## Extract and replace methods
+
+\section{Extract and replace methods}
 
 Because of the tripartite nature of antiassociative algebra, the
-package provides three families of extraction methods: `single()`,
-`double()` and `triple()`, which return the different components of an
-object:
+package provides three families of extraction methods: {\tt single()},
+{\tt double()} and {\tt triple()}, which return the different
+components of an object:
 
 
-```{r label=showsingledoubletriple}
+<<>>=
 a
 single(a)
 double(a)
 triple(a)
-```
+@ 
+
 
 The corresponding replacement methods are also implemented:
 
-```{r label=extract123}
+<<>>=
 single(a) <- 0
 a
 double(a) <- double(b) * 1000
 a
-```
+@
 
 Square bracket extraction and replacement is also implemented:
 
 
-```{r label=showsquarebracketextract}
+<<>>=
 (a <- raaa(s=5))
 a[s1=c("c","e"),t1="c",t2="d",t3="d"]
-```
+@ 
 
-Above we pass named arguments (\code{s1} _et seq._) and the
-appropriate `aaa` object is returned.  Zero coeffients are discarded.
-This mode also implements replacement methods:
+Above we pass named arguments ({\tt s1} {\em et seq.}) and the
+appropriate {\tt aaa} object is returned.  Zero coeffients are
+discarded.  This mode also implements replacement methods:
 
-```{r label=showsquarebracketreplace}
+<<>>=
 (a <- raaa(s=5))
 a[s1="a",d1=c("c","w"),d2=c("d","w")] <- 888
 a
-```
+@ 
+
 
 The other square bracket method is to pass an (unnamed) character
 vector:
 
-```{r unnamedcharacter}
+<<>>=
 (a <- raaa())
-```
+@
 
 
-### Note on `disordR` discipline
+\section{Note on {\tt disordR} discipline}
 
-If we try to access the symbols or coefficients of an `aaa` object
-[functions `s1()` and `sc()` respectively], we get a `disord` object
-[@hankin2022_disordR].  Suppose we wish to extract the single-symbol
-terms and the single-symbol coefficients:
+If we try to access the symbols or coefficients of an {\tt aaa} object
+[functions {\tt s1()} and {\tt sc()} respectively], we get a {\tt
+  disord} object \citep{hankin2022_disordR_arxiv}.  Suppose we wish to
+extract the single-symbol terms and the single-symbol coefficients:
 
-```{r showdissingle}
+<<>>=
 x
 s1(x)
 sc(x)
-```
+@
 
 See how the hash codes of the symbols and coeffients match.  However,
 the double-symbol terms and coefficients, while internally matching,
 differ from the single-symbol stuff:
 
-```{r showdisdouble}
+<<>>=
 list(d1(x),d2(x),dc(x))
-```
+@ 
+
 
 Above, see how the double-symbol terms and double-symbol coefficients
 have consistent hashes, but do not match the single-symbol objects (or
 indeed the triple-symbol objects).
 
-## Matrix index extraction
+\subsection{Matrix index extraction}
 
 If square bracket extraction is given an index that is a matrix, it is
 interpreted rowwise:
 
-
-```{r label=matrixindex}
+<<>>=
 l <- letters[1:3]
 (a <- aaa(s1=l,sc=1:3, d1=l,d2=rev(l),dc=3:1,t1=l,t2=l,t3=rev(l),tc=1:3))
 a[cbind(l,l)]
 a[cbind(rev(l),l,l)] <- 88
 a
-```
+@ 
 
 
 
-
-## Note on generalized antiassociativity
+\section{Note on generalized antiassociativity}
 
 We may generalize antiassociativity to
 $\mathbf{a}(\mathbf{b}\mathbf{c})=k(\mathbf{a}\mathbf{b})\mathbf{c}$.
@@ -324,36 +392,39 @@ k(\mathbf{a}\mathbf{b})(\mathbf{c}\mathbf{d})
 $$
 
 The value of $k$ may be set at compile-time by editing file
-`src/anti.h`.  The line in question reads:
+{\tt src/anti.h}.  The line in question reads:
 
-```
+\begin{verbatim}
 #define K -1 // a(bc) == K(ab)c
-```
+\end{verbatim}
 
-but it is possible to change the value of `K`.  Note that this will
-cause `test_aac.R`, one of the `testthat` suite, to fail `R CMD
-check`.
+but it is possible to change the value of {\tt K}.  Note that this
+will cause {\tt test\_aac.R}, one of the {\tt testthat} suite, to fail
+{\tt R CMD check}.
 
 
 
-### Appendix
+\appendix
 
-As noted above, @remm2024 uses
+As noted above, \cite{remm2024_arxiv} uses
 $\mathbf{x}_i(\mathbf{x}_j\mathbf{x}_k)$ rather than
 $(\mathbf{x}_i\mathbf{x}_j)\mathbf{x}_k$ for the triple products.  I
 chose the latter because R idiom for multiplication is left
 associative:
 
-```{r makefoo}
+<<>>=
 x <- 3
 class(x) <- "foo"
 `*.foo` <- function(x,y){x + y + x}
 print.foo <- function(x){print(unclass(x))}
 c(`(x*x)*x` = (x*x)*x,  `x*(x*x)` = x*(x*x),  `x*x*x` = x*x*x)
-```
-
-Above we see that `x*x*x` is interpreted as `(x*x)*x`, which is why
-the sign convention in the package was adopted.
+@ 
 
 
-## References
+Above we see that {\tt x*x*x} is interpreted as {\tt (x*x)*x}, which
+is why the sign convention in the package was adopted.
+
+\bibliographystyle{apalike}
+\bibliography{evitaicossa}
+
+\end{document}
