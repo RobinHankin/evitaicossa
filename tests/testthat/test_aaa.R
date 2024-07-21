@@ -73,6 +73,13 @@ checker1 <- function(x){
     triple(jj) <- 0
     expect_true(is.zero(triple(jj)))
 
+    jj <- linear1(1:3) + linear2(1:3) + linear3(1:3)
+
+    expect_error(single(x) <- jj)
+    expect_error(double(x) <- jj)
+    expect_error(triple(x) <- jj)
+
+
     as <- allsymbols(x)
     
     expect_true(x[cbind(as)] == single(x))
@@ -92,6 +99,9 @@ checker1 <- function(x){
 
     expect_error(x[matrix(letters[1:25],5,5)])
     expect_error(x[matrix(letters[1:25],5,5)] <- 33)
+
+    
+    
     return(TRUE)
 }  # checker1() closes
 
