@@ -150,5 +150,8 @@ for(i in 1:1){
 
 checker1(aaa())
 
+checker1(linear1(1:3))
+checker1(linear2(1:3))
+checker1(linear3(1:3))
 
 })
