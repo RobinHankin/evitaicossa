@@ -6,3 +6,8 @@ README.html
 ^LICENSE$
 ^.github$
 ^.devcontainer$
+^inst/rjournal
+^inst/JOSS
+^vignettes/*.html$
+^CODE_OF_CONDUCT.md$
+^CONTRIBUTING.md$
