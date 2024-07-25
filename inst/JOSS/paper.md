@@ -14,7 +14,7 @@ authors:
   corresponding: true
 affiliations:
 - name: "University of Stirling"
-  index 1
+  index: 1
 bibliography: paper.bib
 ---
 
