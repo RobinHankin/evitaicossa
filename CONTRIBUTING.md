@@ -1,6 +1,6 @@
-# Contributing to `frab`
+# Contributing to `evitaicossa`
 
-Thank you for considering contributing to `frab`!  I appreciate your
+Thank you for considering contributing to `evitaicossa`!  I appreciate your
 interest in making this project better.  Please read and adhere to the
 [Code of Conduct](CODE_OF_CONDUCT.md) to maintain a safe, welcoming,
 and inclusive environment.  Various forms of contributions are
