@@ -10,9 +10,11 @@ date: "July 25th, 2024"
 authors:
 - name: Robin K. S. Hankin
   orcid: "0000-0001-5982-0415"
-  affiliation: '1'
+  affiliation: "1"
   corresponding: true
-affiliations: name "University of Stirling"
+affiliations:
+- name: "University of Stirling"
+  index 1
 bibliography: paper.bib
 ---
 
