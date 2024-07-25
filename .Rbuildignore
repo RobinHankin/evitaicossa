@@ -11,3 +11,7 @@ README.html
 ^vignettes/*.html$
 ^CODE_OF_CONDUCT.md$
 ^CONTRIBUTING.md$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$
