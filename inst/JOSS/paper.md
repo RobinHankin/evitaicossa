@@ -6,7 +6,7 @@ tags:
 - symbolic computation
 - associativity
 - "anti-associativity"
-date: "July 25th, 2024"
+date: "July 26th, 2024"
 authors:
 - name: Robin K. S. Hankin
   orcid: "0000-0001-5982-0415"
@@ -39,9 +39,31 @@ $$
 \mathbf{a}\mathbf{b}
 $$
 
-and numerical verification
-given, using the package.
+and numerical verification given, using the package.
 
+
+# Introduction
+
+An *algebra* is a vector space [@cohn1984] equipped with a bilinear
+product [@bourbaki2012]: the vectors may be multiplied.  Algebras may
+be defined over any field [@schafer1994] but here we use the real
+numbers.  An _antiassociative_ algebra is an algebra in which the
+usual associativity relation $\mathbf{u}(\mathbf{v}
+\mathbf{w})=(\mathbf{u} \mathbf{v})\mathbf{w}$ for vector
+multiplication is replaced by $\mathbf{u}(\mathbf{v}
+\mathbf{w})=-(\mathbf{u} \mathbf{v})\mathbf{w}$.  Antiassociative
+algebras are nilpotent of nilindex 4: the product of any four vectors
+is zero.  Antiassociative algebras are the direct sum of elements of
+degree 1,2 and 3 (the antiassociativity condition implies that the
+degree zero component is trivial, and the nilpotence ensures that
+components of degree four or above do not exist).  Thus the general
+form of an element of an antiassociative algebra is thus
+$\scriptstyle\sum_{i}\alpha_i\mathbf{x}_i +
+\sum_{i,j}\alpha_{ij}\mathbf{x}_i\mathbf{x}_j+
+\sum_{i,j,k}\alpha_{ijk}(\mathbf{x}_i\mathbf{x}_j)\mathbf{x}_k$ where
+$\scriptstyle\alpha_{i}$, $\scriptstyle\alpha_{ij}$,
+$\scriptstyle\alpha_{ijk}$ are constants and the $\mathbf{x}_i$ are
+indeterminates.
 
 
 # Statement of need
