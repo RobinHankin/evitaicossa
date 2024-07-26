@@ -49,19 +49,13 @@ create objects of this class. A good place to start is function
 ``` r
 (evita <- raaa())
 #> free antiassociative algebra element:
-#> +5a +2d +2a.b +1b.d +3c.c +1(a.d)c +3(b.b)c +2(c.a)c
-```
-
-``` r
+#> +1a +3b +2d +3a.b +1c.b +1c.c +1(a.b)a +1(b.b)c +1(b.c)a
 (icossa <- raaa())
 #> free antiassociative algebra element:
-#> +7c +2d +3a.d +4c.a +3d.a +3(a.b)b +2(c.a)a +2(d.a)b
-```
-
-``` r
+#> +4a +2b +2a.a +2c.c +2d.d +2(b.d)d +1(c.d)a +4(d.b)c
 (itna <- raaa())
 #> free antiassociative algebra element:
-#> +3b +2c +2a.d +1d.b +2d.d +1(b.b)a +4(b.d)d +3(c.c)a
+#> +2a +2c +4d +1b.d +2c.b +2c.d +3(b.a)d +3(b.b)c +4(b.c)b
 ```
 
 Above, we see objects `evita`, `icossa` and `itna` are random
@@ -71,15 +65,13 @@ antiassociative algebra elements, with indeterminates `a`, `b`, `c`,
 ``` r
 evita+icossa
 #> free antiassociative algebra element:
-#> +5a +7c +4d +2a.b +3a.d +1b.d +4c.a +3c.c +3d.a +3(a.b)b +1(a.d)c +3(b.b)c
-#> +2(c.a)a +2(c.a)c +2(d.a)b
-```
-
-``` r
+#> +5a +5b +2d +2a.a +3a.b +1c.b +3c.c +2d.d +1(a.b)a +1(b.b)c +1(b.c)a +2(b.d)d
+#> +1(c.d)a +4(d.b)c
 evita*icossa
 #> free antiassociative algebra element:
-#> +35a.c +10a.d +14d.c +4d.d -15(a.a)d +14(a.b)c +4(a.b)d -20(a.c)a -15(a.d)a
-#> +7(b.d)c +2(b.d)d +21(c.c)c +6(c.c)d -6(d.a)d -8(d.c)a -6(d.d)a
+#> +4a.a +2a.b +12b.a +6b.b +8d.a +4d.b -2(a.a)a +12(a.b)a +6(a.b)b -2(a.c)c
+#> -2(a.d)d -6(b.a)a -6(b.c)c -6(b.d)d +4(c.b)a +2(c.b)b +4(c.c)a +2(c.c)b
+#> -4(d.a)a -4(d.c)c -4(d.d)d
 ```
 
 It is possible to verify some of the axioms as follows:

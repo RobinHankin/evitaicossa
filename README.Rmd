@@ -48,6 +48,10 @@ install the released version of the package from
 library("evitaicossa")             # loads the package 
 ```
 
+```{r setseed, echo=FALSE}
+set.seed(0)
+```
+
 The package includes a single S4 class `aaa` [for
 "**a**nti**a**ssociative **a**lgebra"] and a range of functions to
 create objects of this class.  A good place to start is function
