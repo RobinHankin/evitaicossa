@@ -1,0 +1,58 @@
+---
+title: "Antiassociative algebra in R: introducing the `evitaicossa` package"
+output:
+  github_document:
+    pandoc_args: --webtex
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+```{r, message=FALSE}
+# install.packages("evitaicossa")  # uncomment to install the package
+library("evitaicossa")             # loads the package 
+```
+
+```{r setseed, echo=FALSE}
+set.seed(0)
+```
+
+
+```{r label=makeevitaandicossa}
+(evita <- raaa())
+(icossa <- raaa())
+(itna <- raaa())
+```
+
+
+
+```{r label=arithevitaandicossa}
+evita+icossa
+evita*icossa
+```
+
+It is possible to verify some of the axioms as follows:
+
+```{r label=verifyaxioms}
+c(
+left_distributive  = evita*(icossa + itna) == evita*icossa + evita*itna,
+right_distributive = (evita + icossa)*itna == evita*itna + icossa*itna,
+antiassociative    = evita*(icossa*itna)   == -(evita*icossa)*itna
+)
+```
+
+```{r label=aaxbxb}
+a <- raaa()
+b <- raaa()
+x <- raaa()
+(a + a*x)*(b + x*b) == a*b
+```
+
