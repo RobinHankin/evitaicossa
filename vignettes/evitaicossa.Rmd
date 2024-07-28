@@ -248,7 +248,7 @@ a[s1=c("c","e"),t1="c",t2="d",t3="d"]
 ```
 
 Above we pass named arguments (\code{s1} _et seq._) and the
-appropriate `aaa` object is returned.  Zero coeffients are discarded.
+appropriate `aaa` object is returned.  Zero coefficients are discarded.
 This mode also implements replacement methods:
 
 ```{r label=showsquarebracketreplace}

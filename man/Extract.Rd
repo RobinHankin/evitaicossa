@@ -69,7 +69,7 @@ triple(a)
 \details{
 
   An \code{aaa} object is a list of 9 vectors, three numeric and six
-  character, which are extractd by functions \code{s1()} etc.
+  character, which are extracted by functions \code{s1()} etc.
 
   Functions \code{single()}, \code{double()} and
   \code{triple()} extract the single, double, and triple components
@@ -85,7 +85,7 @@ triple(a)
   the end-user.  Function \code{getthings()} takes an \code{aaa} object
   and returns a named list with elements being \code{disord} objects
   corresponding to components \code{s1},\code{sc},\code{d1} etc.
-  Function extracter() takes an \code{aaa} object and arguments
+  Function \code{extracter()} takes an \code{aaa} object and arguments
   \code{s1}, \code{d1},\code{d2},\code{t1} etc. and returns the
   \code{aaa} object corresponding to the specified index elements.
   Function \code{overwriter} takes
@@ -95,7 +95,7 @@ triple(a)
   respectively.  Functions \code{single<-()} \emph{et seq.} are the
   corresponding setting methods which overwrite the index-1 (resp. 2,3)
   components with the right hand side.  The right hand side must be
-  purely the correct compponent otherwise an error is returned; thus in
+  purely the correct component otherwise an error is returned; thus in
   \code{double(a) <- x}, for example, the single-symbol and
   triple-symbol components of \code{x} must be zero.
 
