@@ -100,7 +100,7 @@ Extraction methods for aaa objects.  The names of the
 
 
 <p>An <code>aaa</code> object is a list of 9 vectors, three numeric and six
-  character, which are extractd by functions <code>s1()</code> etc.</p>
+  character, which are extracted by functions <code>s1()</code> etc.</p>
 <p>Functions <code>single()</code>, <code>double()</code> and
   <code>triple()</code> extract the single, double, and triple components
   of their argument, and return the corresponding <code>aaa</code> object.</p>
@@ -113,7 +113,7 @@ Extraction methods for aaa objects.  The names of the
   the end-user.  Function <code>getthings()</code> takes an <code>aaa</code> object
   and returns a named list with elements being <code>disord</code> objects
   corresponding to components <code>s1</code>,<code>sc</code>,<code>d1</code> etc.
-  Function extracter() takes an <code>aaa</code> object and arguments
+  Function <code>extracter()</code> takes an <code>aaa</code> object and arguments
   <code>s1</code>, <code>d1</code>,<code>d2</code>,<code>t1</code> etc. and returns the
   <code>aaa</code> object corresponding to the specified index elements.
   Function <code>overwriter</code> takes</p>
@@ -122,7 +122,7 @@ Extraction methods for aaa objects.  The names of the
   respectively.  Functions <code>single&lt;-()</code> <em>et seq.</em> are the
   corresponding setting methods which overwrite the index-1 (resp. 2,3)
   components with the right hand side.  The right hand side must be
-  purely the correct compponent otherwise an error is returned; thus in
+  purely the correct component otherwise an error is returned; thus in
   <code>double(a) &lt;- x</code>, for example, the single-symbol and
   triple-symbol components of <code>x</code> must be zero.</p>
 <p>Square bracket extraction and replacement methods are more
