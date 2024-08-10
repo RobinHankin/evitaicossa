@@ -5,6 +5,7 @@
 - github workflow for test coverage and QC
 - removal of dependency on mathjax
 - bugfixes
+- more coverage
 
 # evitaicossa 0.0-1
 
