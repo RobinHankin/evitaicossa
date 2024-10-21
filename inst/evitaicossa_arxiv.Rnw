@@ -168,12 +168,12 @@ $\mathbf{x}_i(\mathbf{x}_j\mathbf{x}_k)$ rather than
 $(\mathbf{x}_i\mathbf{x}_j)\mathbf{x}_k$ for the triple products; a
 brief discussion is given in the appendix).  In the package, the
 components of the first term $\sum_{i}\alpha_i\mathbf{x}_i$ are known
-as "single-symbol" terms [$\mathbf{x}_i$] and coefficients
+as ``single-symbol" terms [$\mathbf{x}_i$] and coefficients
 [$\alpha_i$] respectively.  Similarly, the components of
 $\sum_{i,j}\alpha_{ij}\mathbf{x}_i\mathbf{x}_j$ are known as the
-"double-symbol" terms and coefficients; and the components of
+``double-symbol" terms and coefficients; and the components of
 $\sum_{i,j,k}\alpha_{ijk}(\mathbf{x}_i\mathbf{x}_j)\mathbf{x}_k$ are
-the "triple-symbol" terms and coefficients.
+the ``triple-symbol" terms and coefficients.
 
 Addition is performed elementwise among the single-, double-, and
 triple- components; the result is the (formal) composition of the
