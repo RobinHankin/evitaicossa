@@ -75,9 +75,10 @@
 <p>Function <code>lavter()</code> is the formal creation method for <code>aaa</code>
   objects; it is the only place that <code>new()</code> is called.  It takes a
   single argument <code>cout</code>, which is a list as returned by
-  C function <code>retval()</code>.  But it is a little awkward to
-  use and the user should use other functions for creation, which are
-  more user-friendly and have sensible defaults:</p>
+  C function <code>retval()</code>.  However, it is a little
+  awkward and is not intended for day-to-day use.  One should use other
+  functions for creation, which are more user-friendly and have sensible
+  defaults:</p>
 <p></p><ul><li><p>Function <code>aaa()</code> takes named arguments <code>s1</code> etc,
       with defaults corresponding to “not present”</p></li>
 <li><p>Function <code>thing_to_aaa()</code> takes a list with names
