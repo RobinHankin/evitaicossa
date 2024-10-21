@@ -34,9 +34,10 @@ thing_to_aaa(L)
   Function \code{lavter()} is the formal creation method for \code{aaa}
   objects; it is the only place that \code{new()} is called.  It takes a
   single argument \code{cout}, which is a list as returned by
-  \proglang{C} function \code{retval()}.  But it is a little awkward to
-  use and the user should use other functions for creation, which are
-  more user-friendly and have sensible defaults:
+  \proglang{C} function \code{retval()}.  However, it is a little
+  awkward and is not intended for day-to-day use.  One should use other
+  functions for creation, which are more user-friendly and have sensible
+  defaults:
 
   \itemize{
     \item Function \code{aaa()} takes named arguments \code{s1} etc,
