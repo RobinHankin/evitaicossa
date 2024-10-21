@@ -3,6 +3,10 @@ Antiassociative algebra in R: introducing the `evitaicossa` package
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+<!-- badges: start --> [![Codecov test
+coverage](https://codecov.io/gh/RobinHankin/evitaicossa/graph/badge.svg)](https://app.codecov.io/gh/RobinHankin/evitaicossa)
+<!-- badges: end -->
+
 # <img src="man/figures/evitaicossa.png" width = "150" align="right" />
 
 An *algebra* is a vector space equipped with a bilinear product: the

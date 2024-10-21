@@ -7,6 +7,12 @@ output:
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+ <!-- badges: start -->
+  [![Codecov test coverage](https://codecov.io/gh/RobinHankin/evitaicossa/graph/badge.svg)](https://app.codecov.io/gh/RobinHankin/evitaicossa)
+  <!-- badges: end -->
+
+
+
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
