@@ -3,6 +3,7 @@ title: "Antiassociative algebras with R: the `evitaicossa` package"
 author: "Robin K. S. Hankin"
 output: html_vignette
 bibliography: evitaicossa.bib
+link-citations: true
 vignette: >
   %\VignetteIndexEntry{Antiassociative algebra}
   %\VignetteEngine{knitr::rmarkdown}
