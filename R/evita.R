@@ -636,3 +636,19 @@ setMethod("[<-", signature("aaa",i="disord",j="missing",value="numeric"),
               stop("not implemented yet")
           } )
 
+setGeneric("jitter")
+
+setMethod("jitter",signature(x="aaa"),
+          function(x, factor=1, amount=NULL){
+              aaa(
+                  s1 = s1(x),
+                  sc = jitter(sc(x), factor=factor, amount=amount),
+                  d1 = d1(x),
+                  d2 = d2(x),
+                  dc = jitter(dc(x), factor=factor, amount=amount),
+                  t1 = t1(x),
+                  t2 = t2(x),
+                  t3 = t3(x),
+                  tc = jitter(tc(x), factor=factor, amount=amount)
+                  )
+          } )
