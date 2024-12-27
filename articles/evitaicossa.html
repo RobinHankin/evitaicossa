@@ -8,8 +8,8 @@
 <title>Antiassociative algebras with R: the `evitaicossa` package • evitaicossa</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
-<link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Antiassociative algebras with R: the `evitaicossa` package">
 </head>
 <body>
@@ -63,10 +63,10 @@ Hankin</h4>
     
     
 <p><img src="..%2F..%2F..%2F_temp%2FLibrary%2Fevitaicossa%2Fhelp%2Ffigures%2Fevitaicossa.png" width="20%" style="float:right; padding:10px"></p>
-<p>Here I introduce the <code>evitaicossa</code> R package for
-antiassociative algebras. An <em>algebra</em> is a vector space in which
-the vectors possess a bilinear product. Formally, a vector space is a
-set
+<p>To cite the permutations package in publications, please use <span class="citation">Hankin (<a href="#ref-hankin2024_evitaicossa">2024</a>)</span>. Here I introduce
+the <code>evitaicossa</code> R package for antiassociative algebras. An
+<em>algebra</em> is a vector space in which the vectors possess a
+bilinear product. Formally, a vector space is a set
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>V</mi><annotation encoding="application/x-tex">V</annotation></semantics></math>
 of vectors which form an Abelian group under addition and also satisfy
 the following axioms:</p>
@@ -112,14 +112,13 @@ which satisfies the following axioms:</p>
 </ul>
 <p>Note the absence of commutativity and associativity. Associative
 algebras seem to be the most common, and examples would include
-multivariate polynomials <span class="citation">Hankin (2022e)</span>,
-Clifford algebras <span class="citation">(Hankin 2022a)</span>, Weyl
-algebras <span class="citation">(Hankin 2022d)</span>, and free algebras
-<span class="citation">(Hankin 2022f)</span>. Non-associative algebras
-would include the octonions <span class="citation">(Hankin 2006)</span>
-and Jordan algebras <span class="citation">(Hankin 2023)</span>. Here I
-consider <em>antiassociative</em> algebras in which the usual
-associativity relation
+multivariate polynomials <span class="citation">Hankin (<a href="#ref-hankin2022_spray">2022e</a>)</span>, Clifford algebras <span class="citation">(<a href="#ref-hankin2022_clifford">Hankin
+2022a</a>)</span>, Weyl algebras <span class="citation">(<a href="#ref-hankin2022_weyl_arxiv">Hankin 2022d</a>)</span>, and free
+algebras <span class="citation">(<a href="#ref-hankin2022_freealg">Hankin 2022f</a>)</span>. Non-associative
+algebras would include the octonions <span class="citation">(<a href="#ref-hankin2006_onion">Hankin 2006</a>)</span> and Jordan algebras
+<span class="citation">(<a href="#ref-hankin2023_jordan">Hankin
+2023</a>)</span>. Here I consider <em>antiassociative</em> algebras in
+which the usual associativity relation
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐮</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐯</mi><mi>𝐰</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐮</mi><mi>𝐯</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>𝐰</mi></mrow><annotation encoding="application/x-tex">\mathbf{u}(\mathbf{v}\mathbf{w})=(\mathbf{u}\mathbf{v})\mathbf{w}</annotation></semantics></math>
 is replaced by the relation
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐮</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐯</mi><mi>𝐰</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mo>−</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝐮</mi><mi>𝐯</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>𝐰</mi></mrow><annotation encoding="application/x-tex">\mathbf{u}(\mathbf{v}\mathbf{w})=-(\mathbf{u}\mathbf{v})\mathbf{w}</annotation></semantics></math>.</p>
@@ -173,8 +172,8 @@ the general form of an element of an antiassociative algebra will be</p>
 \sum_{i,j}\alpha_{ij}\mathbf{x}_i\mathbf{x}_j+
 \sum_{i,j,k}\alpha_{ijk}(\mathbf{x}_i\mathbf{x}_j)\mathbf{x}_k
 </annotation></semantics></math></p>
-<p>(see <span class="citation">Remm (2024)</span> for a proof, but note
-that she uses
+<p>(see <span class="citation">Remm (<a href="#ref-remm2024">2024</a>)</span> for a proof, but note that she
+uses
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐱</mi><mi>i</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>𝐱</mi><mi>j</mi></msub><msub><mi>𝐱</mi><mi>k</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\mathbf{x}_i(\mathbf{x}_j\mathbf{x}_k)</annotation></semantics></math>
 rather than
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>𝐱</mi><mi>i</mi></msub><msub><mi>𝐱</mi><mi>j</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><msub><mi>𝐱</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">(\mathbf{x}_i\mathbf{x}_j)\mathbf{x}_k</annotation></semantics></math>
@@ -361,8 +360,9 @@ vector:</p>
 <p>If we try to access the symbols or coefficients of an
 <code>aaa</code> object [functions <code><a href="../reference/Extract.html">s1()</a></code> and
 <code><a href="../reference/Extract.html">sc()</a></code> respectively], we get a <code>disord</code> object
-<span class="citation">(Hankin 2022b)</span>. Suppose we wish to extract
-the single-symbol terms and the single-symbol coefficients:</p>
+<span class="citation">(<a href="#ref-hankin2022_disordR">Hankin
+2022b</a>)</span>. Suppose we wish to extract the single-symbol terms
+and the single-symbol coefficients:</p>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span></span></code></pre></div>
 <pre><code><span><span class="co">## free antiassociative algebra element:</span></span>
@@ -450,7 +450,7 @@ this will cause <code>test_aac.R</code>, one of the
 <div class="section level3">
 <h3 id="appendix">Appendix<a class="anchor" aria-label="anchor" href="#appendix"></a>
 </h3>
-<p>As noted above, <span class="citation">Remm (2024)</span> uses
+<p>As noted above, <span class="citation">Remm (<a href="#ref-remm2024">2024</a>)</span> uses
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>𝐱</mi><mi>i</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>𝐱</mi><mi>j</mi></msub><msub><mi>𝐱</mi><mi>k</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\mathbf{x}_i(\mathbf{x}_j\mathbf{x}_k)</annotation></semantics></math>
 rather than
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>𝐱</mi><mi>i</mi></msub><msub><mi>𝐱</mi><mi>j</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><msub><mi>𝐱</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">(\mathbf{x}_i\mathbf{x}_j)\mathbf{x}_k</annotation></semantics></math>
@@ -502,6 +502,10 @@ Package.”</span> <a href="https://arxiv.org/abs/2212.09230" class="external-li
 </div>
 <div id="ref-hankin2023_jordan" class="csl-entry">
 ———. 2023. <span>“Jordan Algebra in <span>R</span>.”</span> arXiv. <a href="https://doi.org/10.48550/arXiv.2303.06062" class="external-link">https://doi.org/10.48550/arXiv.2303.06062</a>.
+</div>
+<div id="ref-hankin2024_evitaicossa" class="csl-entry">
+———. 2024. <span>“Antiassociative Algebra in <span>R</span>: Introducing
+the <span><code>evitaicossa</code></span> Package.”</span> arXiv. <a href="https://doi.org/10.48550/arXiv.2412.16161" class="external-link">https://doi.org/10.48550/arXiv.2412.16161</a>.
 </div>
 <div id="ref-remm2024" class="csl-entry">
 Remm, Elisabeth. 2024. <span>“Anti-Associative Algebras.”</span> <a href="https://arxiv.org/abs/2202.10812" class="external-link">https://arxiv.org/abs/2202.10812</a>.
