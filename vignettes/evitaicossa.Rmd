@@ -22,11 +22,12 @@ set.seed(1)
 knitr::include_graphics(system.file("help/figures/evitaicossa.png", package = "evitaicossa"))
 ```
 
-Here I introduce the `evitaicossa` R package for antiassociative
-algebras.  An _algebra_ is a vector space in which the vectors possess
-a bilinear product.  Formally, a vector space is a set $V$ of vectors
-which form an Abelian group under addition and also satisfy the
-following axioms:
+To cite the permutations package in publications, please use
+@hankin2024_evitaicossa.  Here I introduce the `evitaicossa` R
+package for antiassociative algebras.  An _algebra_ is a vector space
+in which the vectors possess a bilinear product.  Formally, a vector
+space is a set $V$ of vectors which form an Abelian group under
+addition and also satisfy the following axioms:
 
 * Compatibility, $a(b\mathbf{v})=(ab)\mathbf{v}$
 * Identity, $1\mathbf{v}=\mathbf{v}$
