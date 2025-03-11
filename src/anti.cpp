@@ -72,42 +72,36 @@ Rcpp::CharacterVector names_triple(const a3 &F){
   return out;
 }
 
-
-a1 nonzero1(a1 F){
+a1 nonzero1(const a1 &F) {
   a1 out;
-  for(a1::iterator it = F.begin() ; it != F.end() ; ++it){
-    const auto single_symbol = it->first;
-    const auto coefficient =  it->second;
-    if(coefficient != 0){
-      out[single_symbol] = coefficient; // the meat
+  for (const auto& [single_symbol, coefficient] : F) {
+    if (coefficient != 0) {
+      out[single_symbol] = coefficient;
     }
   }
   return out;
 }
 
-a2 nonzero2(a2 F){
+a2 nonzero2(const a2 &F) {
   a2 out;
-  for(a2::iterator it = F.begin() ; it != F.end() ; ++it){
-    const auto double_symbol = it->first;
-    const auto coefficient =  it->second;
-    if(coefficient != 0){
-      out[double_symbol] = coefficient; // the meat
+  for (const auto& [single_symbol, coefficient] : F) {
+    if (coefficient != 0) {
+      out[single_symbol] = coefficient;
     }
   }
   return out;
 }
 
-a3 nonzero3(a3 F){
+a3 nonzero3(const a3 &F) {
   a3 out;
-  for(a3::iterator it = F.begin() ; it != F.end() ; ++it){
-    const auto triple_symbol = it->first;
-    const auto coefficient =  it->second;
-    if(coefficient != 0){
-      out[triple_symbol] = coefficient; // the meat
+  for (const auto& [single_symbol, coefficient] : F) {
+    if (coefficient != 0) {
+      out[single_symbol] = coefficient;
     }
   }
   return out;
 }
+
 
 a1 sum1(a1 F1, a1 F2){
   if(F1.size() > F2.size()){
