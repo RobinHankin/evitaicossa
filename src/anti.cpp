@@ -119,15 +119,13 @@ a1 sum1(a1 F1, a1 F2){
 
 a2 sum2(a2 F1, a2 F2){
   if(F1.size() > F2.size()){
-    for(auto it = F2.begin() ; it != F2.end() ; ++it){  // iterate through F2 as it is the smaller one
-      const double_symbol key = it->first;  /* different */
-      F1[key] += F2[key];
+    for(const auto& [key, value] : F2){ // iterate through F2 as it is the smaller one
+      F1[key] += value;
     }
     return nonzero2(F1);
-  } else { 
-    for(auto it = F1.begin() ; it != F1.end() ; ++it){  // iterate through F1 as it is the smaller one
-      const double_symbol key = it->first; /* different */
-      F2[key] += F1[key];
+  } else {
+    for(const auto& [key, value] : F1){  // iterate through F1 as it is the smaller one
+      F2[key] += value;
     }
     return nonzero2(F2);
   }
@@ -135,15 +133,13 @@ a2 sum2(a2 F1, a2 F2){
 
 a3 sum3(a3 F1, a3 F2){
   if(F1.size() > F2.size()){
-    for(auto it = F2.begin() ; it != F2.end() ; ++it){  // iterate through F2 as it is the smaller one
-      const triple_symbol key = it->first; /* different */
-      F1[key] += F2[key];
+    for(const auto& [key, value] : F2){ // iterate through F2 as it is the smaller one
+      F1[key] += value;
     }
     return nonzero3(F1);
   } else { 
-    for(auto it = F1.begin() ; it != F1.end() ; ++it){  // iterate through F1 as it is the smaller one
-      const triple_symbol key = it->first; /* different */
-      F2[key] += F1[key];
+    for(const auto& [key, value] : F1){  // iterate through F1 as it is the smaller one
+      F2[key] += value;
     }
     return nonzero3(F2);
   }
