@@ -260,17 +260,8 @@ a3 overwrite3(a3 F,
 
 
 
-aaa sum_anti(const aaa F1, const aaa F2){
+aaa sum_anti(const aaa &F1, const aaa &F2){
   aaa out;
-
-  const a1 F1_single = F1.single_indeterminate;
-  const a1 F2_single = F2.single_indeterminate;
-
-  const a2 F1_double = F1.double_indeterminate;
-  const a2 F2_double = F2.double_indeterminate;
-
-  const a3 F1_triple = F1.triple_indeterminate;
-  const a3 F2_triple = F2.triple_indeterminate;
 
   out.single_indeterminate = sum1(F1.single_indeterminate,F2.single_indeterminate);
   out.double_indeterminate = sum2(F1.double_indeterminate,F2.double_indeterminate);
