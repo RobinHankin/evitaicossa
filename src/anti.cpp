@@ -269,7 +269,7 @@ aaa sum_anti(const aaa &F1, const aaa &F2){
   return out;
 }
 
-aaa prod_anti(const aaa F1, const aaa F2){
+aaa prod_anti(const aaa &F1, const aaa &F2){
   aaa out;
   const a1 F1_single = F1.single_indeterminate;
   const a1 F2_single = F2.single_indeterminate;
