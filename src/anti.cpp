@@ -414,46 +414,40 @@ List retval(const aaa &F){  // Returns an 'aaa' object to R
 		      );
 }
 
-bool equal1(a1 F1, a1 F2){
+bool equal1(a1 &F1, a1 &F2){
   if(F1.size() != F2.size()){
     return false;
-  } else {
-    for (auto it=F1.begin(); it != F1.end(); ++it){
-      const single_symbol symbol_a = it->first;
-      if(F1[symbol_a] != F2[symbol_a]){  // the meat
-	return false;
-      }
-    }
-    return true;
   }
+  for (const auto& [symbol, value] : F1) {
+    if (F2[symbol] != value) {
+      return false;
+    }
+  }
+  return true;
 }
 
-bool equal2(a2 F1, a2 F2){
+bool equal2(a2 &F1, a2 &F2){
   if(F1.size() != F2.size()){
     return false;
-  } else {
-    for (auto it=F1.begin(); it != F1.end(); ++it){
-      const double_symbol symbol_ab = it->first;
-      if(F1[symbol_ab] != F2[symbol_ab]){  // the meat
-	return false;
-      }
-    }
-    return true;
   }
+  for (const auto& [symbol, value] : F1){
+    if (F2[symbol] != value) {
+      return false;
+    }
+  }
+  return true;
 }
 
-bool equal3(a3 F1, a3 F2){
+bool equal3(a3 &F1, a3 &F2){
   if(F1.size() != F2.size()){
     return false;
-  } else {
-    for (auto it=F1.begin(); it != F1.end(); ++it){
-      const triple_symbol symbol_abc = it->first;
-      if(F1[symbol_abc] != F2[symbol_abc]){  // the meat
-	return false;
-      }
-    }
-    return true;
   }
+  for (const auto& [symbol, value] : F1){
+    if(F2[symbol] != value){  // the meat
+      return false;
+    }
+  }
+  return true;
 }
 
 bool equal(aaa F1, aaa F2){
