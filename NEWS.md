@@ -1,3 +1,7 @@
+# evitaicossa 0.0-3
+
+- C++17 idiom 
+
 # evitaicossa 0.0-2
 
 - Creation and citation of arxiv preprint
