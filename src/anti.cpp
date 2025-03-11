@@ -18,8 +18,8 @@ assert(empty_triple.empty());
 Rcpp::NumericVector coeffs1(const a1 &A){
   NumericVector out(A.size());
   size_t i=0;
-  for(auto it=A.begin(); it != A.end(); ++it){
-        out[i++] = it->second; 
+  for (const auto& [_, coefficient] : A){
+    out[i++] = coefficient;
   }
   return out;
 }
@@ -27,8 +27,8 @@ Rcpp::NumericVector coeffs1(const a1 &A){
 Rcpp::NumericVector coeffs2(const a2 &A){
   NumericVector out(A.size());
   size_t i=0;
-  for(auto it=A.begin(); it != A.end(); ++it){
-        out[i++] = it->second;
+  for (const auto& [_, coefficient] : A){
+    out[i++] = coefficient;
   }
   return out;
 }
@@ -36,17 +36,17 @@ Rcpp::NumericVector coeffs2(const a2 &A){
 Rcpp::NumericVector coeffs3(const a3 &A){
   NumericVector out(A.size());
   size_t i=0;
-  for(auto it=A.begin(); it != A.end(); ++it){
-        out[i++] = it->second;
+  for (const auto& [_, coefficient] : A){
+    out[i++] = coefficient;
   }
   return out;
 }
 
 Rcpp::CharacterVector names_single(const a1 &F){
   CharacterVector out(1*F.size());      /* different */
-  size_t i = 0;
-  for(auto it=F.begin(); it != F.end(); ++it){
-    out[i++] = (it->first).e1;                   /* different */
+  size_t i=0;
+  for (const auto& [symbol, _] : F) {
+    out[i++] = symbol.e1;
   }
   return out;
 }
@@ -54,9 +54,9 @@ Rcpp::CharacterVector names_single(const a1 &F){
 Rcpp::CharacterVector names_double(const a2 &F){
   CharacterVector out(2*F.size());     /* different */
   size_t i=0;
-  for(auto it=F.begin(); it != F.end(); ++it){
-    out[i++] = (it->first).e1;                  /* different */
-    out[i++] = (it->first).e2;                  /* different */
+  for (const auto& [symbol, _] : F) {
+    out[i++] = symbol.e1;
+    out[i++] = symbol.e2;
   }
   return out;
 }
@@ -64,10 +64,10 @@ Rcpp::CharacterVector names_double(const a2 &F){
 Rcpp::CharacterVector names_triple(const a3 &F){
   CharacterVector out(3*F.size());     /* different */
   size_t i=0;
-  for(auto it=F.begin(); it != F.end(); ++it){
-    out[i++] = (it->first).e1;                  /* different */
-    out[i++] = (it->first).e2;                  /* different */
-    out[i++] = (it->first).e3;                  /* different */
+  for (const auto& [symbol, _] : F) {
+    out[i++] = symbol.e1;
+    out[i++] = symbol.e2;
+    out[i++] = symbol.e3;
   }
   return out;
 }
@@ -154,43 +154,32 @@ a3 sum3(a3 F1, a3 F2){
 
 a2 prod_a1_a1(const a1 &F1, const a1 &F2){
   a2 out;
-  for(auto it1 = F1.begin() ; it1 != F1.end() ; ++it1){
-    for(auto it2 = F2.begin() ; it2 != F2.end() ; ++it2){
-      const double_symbol ds = {it1->first.e1, it2->first.e1};
-      out[ds] += (it1->second) * (it2->second);
+  for (const auto& [key1, value1] : F1){
+    for (const auto& [key2, value2] : F2){
+      double_symbol ds{ key1.e1, key2.e1 };
+      out[ds] += value1 * value2;
     }
   }
   return out;
 }
 
-a3 prod_a2_a1(const a2 F2, const a1 F1){
+a3 prod_a2_a1(const a2 &F2, const a1 &F1){
   a3 out;
-  for(auto it2 = F2.begin() ; it2 != F2.end() ; ++it2){
-    const double_symbol ab = it2->first;
-    for(auto it1 = F1.begin() ; it1 != F1.end() ; ++it1){
-      const single_symbol c = it1->first;
-      struct triple_symbol jj;
-      jj.e1 = ab.e1;
-      jj.e2 = ab.e2;
-      jj.e3 =  c.e1;
-      out[jj] += (it1->second) * (it2->second);  // the meat
+  for (const auto& [ab, value2] : F2){  // ab is a double_symbol
+    for (const auto& [c, value1] : F1){ // c  is a single_symbol
+      const triple_symbol jj{ ab.e1, ab.e2, c.e1 };
+      out[jj] += value1 * value2;  // The meat
     }
   }
   return out;
 }
 
-a3 prod_a1_a2(const a1 F1, const a2 F2){
+a3 prod_a1_a2(const a1 &F1, const a2 &F2){
   a3 out;
-  for(auto it1 = F1.begin() ; it1 != F1.end() ; ++it1){
-    const single_symbol a = it1->first;
-    for(auto it2 = F2.begin() ; it2 != F2.end() ; ++it2){
-      const double_symbol bc = it2->first;
-      struct triple_symbol jj;
-      jj.e1 = a.e1;
-      jj.e2 = bc.e1;
-      jj.e3 = bc.e2;
-      out[jj] +=  (K)*(it1->second) * (it2->second);  // the meat
-      //    K = -1 by default: this is the meat of the whole package]
+  for (const auto& [a, value1] : F1){    // a  is a single_symbol
+    for (const auto& [bc, value2] : F2){ // bc is a double_symbol
+      const triple_symbol jj{ a.e1, bc.e1, bc.e2 };
+      out[jj] +=  (K) * value1 * value2;  // K = -1 by default: this is the meat of the whole package
     }
   }
   return out;
