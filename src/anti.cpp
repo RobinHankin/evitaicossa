@@ -15,27 +15,14 @@ assert(empty_triple.empty());
 
 */
 
-Rcpp::NumericVector coeffs1(const a1 &A) {
+
+template <typename T>
+Rcpp::NumericVector coeffs(const T& A) {
   Rcpp::NumericVector out(A.size());
   std::transform(A.begin(), A.end(), out.begin(),
                  [](const auto& pair) { return pair.second; });
   return out;
 }
-
-Rcpp::NumericVector coeffs2(const a2 &A){
-  Rcpp::NumericVector out(A.size());
-  std::transform(A.begin(), A.end(), out.begin(),
-                 [](const auto& pair) { return pair.second; });
-  return out;
-}
-
-Rcpp::NumericVector coeffs3(const a3 &A){
-  Rcpp::NumericVector out(A.size());
-  std::transform(A.begin(), A.end(), out.begin(),
-                 [](const auto& pair) { return pair.second; });
-  return out;
-}
-
 
 Rcpp::CharacterVector names_single(const a1 &F){
   CharacterVector out(1*F.size());      /* different */
@@ -403,9 +390,9 @@ List retval(const aaa &F){  // Returns an 'aaa' object to R
 		      Named("names1")  = names_single(F.single_indeterminate),
 		      Named("names2")  = names_double(F.double_indeterminate),
 		      Named("names3")  = names_triple(F.triple_indeterminate),
-		      Named("coeffs1") = coeffs1(F.single_indeterminate),
-		      Named("coeffs2") = coeffs2(F.double_indeterminate),
-		      Named("coeffs3") = coeffs3(F.triple_indeterminate)
+		      Named("coeffs1") = coeffs(F.single_indeterminate),
+		      Named("coeffs2") = coeffs(F.double_indeterminate),
+		      Named("coeffs3") = coeffs(F.triple_indeterminate)
 		      );
 }
 
@@ -421,24 +408,13 @@ bool equal1(a1 &F1, a1 &F2){
   return true;
 }
 
-bool equal2(a2 &F1, a2 &F2){
-  if(F1.size() != F2.size()){
+template <typename T>
+bool equal_generic(const T& F1, const T& F2) {
+  if (F1.size() != F2.size()) {
     return false;
   }
-  for (const auto& [symbol, value] : F1){
-    if (F2[symbol] != value) {
-      return false;
-    }
-  }
-  return true;
-}
-
-bool equal3(a3 &F1, a3 &F2){
-  if(F1.size() != F2.size()){
-    return false;
-  }
-  for (const auto& [symbol, value] : F1){
-    if(F2[symbol] != value){  // the meat
+  for (const auto& [symbol, value] : F1) {
+    if (F2.at(symbol) != value) {
       return false;
     }
   }
@@ -447,9 +423,9 @@ bool equal3(a3 &F1, a3 &F2){
 
 bool equal(aaa F1, aaa F2){
   return
-    equal1(F1.single_indeterminate,F2.single_indeterminate) &&
-    equal2(F1.double_indeterminate,F2.double_indeterminate) &&
-    equal3(F1.triple_indeterminate,F2.triple_indeterminate);
+    equal_generic(F1.single_indeterminate,F2.single_indeterminate) &&
+    equal_generic(F1.double_indeterminate,F2.double_indeterminate) &&
+    equal_generic(F1.triple_indeterminate,F2.triple_indeterminate);
 }
 
 // [[Rcpp::export]]
