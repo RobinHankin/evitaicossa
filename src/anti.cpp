@@ -15,32 +15,27 @@ assert(empty_triple.empty());
 
 */
 
-Rcpp::NumericVector coeffs1(const a1 &A){
-  NumericVector out(A.size());
-  size_t i=0;
-  for (const auto& [_, coefficient] : A){
-    out[i++] = coefficient;
-  }
+Rcpp::NumericVector coeffs1(const a1 &A) {
+  Rcpp::NumericVector out(A.size());
+  std::transform(A.begin(), A.end(), out.begin(),
+                 [](const auto& pair) { return pair.second; });
   return out;
 }
 
 Rcpp::NumericVector coeffs2(const a2 &A){
-  NumericVector out(A.size());
-  size_t i=0;
-  for (const auto& [_, coefficient] : A){
-    out[i++] = coefficient;
-  }
+  Rcpp::NumericVector out(A.size());
+  std::transform(A.begin(), A.end(), out.begin(),
+                 [](const auto& pair) { return pair.second; });
   return out;
 }
 
 Rcpp::NumericVector coeffs3(const a3 &A){
-  NumericVector out(A.size());
-  size_t i=0;
-  for (const auto& [_, coefficient] : A){
-    out[i++] = coefficient;
-  }
+  Rcpp::NumericVector out(A.size());
+  std::transform(A.begin(), A.end(), out.begin(),
+                 [](const auto& pair) { return pair.second; });
   return out;
 }
+
 
 Rcpp::CharacterVector names_single(const a1 &F){
   CharacterVector out(1*F.size());      /* different */
