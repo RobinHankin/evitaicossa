@@ -54,48 +54,28 @@ Rcpp::CharacterVector names_triple(const a3 &F){
   return out;
 }
 
-a1 nonzero1(const a1 &F) {
-  a1 out;
-  for (const auto& [single_symbol, coefficient] : F) {
+template <typename AssocContainer>
+AssocContainer nonzero(const AssocContainer& F) {
+  AssocContainer out;
+  for (const auto& [symbol, coefficient] : F) {
     if (coefficient != 0) {
-      out[single_symbol] = coefficient;
+      out[symbol] = coefficient;
     }
   }
   return out;
 }
-
-a2 nonzero2(const a2 &F) {
-  a2 out;
-  for (const auto& [single_symbol, coefficient] : F) {
-    if (coefficient != 0) {
-      out[single_symbol] = coefficient;
-    }
-  }
-  return out;
-}
-
-a3 nonzero3(const a3 &F) {
-  a3 out;
-  for (const auto& [single_symbol, coefficient] : F) {
-    if (coefficient != 0) {
-      out[single_symbol] = coefficient;
-    }
-  }
-  return out;
-}
-
 
 a1 sum1(a1 F1, a1 F2){
   if(F1.size() > F2.size()){
     for(const auto& [key, value] : F2){ // iterate through F2 as it is the smaller one
       F1[key] += value;
     }
-    return nonzero1(F1);
+    return nonzero(F1);
   } else { 
     for(const auto& [key, value] : F1){  // iterate through F1 as it is the smaller one
       F2[key] += value;
     }
-    return nonzero1(F2);
+    return nonzero(F2);
   }
 }
 
@@ -104,12 +84,12 @@ a2 sum2(a2 F1, a2 F2){
     for(const auto& [key, value] : F2){ // iterate through F2 as it is the smaller one
       F1[key] += value;
     }
-    return nonzero2(F1);
+    return nonzero(F1);
   } else {
     for(const auto& [key, value] : F1){  // iterate through F1 as it is the smaller one
       F2[key] += value;
     }
-    return nonzero2(F2);
+    return nonzero(F2);
   }
 }
 
@@ -118,12 +98,12 @@ a3 sum3(a3 F1, a3 F2){
     for(const auto& [key, value] : F2){ // iterate through F2 as it is the smaller one
       F1[key] += value;
     }
-    return nonzero3(F1);
+    return nonzero(F1);
   } else { 
     for(const auto& [key, value] : F1){  // iterate through F1 as it is the smaller one
       F2[key] += value;
     }
-    return nonzero3(F2);
+    return nonzero(F2);
   }
 }
 
@@ -169,7 +149,7 @@ a1 extract1(a1 F,
     a.e1 = names1[i];
     out[a] += F[a];  // the meat
   }
-  return nonzero1(out);
+  return nonzero(out);
 }
 
 a2 extract2(a2 F,
@@ -182,7 +162,7 @@ a2 extract2(a2 F,
     ab.e2 = names2[i];
     out[ab] += F[ab];  // the meat
   }
-  return nonzero2(out);
+  return nonzero(out);
 }
 
 a3 extract3(a3 F,
@@ -197,7 +177,7 @@ a3 extract3(a3 F,
     abc.e3 = names3[i];
     out[abc] += F[abc];  // the meat
   }
-  return nonzero3(out);
+  return nonzero(out);
 }
 
 a1 overwrite1(a1 F,
@@ -208,7 +188,7 @@ a1 overwrite1(a1 F,
     a.e1 = names1[i];
     F[a] = value[0];  // the meat
   }
-  return nonzero1(F);
+  return nonzero(F);
 }
 
 a2 overwrite2(a2 F,
@@ -221,7 +201,7 @@ a2 overwrite2(a2 F,
     ab.e2 = names2[i];
     F[ab] = value[0];  // the meat
   }
-  return nonzero2(F);
+  return nonzero(F);
 }
 
 a3 overwrite3(a3 F,
@@ -236,7 +216,7 @@ a3 overwrite3(a3 F,
     abc.e3 = names3[i];
     F[abc] = value[0];  // the meat
   }
-  return nonzero3(F);
+  return nonzero(F);
 }
 
 
@@ -282,7 +262,7 @@ a1 a1maker(
       out[a] += coeffs[i];  // the meat
     }
   }
-  return nonzero1(out);  // nonzero() needed here if, eg, c(a=1,b=3,a=-1)
+  return nonzero(out);  // nonzero() needed here if, eg, c(a=1,b=3,a=-1)
 }
 
 a2 a2maker(
@@ -304,7 +284,7 @@ a2 a2maker(
       out[ab] += coeffs[i];  // the meat
     }
   }
-  return nonzero2(out);  // nonzero() needed here if, eg, c(a=1,b=3,a=-1)
+  return nonzero(out);  // nonzero() needed here if, eg, c(a=1,b=3,a=-1)
 }
 
 a3 a3maker(
@@ -329,7 +309,7 @@ a3 a3maker(
       out[abc] += coeffs[i];  // the meat
     }
   }
-  return nonzero3(out);  // nonzero() needed here if, eg, c(a=1,b=3,a=-1)
+  return nonzero(out);  // nonzero() needed here if, eg, c(a=1,b=3,a=-1)
 }
 
 aaa aaamaker(
