@@ -22,7 +22,7 @@ set.seed(1)
 knitr::include_graphics(system.file("help/figures/evitaicossa.png", package = "evitaicossa"))
 ```
 
-To cite the permutations package in publications, please use
+To cite the `evitaicossa` package in publications, please use
 @hankin2024_evitaicossa.  Here I introduce the `evitaicossa` R
 package for antiassociative algebras.  An _algebra_ is a vector space
 in which the vectors possess a bilinear product.  Formally, a vector
