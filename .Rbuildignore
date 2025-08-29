@@ -8,6 +8,11 @@ README.html
 ^.devcontainer$
 ^inst/rjournal
 ^inst/JOSS
+^inst/evitaicossa.Rnw
+^inst/evitaicossa.bib
+^inst/hoffnung_discord_blue.png
+^inst/evitaicossa_stickermaker.R
+^inst/evitaicossa_arxiv.Rnw
 ^vignettes/*.html$
 ^CODE_OF_CONDUCT.md$
 ^CONTRIBUTING.md$
