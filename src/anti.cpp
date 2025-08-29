@@ -72,7 +72,7 @@ a1 sum1(a1 F1, a1 F2){
     }
     return nonzero(F1);
   } else { 
-    for(const auto& [key, value] : F1){  // iterate through F1 as it is the smaller one
+    for(const auto& [key, value] : F1){ // iterate through F1 as it is the smaller one
       F2[key] += value;
     }
     return nonzero(F2);
@@ -86,7 +86,7 @@ a2 sum2(a2 F1, a2 F2){
     }
     return nonzero(F1);
   } else {
-    for(const auto& [key, value] : F1){  // iterate through F1 as it is the smaller one
+    for(const auto& [key, value] : F1){ // iterate through F1 as it is the smaller one
       F2[key] += value;
     }
     return nonzero(F2);
@@ -100,7 +100,7 @@ a3 sum3(a3 F1, a3 F2){
     }
     return nonzero(F1);
   } else { 
-    for(const auto& [key, value] : F1){  // iterate through F1 as it is the smaller one
+    for(const auto& [key, value] : F1){ // iterate through F1 as it is the smaller one
       F2[key] += value;
     }
     return nonzero(F2);
@@ -218,9 +218,6 @@ a3 overwrite3(a3 F,
   }
   return nonzero(F);
 }
-
-
-
 
 aaa sum_anti(const aaa &F1, const aaa &F2){
   aaa out;
@@ -365,7 +362,7 @@ aaa overwrite(
   return out;
 }
 
-List retval(const aaa &F){  // Returns an 'aaa' object to R
+List retval(const aaa &F){ // Returns an 'aaa' object to R
   return List::create(
 		      Named("names1")  = names_single(F.single_indeterminate),
 		      Named("names2")  = names_double(F.double_indeterminate),
@@ -526,7 +523,6 @@ List c_aaa_prod(
 				  F2_triple_indeterminate_name3,
 				  F2_triple_indeterminate_coeff
 				  )
-			 
 			 ));
 }
 
@@ -609,6 +605,7 @@ List c_aaa_extract(
 				  F1_triple_indeterminate_coeff),
 			 s1,d1,d2,t1,t2,t3));
 }
+
 //[[Rcpp::export]]
 List c_aaa_overwriter(
 		  const CharacterVector F1_single_indeterminate_name1,
