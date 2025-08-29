@@ -7,12 +7,8 @@
 \alias{as.aaa}
 \alias{lavter}
 \alias{thing_to_aaa}
-\title{
-Function to create objects of class \code{aaa}
-}
-\description{
-Objects of class \code{aaa}
-}
+\title{Functions to create objects of class \code{aaa}}
+\description{Objects of class \code{aaa}}
 \usage{
 aaa(s1 = character(0), sc = numeric(0), d1 = character(0), d2 =
 character(0), dc = numeric(0), t1 = character(0), t2 = character(0), t3
