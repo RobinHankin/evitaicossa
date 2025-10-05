@@ -93,12 +93,12 @@ $\mathbf{u}\mathbf{v}$, which satisfies the following axioms:
 Note the absence of commutativity and associativity.  Associative
 algebras seem to be the most common, and examples would include
 multivariate polynomials
-\citep{hankin2022_mvp_arxiv,hankin2022_spray_arxiv}, Clifford algebras
-\citep{hankin2022_clifford_arxiv}, Weyl algebras
-\citep{hankin2022_weyl_arxiv}, and free algebras
-\citep{hankin2022_freealg_arxiv}.  Non-associative algebras would include
-the octonions \citep{hankin2006_onion} and Jordan algebras
-\citep{hankin2023_jordan_arxiv}.  Here I consider {\em antiassociative}
+\citep{hankin2022_mvp_tragula,hankin2022_spray_tragula}, Clifford algebras
+\citep{hankin2022_clifford_tragula}, Weyl algebras
+\citep{hankin2022_weyl_tragula}, and free algebras
+\citep{hankin2022_freealg_tragula}.  Non-associative algebras would include
+the octonions \citep{hankin2006_onion_tragula} and Jordan algebras
+\citep{hankin2023_jordan_tragula}.  Here I consider {\em antiassociative}
 algebras in which the usual associativity relation
 $\mathbf{u}(\mathbf{v}\mathbf{w})=(\mathbf{u}\mathbf{v})\mathbf{w}$ is
 replaced by the relation
@@ -317,11 +317,11 @@ vector:
 @
 
 
-\section{Note on disordR discipline}
+\section[Note on disordR discipline]{Note on \pkg{disordR} discipline}
 
 If we try to access the symbols or coefficients of an {\tt aaa} object
 [functions {\tt s1()} and {\tt sc()} respectively], we get a {\tt
-  disord} object \citep{hankin2022_disordR_arxiv}.  Suppose we wish to
+  disord} object \citep{hankin2022_disordR_tragula}.  Suppose we wish to
 extract the single-symbol terms and the single-symbol coefficients:
 
 <<>>=
