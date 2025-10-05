@@ -5,8 +5,8 @@
 \title{Antiassociative algebra in \proglang{R}: introducing the \pkg{evitaicossa} package}
 
 \Plainauthor{Robin K. S. Hankin}
-\Plaintitle{The freegroup package}
-\Shorttitle{The freegroup package}
+\Plaintitle{The \pkg{evitaicossa} package}
+\Shorttitle{The \pkg{evitaicossa} package}
 
 \Abstract{
   In this short article I introduce the {\tt evitaicossa} package
