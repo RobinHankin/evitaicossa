@@ -12,7 +12,8 @@
   In this short article I introduce the {\tt evitaicossa} package
   which provides functionality for antiassociative algebras in the R
   programming language; it is available on CRAN
-  at\\ \url{https://CRAN.R-project.org/package=evitaicossa}.
+  at \url{https://CRAN.R-project.org/package=evitaicossa}.  To cite
+  this article or the package, use~\citet{hankin2022_evitaicossa_tragula}.
 }
 
 %% publication information
