@@ -299,7 +299,7 @@ a[s1=c("c","e"),t1="c",t2="d",t3="d"]
 @ 
 
 Above we pass named arguments ({\tt s1} {\em et seq.}) and the
-appropriate {\tt aaa} object is returned.  Zero coeffients are
+appropriate {\tt aaa} object is returned.  Zero coefficients are
 discarded.  This mode also implements replacement methods:
 
 <<>>=
@@ -330,7 +330,7 @@ s1(x)
 sc(x)
 @
 
-See how the hash codes of the symbols and coeffients match.  However,
+See how the hash codes of the symbols and coefficients match.  However,
 the double-symbol terms and coefficients, while internally matching,
 differ from the single-symbol stuff:
 
@@ -392,7 +392,7 @@ will cause {\tt test\_aac.R}, one of the {\tt testthat} suite, to fail
 As noted above, \cite{remm2024_arxiv} uses
 $\mathbf{x}_i(\mathbf{x}_j\mathbf{x}_k)$ rather than
 $(\mathbf{x}_i\mathbf{x}_j)\mathbf{x}_k$ for the triple products.  I
-chose the latter because R idiom for multiplication is left
+chose the latter because \proglang{R} idiom for multiplication is left
 associative:
 
 <<>>=
