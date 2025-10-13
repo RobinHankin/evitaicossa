@@ -198,7 +198,7 @@ The minus sign in front of the third term embodies antiassociativity.
 
 The \pkg{evitaicossa} package implements these relations in the
 context of an \proglang{R}-centric suite of software.  I give some examples of
-the package in use.  A good place to start is function {\tt raaa()},
+the package in use.  A good place to start is function \code{raaa()},
 which returns a simple random element of the free antiassociative
 algebra:
 
@@ -212,7 +212,7 @@ We see the print method for the package which shows some of the
 structure of the object.  This one has some single-symbol elements,
 some double-symbol and some triple-symbol elements.
 
-It is possible to create elements using the {\tt aaa()} or {\tt as.aaa()}
+It is possible to create elements using the \code{aaa()} or \code{as.aaa()}
 functions:
 
 <<>>=
@@ -236,7 +236,7 @@ x+x1
 @ 
 
 
-(above, note the cancellation in {\tt x+x1}).  Multiplication is also
+(above, note the cancellation in \code{x+x1}).  Multiplication is also
 implemented (package idiom is to use an asterisk):
 
 <<>>=
@@ -268,8 +268,8 @@ x <- raaa()
 \section{Extract and replace methods}
 
 Because of the tripartite nature of antiassociative algebra, the
-package provides three families of extraction methods: {\tt single()},
-{\tt double()} and {\tt triple()}, which return the different
+package provides three families of extraction methods: \code{single()},
+\code{double()} and \code{triple()}, which return the different
 components of an object:
 
 
@@ -298,8 +298,8 @@ Square bracket extraction and replacement is also implemented:
 a[s1=c("c","e"),t1="c",t2="d",t3="d"]
 @ 
 
-Above we pass named arguments ({\tt s1} {\em et seq.}) and the
-appropriate {\tt aaa} object is returned.  Zero coefficients are
+Above we pass named arguments (\code{s1} {\em et seq.}) and the
+appropriate \code{aaa} object is returned.  Zero coefficients are
 discarded.  This mode also implements replacement methods:
 
 <<>>=
@@ -319,8 +319,8 @@ vector:
 
 \section[Note on disordR discipline]{Note on \pkg{disordR} discipline}
 
-If we try to access the symbols or coefficients of an {\tt aaa} object
-[functions {\tt s1()} and {\tt sc()} respectively], we get a {\tt
+If we try to access the symbols or coefficients of an \code{aaa} object
+[functions \code{s1()} and \code{sc()} respectively], we get a {\tt
   disord} object \citep{hankin2022_disordR_tragula}.  Suppose we wish to
 extract the single-symbol terms and the single-symbol coefficients:
 
@@ -375,15 +375,15 @@ k(\mathbf{a}\mathbf{b})(\mathbf{c}\mathbf{d})
 $$
 
 The value of $k$ may be set at compile-time by editing file
-{\tt src/anti.h}.  The line in question reads:
+\code{src/anti.h}.  The line in question reads:
 
 \begin{verbatim}
 #define K -1 // a(bc) == K(ab)c
 \end{verbatim}
 
-but it is possible to change the value of {\tt K}.  Note that this
-will cause {\tt test\_aac.R}, one of the {\tt testthat} suite, to fail
-{\tt R CMD check}.
+but it is possible to change the value of \code{K}.  Note that this
+will cause \code{test\_aac.R}, one of the \code{testthat} suite, to fail
+\code{R CMD check}.
 
 
 
@@ -404,7 +404,7 @@ c(`(x*x)*x` = (x*x)*x,  `x*(x*x)` = x*(x*x),  `x*x*x` = x*x*x)
 @ 
 
 
-Above we see that {\tt x*x*x} is interpreted as {\tt (x*x)*x}, which
+Above we see that \code{x*x*x} is interpreted as \code{(x*x)*x}, which
 is why the sign convention in the package was adopted.
 
 \bibliography{evitaicossa}
