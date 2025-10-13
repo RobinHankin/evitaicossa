@@ -9,7 +9,7 @@
 \Shorttitle{The \pkg{evitaicossa} package}
 
 \Abstract{
-  In this short article I introduce the {\tt evitaicossa} package
+  In this short article I introduce the \pkg{evitaicossa} package
   which provides functionality for antiassociative algebras in the R
   programming language; it is available on CRAN
   at \url{https://CRAN.R-project.org/package=evitaicossa}.  To cite
@@ -61,8 +61,8 @@ set.seed(0)
 library("evitaicossa")
 @ 
 
-Here I introduce the {\tt evitaicossa} R package for antiassociative
-algebras.  An {\em algebra} is a vector space in which the vectors
+Here I introduce the \pkg{evitaicossa} \proglang{R} package for antiassociative
+algebras.  An \dfn{algebra} is a vector space in which the vectors
 possess a well-behaved bilinear product.  Formally, a vector space is
 a set $V$ of vectors which form an Abelian group under addition and
 also satisfy the following axioms:
@@ -196,8 +196,8 @@ The minus sign in front of the third term embodies antiassociativity.
 \section{The package}
 
 
-The {\tt evitaicossa} package implements these relations in the
-context of an R-centric suite of software.  I give some examples of
+The \pkg{evitaicossa} package implements these relations in the
+context of an \proglang{R}-centric suite of software.  I give some examples of
 the package in use.  A good place to start is function {\tt raaa()},
 which returns a simple random element of the free antiassociative
 algebra:
