@@ -47,6 +47,11 @@
 \usepackage{amssymb}
 \begin{document}
 
+\textbf{This document has not been peer-reviewed and is not an
+  accepted \textsf{Tragula} publication.  It is intended as an example
+  of the style and substance appropriate for submission to
+  \textsf{Tragula}.}
+
 \section{Introduction}
 
 \begin{wrapfigure}{r}{0.2\textwidth}
@@ -61,8 +66,10 @@ set.seed(0)
 library("evitaicossa")
 @ 
 
+
+
 Here I introduce the \pkg{evitaicossa} \proglang{R} package for antiassociative
-algebras.  An \dfn{algebra} is a vector space in which the vectors
+algebras.  An \emph{algebra} is a vector space in which the vectors
 possess a well-behaved bilinear product.  Formally, a vector space is
 a set $V$ of vectors which form an Abelian group under addition and
 also satisfy the following axioms:
