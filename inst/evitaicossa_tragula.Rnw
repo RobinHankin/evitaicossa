@@ -1,7 +1,7 @@
 % -*- mode: noweb; noweb-default-code-mode: R-mode; -*-
 \documentclass[nojss]{jss}
 
-\author{Robin K. S. Hankin\\University of Stirling}
+\author{Robin K. S. Hankin}
 \title{Antiassociative algebra in \proglang{R}: introducing the \pkg{evitaicossa} package}
 
 \Plainauthor{Robin K. S. Hankin}
@@ -32,12 +32,10 @@
 \Plainkeywords{Antiassociative algebra}
 
 \Address{
-  Robin K. S. Hankin\\%\orcid{https://orcid.org/0000-0001-5982-0415}\\
+  Robin K. S. Hankin\\
   University of Stirling\\
   E-mail: \email{hankin.robin@gmail.com}
 }
-
-%% \Repository{https://github.com/RobinHankin/freegroup} %% this line for Tragula
 
 %% need no \usepackage{Sweave.sty}
 
