@@ -1,21 +1,5 @@
 #include "anti.h"
 
-const a1 empty_single;
-const a2 empty_double;
-const a3 empty_triple;
-
-
-
-
-/*
-assert(empty_single.empty());
-assert(empty_double.empty());
-assert(empty_triple.empty());
-
-
-*/
-
-
 template <typename T>
 Rcpp::NumericVector coeffs(const T& A) {
   Rcpp::NumericVector out(A.size());
