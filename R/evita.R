@@ -469,6 +469,11 @@ extracter <- function(a,
                       t2 = character(0),
                       t3 = character(0)
                       ){
+
+    stopifnot(length(d1) == length(d2))
+    stopifnot(length(t1) == length(t2))
+    stopifnot(length(t2) == length(t3))
+
     return(lavter(c_aaa_extract( # the meat
         F1_single_indeterminate_name1 = elements(s1(a)),
         F1_single_indeterminate_coeff = elements(sc(a)),

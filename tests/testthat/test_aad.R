@@ -203,4 +203,7 @@ expect_error(single(a) <- 1)
 expect_error(double(a) <- 1)
 expect_error(triple(a) <- 1)
 
+expect_error(aaa(s1="x", sc=2)[t1=letters[1:3]])
+
+
 } )
