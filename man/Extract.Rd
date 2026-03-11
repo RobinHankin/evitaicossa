@@ -32,6 +32,7 @@
 \alias{c_aaa_overwriter}
 \alias{[,aaa,ANY,ANY,ANY-method}
 \alias{[,aaa,character,ANY,ANY-method}
+\alias{[,aaa,list,ANY,ANY-method}
 \alias{[,aaa,matrix,ANY,ANY-method}
 \alias{[<-,aaa,ANY,ANY,ANY-method}
 \alias{[<-,aaa,character,missing,numeric-method}
@@ -105,7 +106,8 @@ triple(a)
   are interpreted as symbols and coefficients of the different orders.
   If given an unnamed argument, this is interpreted as a character
   vector of length one, two, or three specifying a particular term in
-  the object.  See examples.
+  the object.  But note that list-based extraction, as in
+  \code{a[list(s1=3)]}, the names to be given.  See examples.
 
   }
 \value{Return disord or \code{aaa} objects}
@@ -123,6 +125,8 @@ x
 x[c("c","c","b")] <- -777
 x
 
+x[list("c","c","b")]            # returns zero...
+x[list(t1="c", t2="c", t3="b")] # ...you probably meant this 
 
 a <- raaaa()
 sc(a)
