@@ -1,0 +1,179 @@
+# Antiassociative algebra in R: introducing the `evitaicossa` package
+
+# ![](reference/figures/evitaicossa.png)
+
+An *algebra* is a vector space equipped with a bilinear product: the
+vectors may be multiplied. Algebras may be defined over any field but
+here we use the real numbers. An *antiassociative* algebra is an algebra
+in which the usual associativity relation for vector multiplication is
+replaced by . Antiassociative algebras are nilpotent of nilindex 4: the
+product of any four vectors is zero. Antiassociative algebras are the
+direct sum of elements of degree 1,2 and 3 (the antiassociativity
+condition implies that the degree zero component is trivial, and the
+nilpotence ensures that components of degree four or above do not
+exist). Thus the general form of an element of an antiassociative
+algebra is thus where , , are constants and the are indeterminates.
+
+The `evitaicossa` package provides some R-centric functionality for
+working with antiassociative algebras. In an R session, you can install
+the released version of the package from
+[CRAN](https://CRAN.R-project.org) with:
+
+``` r
+# install.packages("evitaicossa")  # uncomment to install the package
+library("evitaicossa")             # loads the package 
+```
+
+The package includes a single S4 class `aaa` \[for
+“**a**nti**a**ssociative **a**lgebra”\] and a range of functions to
+create objects of this class. A good place to start is function
+[`raaa()`](https://robinhankin.github.io/evitaicossa/reference/raaa.md),
+which creates a random object of class `aaa`:
+
+``` r
+(evita <- raaa())
+#> free antiassociative algebra element:
+#> +1a +3b +2d +3a.b +1c.b +1c.c +1(a.b)a +1(b.b)c +1(b.c)a
+(icossa <- raaa())
+#> free antiassociative algebra element:
+#> +4a +2b +2a.a +2c.c +2d.d +2(b.d)d +1(c.d)a +4(d.b)c
+(itna <- raaa())
+#> free antiassociative algebra element:
+#> +2a +2c +4d +1b.d +2c.b +2c.d +3(b.a)d +3(b.b)c +4(b.c)b
+```
+
+Above, we see objects `evita`, `icossa` and `itna` are random
+antiassociative algebra elements, with indeterminates `a`, `b`, `c`,
+`d`. These objects may be combined with standard arithmetic operations:
+
+``` r
+evita+icossa
+#> free antiassociative algebra element:
+#> +5a +5b +2d +2a.a +3a.b +1c.b +3c.c +2d.d +1(a.b)a +1(b.b)c +1(b.c)a +2(b.d)d
+#> +1(c.d)a +4(d.b)c
+evita*icossa
+#> free antiassociative algebra element:
+#> +4a.a +2a.b +12b.a +6b.b +8d.a +4d.b -2(a.a)a +12(a.b)a +6(a.b)b -2(a.c)c
+#> -2(a.d)d -6(b.a)a -6(b.c)c -6(b.d)d +4(c.b)a +2(c.b)b +4(c.c)a +2(c.c)b
+#> -4(d.a)a -4(d.c)c -4(d.d)d
+```
+
+It is possible to verify some of the axioms as follows:
+
+``` r
+c(
+left_distributive  = evita*(icossa + itna) == evita*icossa + evita*itna,
+right_distributive = (evita + icossa)*itna == evita*itna + icossa*itna,
+antiassociative    = evita*(icossa*itna)   == -(evita*icossa)*itna
+)
+#>  left_distributive right_distributive    antiassociative 
+#>               TRUE               TRUE               TRUE
+```
+
+For further details, see the package vignette
+
+[`vignette("evitaicossa")`](https://robinhankin.github.io/evitaicossa/articles/evitaicossa.md)
+
+# Package index
+
+## All functions
+
+- [`Arith-methods`](https://robinhankin.github.io/evitaicossa/reference/Arith-methods.md)
+  [`Arith,aaa,aaa-method`](https://robinhankin.github.io/evitaicossa/reference/Arith-methods.md)
+  [`Arith,aaa,numeric-method`](https://robinhankin.github.io/evitaicossa/reference/Arith-methods.md)
+  [`Arith,numeric,aaa-method`](https://robinhankin.github.io/evitaicossa/reference/Arith-methods.md)
+  [`-,aaa,missing-method`](https://robinhankin.github.io/evitaicossa/reference/Arith-methods.md)
+  [`+,aaa,missing-method`](https://robinhankin.github.io/evitaicossa/reference/Arith-methods.md)
+  [`aaa_arith_aaa`](https://robinhankin.github.io/evitaicossa/reference/Arith-methods.md)
+  [`aaa_arith_numeric`](https://robinhankin.github.io/evitaicossa/reference/Arith-methods.md)
+  [`aaa_negative`](https://robinhankin.github.io/evitaicossa/reference/Arith-methods.md)
+  [`numeric_arith_aaa`](https://robinhankin.github.io/evitaicossa/reference/Arith-methods.md)
+  [`aaa_plus_aaa`](https://robinhankin.github.io/evitaicossa/reference/Arith-methods.md)
+  [`aaa_prod_aaa`](https://robinhankin.github.io/evitaicossa/reference/Arith-methods.md)
+  [`aaa_plus_numeric`](https://robinhankin.github.io/evitaicossa/reference/Arith-methods.md)
+  [`aaa_prod_numeric`](https://robinhankin.github.io/evitaicossa/reference/Arith-methods.md)
+  [`aaa_power_numeric`](https://robinhankin.github.io/evitaicossa/reference/Arith-methods.md)
+  [`c_aaa_add`](https://robinhankin.github.io/evitaicossa/reference/Arith-methods.md)
+  [`c_aaa_prod`](https://robinhankin.github.io/evitaicossa/reference/Arith-methods.md)
+  :
+
+  Arithmetic methods for `aaa` objects
+
+- [`Compare-methods`](https://robinhankin.github.io/evitaicossa/reference/Compare-methods.md)
+  [`Compare,aaa,aaa-method`](https://robinhankin.github.io/evitaicossa/reference/Compare-methods.md)
+  [`Compare,aaa,ANY-method`](https://robinhankin.github.io/evitaicossa/reference/Compare-methods.md)
+  [`Compare,aaa,numeric-method`](https://robinhankin.github.io/evitaicossa/reference/Compare-methods.md)
+  [`Compare,ANY,aaa-method`](https://robinhankin.github.io/evitaicossa/reference/Compare-methods.md)
+  [`Compare,numeric,aaa-method`](https://robinhankin.github.io/evitaicossa/reference/Compare-methods.md)
+  [`aaa_compare_aaa`](https://robinhankin.github.io/evitaicossa/reference/Compare-methods.md)
+  [`aaa_compare_error`](https://robinhankin.github.io/evitaicossa/reference/Compare-methods.md)
+  [`aaa_equal_aaa`](https://robinhankin.github.io/evitaicossa/reference/Compare-methods.md)
+  [`c_aaa_equal`](https://robinhankin.github.io/evitaicossa/reference/Compare-methods.md)
+  : Comparison methods for antiassociative algebra
+
+- [`s1(`*`<aaa>`*`)`](https://robinhankin.github.io/evitaicossa/reference/Extract.md)
+  [`sc(`*`<aaa>`*`)`](https://robinhankin.github.io/evitaicossa/reference/Extract.md)
+  [`d1(`*`<aaa>`*`)`](https://robinhankin.github.io/evitaicossa/reference/Extract.md)
+  [`d2(`*`<aaa>`*`)`](https://robinhankin.github.io/evitaicossa/reference/Extract.md)
+  [`dc(`*`<aaa>`*`)`](https://robinhankin.github.io/evitaicossa/reference/Extract.md)
+  [`t1(`*`<aaa>`*`)`](https://robinhankin.github.io/evitaicossa/reference/Extract.md)
+  [`t2(`*`<aaa>`*`)`](https://robinhankin.github.io/evitaicossa/reference/Extract.md)
+  [`t3(`*`<aaa>`*`)`](https://robinhankin.github.io/evitaicossa/reference/Extract.md)
+  [`tc(`*`<aaa>`*`)`](https://robinhankin.github.io/evitaicossa/reference/Extract.md)
+  [`single()`](https://robinhankin.github.io/evitaicossa/reference/Extract.md)
+  [`double()`](https://robinhankin.github.io/evitaicossa/reference/Extract.md)
+  [`triple()`](https://robinhankin.github.io/evitaicossa/reference/Extract.md)
+  :
+
+  Extract or Replace Parts of `aaa` objects
+
+- [`show(`*`<aaa>`*`)`](https://robinhankin.github.io/evitaicossa/reference/Show.md)
+  [`aaa_show()`](https://robinhankin.github.io/evitaicossa/reference/Show.md)
+  : Print method for antiassociative algebra objects
+
+- [`aaa-class`](https://robinhankin.github.io/evitaicossa/reference/aaa-class.md)
+  :
+
+  Class `"aaa"`
+
+- [`aaa()`](https://robinhankin.github.io/evitaicossa/reference/aaa.md)
+  [`lavter()`](https://robinhankin.github.io/evitaicossa/reference/aaa.md)
+  [`as.aaa()`](https://robinhankin.github.io/evitaicossa/reference/aaa.md)
+  [`thing_to_aaa()`](https://robinhankin.github.io/evitaicossa/reference/aaa.md)
+  :
+
+  Functions to create objects of class `aaa`
+
+- [`allsymbols()`](https://robinhankin.github.io/evitaicossa/reference/allsymbols.md)
+  : All symbols in an aaa object
+
+- [`evitaicossa-package`](https://robinhankin.github.io/evitaicossa/reference/evitaicossa-package.md)
+  [`evitaicossa`](https://robinhankin.github.io/evitaicossa/reference/evitaicossa-package.md)
+  : Antiassociative Algebra
+
+- [`jitter`](https://robinhankin.github.io/evitaicossa/reference/jitter.md)
+  [`jitter-methods`](https://robinhankin.github.io/evitaicossa/reference/jitter.md)
+  [`jitter,aaa-method`](https://robinhankin.github.io/evitaicossa/reference/jitter.md)
+  [`jitter,ANY-method`](https://robinhankin.github.io/evitaicossa/reference/jitter.md)
+  [`jitter,disord-method`](https://robinhankin.github.io/evitaicossa/reference/jitter.md)
+  [`jitter,aaa-method`](https://robinhankin.github.io/evitaicossa/reference/jitter.md)
+  : Jittering aaa objects
+
+- [`linear1()`](https://robinhankin.github.io/evitaicossa/reference/linear.md)
+  [`linear2()`](https://robinhankin.github.io/evitaicossa/reference/linear.md)
+  [`linear3()`](https://robinhankin.github.io/evitaicossa/reference/linear.md)
+  : Linear functions
+
+- [`raaa()`](https://robinhankin.github.io/evitaicossa/reference/raaa.md)
+  [`raaaa()`](https://robinhankin.github.io/evitaicossa/reference/raaa.md)
+  : Random elements of the free antiassociative algebra
+
+- [`is.zero()`](https://robinhankin.github.io/evitaicossa/reference/zero.md)
+  : The additive zero in antiassociative algebras
+
+# Articles
+
+### All vignettes
+
+- [Antiassociative algebras with R: the \`evitaicossa\`
+  package](https://robinhankin.github.io/evitaicossa/articles/evitaicossa.md):
