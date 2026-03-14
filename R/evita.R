@@ -527,6 +527,15 @@ setMethod("[", signature(x="aaa"),
                      ))
           } )
 
+setMethod("[", signature(x="aaa", i="list"),
+          function(x, i, ...){
+              return(extracter(x,
+                     as.character(i$s1),
+                     as.character(i$d1), as.character(i$d2),
+                     as.character(i$t1), as.character(i$t2), as.character(i$t3)
+                     ))
+          } )
+
 setMethod("[", signature(x="aaa",i="character"),
           function(x, i, ...){
               if(length(i) == 0){
