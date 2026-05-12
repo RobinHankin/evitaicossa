@@ -49,48 +49,53 @@ AssocContainer nonzero(const AssocContainer& F) {
   return out;
 }
 
-a1 sum1(a1 F1, a1 F2){
+a1 sum1(const a1& F1, const a1& F2){
   if(F1.size() > F2.size()){
+    a1 out = F1;
     for(const auto& [key, value] : F2){ // iterate through F2 as it is the smaller one
-      F1[key] += value;
+      out[key] += value;
     }
-    return nonzero(F1);
+    return nonzero(out);
   } else { 
-    for(const auto& [key, value] : F1){ // iterate through F1 as it is the smaller one
-      F2[key] += value;
+      a1 out = F2;
+      for(const auto& [key, value] : F1){ // iterate through F1 as it is the smaller one
+      out[key] += value;
     }
-    return nonzero(F2);
+    return nonzero(out);
   }
 }
 
-a2 sum2(a2 F1, a2 F2){
+a2 sum2(const a2& F1, const a2& F2){
   if(F1.size() > F2.size()){
+    a2 out = F1;
     for(const auto& [key, value] : F2){ // iterate through F2 as it is the smaller one
-      F1[key] += value;
+      out[key] += value;
     }
-    return nonzero(F1);
+    return nonzero(out);
   } else {
+    a2 out = F2;
     for(const auto& [key, value] : F1){ // iterate through F1 as it is the smaller one
-      F2[key] += value;
+      out[key] += value;
     }
-    return nonzero(F2);
+    return nonzero(out);
   }
 }
 
 a3 sum3(a3 F1, a3 F2){
   if(F1.size() > F2.size()){
+    a3 out = F1;
     for(const auto& [key, value] : F2){ // iterate through F2 as it is the smaller one
-      F1[key] += value;
+      out[key] += value;
     }
-    return nonzero(F1);
-  } else { 
+    return nonzero(out);
+  } else {
+    a3 out = F2;
     for(const auto& [key, value] : F1){ // iterate through F1 as it is the smaller one
-      F2[key] += value;
+      out[key] += value;
     }
-    return nonzero(F2);
+    return nonzero(out);
   }
 }
-
 
 a2 prod_a1_a1(const a1 &F1, const a1 &F2){
   a2 out;
