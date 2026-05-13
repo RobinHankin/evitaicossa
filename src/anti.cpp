@@ -219,11 +219,11 @@ aaa sum_anti(const aaa &F1, const aaa &F2){
 
 aaa prod_anti(const aaa &F1, const aaa &F2){
   aaa out;
-  const a1 F1_single = F1.single_indeterminate;
-  const a1 F2_single = F2.single_indeterminate;
+  const a1 &F1_single = F1.single_indeterminate;
+  const a1 &F2_single = F2.single_indeterminate;
 
-  const a2 F1_double = F1.double_indeterminate;
-  const a2 F2_double = F2.double_indeterminate;
+  const a2 &F1_double = F1.double_indeterminate;
+  const a2 &F2_double = F2.double_indeterminate;
 
   a1 zero;
   out.single_indeterminate = zero;
