@@ -48,6 +48,7 @@ Robin K. S. Hankin
 ## Examples
 
 ``` r
+
 linear1(sample(8))
 #> free antiassociative algebra element:
 #> +7a +6b +5c +2d +3e +8f +1g +4h

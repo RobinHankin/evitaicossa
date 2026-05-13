@@ -89,6 +89,7 @@ Robin K. S. Hankin
 ## Examples
 
 ``` r
+
 x <- linear1(1:3) + (linear1(1:2) + linear2(1:3))^2
 x
 #> free antiassociative algebra element:

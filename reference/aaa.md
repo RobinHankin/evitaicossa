@@ -63,6 +63,7 @@ Robin K. S. Hankin
 ## Examples
 
 ``` r
+
 aaa(s1 = "x", sc = 13)
 #> free antiassociative algebra element:
 #> +13x

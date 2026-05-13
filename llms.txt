@@ -20,6 +20,7 @@ the released version of the package from
 [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
+
 # install.packages("evitaicossa")  # uncomment to install the package
 library("evitaicossa")             # loads the package 
 ```
@@ -31,6 +32,7 @@ create objects of this class. A good place to start is function
 which creates a random object of class `aaa`:
 
 ``` r
+
 (evita <- raaa())
 #> free antiassociative algebra element:
 #> +1a +3b +2d +3a.b +1c.b +1c.c +1(a.b)a +1(b.b)c +1(b.c)a
@@ -47,6 +49,7 @@ antiassociative algebra elements, with indeterminates `a`, `b`, `c`,
 `d`. These objects may be combined with standard arithmetic operations:
 
 ``` r
+
 evita+icossa
 #> free antiassociative algebra element:
 #> +5a +5b +2d +2a.a +3a.b +1c.b +3c.c +2d.d +1(a.b)a +1(b.b)c +1(b.c)a +2(b.d)d
@@ -61,6 +64,7 @@ evita*icossa
 It is possible to verify some of the axioms as follows:
 
 ``` r
+
 c(
 left_distributive  = evita*(icossa + itna) == evita*icossa + evita*itna,
 right_distributive = (evita + icossa)*itna == evita*itna + icossa*itna,
