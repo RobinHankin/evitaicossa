@@ -367,7 +367,8 @@ bool equal1(a1 &F1, a1 &F2){
     return false;
   }
   for (const auto& [symbol, value] : F1) {
-    if (F2[symbol] != value) {
+    auto it = F2.find(symbol);
+    if(it == F2.end() || it->second != value){
       return false;
     }
   }
