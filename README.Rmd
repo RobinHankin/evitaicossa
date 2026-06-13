@@ -35,8 +35,8 @@ algebras are nilpotent of nilindex 4: the product of any four vectors
 is zero.  Antiassociative algebras are the direct sum of elements of
 degree 1,2 and 3 (the antiassociativity condition implies that the
 degree zero component is trivial, and the nilpotence ensures that
-components of degree four or above do not exist).  Thus the general
-form of an element of an antiassociative algebra is thus
+components of degree four or above do not exist).  The general form of
+an element of an antiassociative algebra is thus
 $\scriptstyle\sum_{i}\alpha_i\mathbf{x}_i +
 \sum_{i,j}\alpha_{ij}\mathbf{x}_i\mathbf{x}_j+
 \sum_{i,j,k}\alpha_{ijk}(\mathbf{x}_i\mathbf{x}_j)\mathbf{x}_k$ where
