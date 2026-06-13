@@ -11,8 +11,8 @@ product of any four vectors is zero. Antiassociative algebras are the
 direct sum of elements of degree 1,2 and 3 (the antiassociativity
 condition implies that the degree zero component is trivial, and the
 nilpotence ensures that components of degree four or above do not
-exist). Thus the general form of an element of an antiassociative
-algebra is thus where , , are constants and the are indeterminates.
+exist). The general form of an element of an antiassociative algebra is
+thus where , , are constants and the are indeterminates.
 
 The `evitaicossa` package provides some R-centric functionality for
 working with antiassociative algebras. In an R session, you can install
